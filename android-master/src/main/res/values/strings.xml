@@ -1,0 +1,1418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_android">%1$s Android app</string>
+    <string name="about_version">version %1$s</string>
+    <string name="actionbar_sync">Refresh account</string>
+    <string name="actionbar_open_with">Open with</string>
+    <string name="actionbar_mkdir">New folder</string>
+    <string name="actionbar_settings">Settings</string>
+    <string name="actionbar_see_details">Details</string>
+    <string name="actionbar_send_file">Send</string>
+    <string name="actionbar_sort">Sort</string>
+    <string name="sort_by">Sort by</string>
+    <string name="menu_item_sort_by_name_a_z">A - Z</string>
+    <string name="menu_item_sort_by_name_z_a">Z - A</string>
+    <string name="menu_item_sort_by_date_newest_first">Newest first</string>
+    <string name="menu_item_sort_by_date_oldest_first">Oldest first</string>
+    <string name="menu_item_sort_by_size_biggest_first">Biggest first</string>
+    <string name="menu_item_sort_by_size_smallest_first">Smallest first</string>
+
+    <string name="drawer_item_all_files">All files</string>
+    <string name="drawer_item_home">Home</string>
+    <string name="drawer_item_favorites">Favorites</string>
+    <string name="drawer_item_photos">Photos</string>
+    <string name="drawer_item_on_device">On device</string>
+    <string name="drawer_item_recently_added">Recently added</string>
+    <string name="drawer_item_recently_modified">Recently modified</string>
+    <string name="drawer_item_shared">Shared</string>
+    <string name="drawer_item_videos">Videos</string>
+    <string name="drawer_item_settings">Settings</string>
+    <string name="drawer_item_uploads_list">Uploads</string>
+    <string name="drawer_item_activities">Activities</string>
+    <string name="drawer_item_notifications">Notifications</string>
+    <string name="drawer_quota">%1$s of %2$s used</string>
+    <string name="drawer_quota_unlimited">%1$s used</string>
+	<string name="drawer_close">Close sidebar</string>
+    <string name="drawer_open">Open sidebar</string>
+    <string name="prefs_category_general">General</string>
+    <string name="prefs_category_more">More</string>
+    <string name="prefs_manage_accounts">Manage accounts</string>
+    <string name="prefs_lock">Lock</string>
+    <string name="prefs_lock_title">Lock using</string>
+    <string name="prefs_lock_none">None</string>
+    <string name="prefs_lock_using_passcode">Passcode</string>
+    <string name="prefs_lock_using_device_credentials">Device credentials</string>
+    <string name="prefs_lock_device_credentials_enabled">Device credentials enabled</string>
+    <string name="prefs_lock_device_credentials_not_setup">No device credentials have been set up.</string>
+    <string name="prefs_expert_mode">Expert mode</string>
+    <string name="prefs_show_hidden_files">Show hidden files</string>
+    <string name="prefs_log_delete_history_button">Delete history</string>
+    <string name="prefs_calendar_contacts">Sync calendar &amp; contacts</string>
+    <string name="prefs_calendar_contacts_summary">Set up DAVdroid (v1.3.0+) for current account</string>
+    <string name="prefs_calendar_contacts_address_resolve_error">Server address for the account could not be resolved for DAVdroid</string>
+    <string name="prefs_calendar_contacts_no_store_error">Neither F-Droid nor Google Play is installed</string>
+    <string name="prefs_calendar_contacts_sync_setup_successful">Calendar &amp; contacts sync set up</string>
+    <string name="prefs_daily_contacts_sync_summary">Daily backup of your contacts</string>
+    <string name="prefs_help">Help</string>
+    <string name="prefs_recommend">Recommend to friend</string>
+    <string name="prefs_feedback">Feedback</string>
+    <string name="prefs_imprint">Imprint</string>
+
+	<string name="recommend_subject">Try %1$s on your device!</string>
+	<string name="recommend_text">I want to invite you to use %1$s on your device.\nDownload here: %2$s</string>
+    <string name="recommend_urls">%1$s or %2$s</string>
+
+    <string name="auth_check_server">Check server</string>
+    <string name="auth_host_url">Server address https://…</string>
+    <string name="auth_username">Username</string>
+    <string name="auth_password">Password</string>
+    <string name="sync_string_files">Files</string>
+    <string name="setup_btn_connect">Connect</string>
+    <string name="uploader_btn_upload_text">Upload</string>
+    <string name="uploader_btn_alternative_text">Choose</string>
+    <string name="uploader_top_message">Choose upload folder</string>
+    <string name="uploader_wrn_no_account_title">No account found</string>
+    <string name="uploader_wrn_no_account_text">There are no %1$s accounts on your device. Please set up an account first.</string>
+    <string name="uploader_wrn_no_account_setup_btn_text">Setup</string>
+    <string name="uploader_wrn_no_account_quit_btn_text">Quit</string>
+    <string name="uploader_error_title_no_file_to_upload">No file to upload</string>
+    <string name="uploader_error_message_no_file_to_upload">Received data did not include a valid file.</string>
+    <string name="uploader_error_title_file_cannot_be_uploaded">This file can not be uploaded</string>
+    <string name="uploader_error_message_read_permission_not_granted">%1$s is not allowed to read a received file</string>
+    <string name="uploader_error_message_source_file_not_found">File selected for upload not found. Please check whether the file exists.</string>
+    <string name="uploader_error_message_source_file_not_copied">Could not copy file to a temporary folder. Try to resend it.</string>
+    <string name="uploader_upload_files_behaviour">Upload option:</string>
+    <string name="uploader_upload_files_behaviour_move_to_nextcloud_folder">Move file to %1$s folder</string>
+    <string name="uploader_upload_files_behaviour_only_upload">Keep file in source folder</string>
+    <string name="uploader_upload_files_behaviour_upload_and_delete_from_source">Delete file from source folder</string>
+    <string name="file_list_seconds_ago">seconds ago</string>
+    <string name="file_list_empty_headline">No files here</string>
+    <string name="folder_list_empty_headline">No folders here</string>
+    <string name="file_list_empty">Upload some content or sync with your devices.</string>
+    <string name="file_list_empty_favorites_filter_list">Files and folders you mark as favorites will show up here</string>
+    <string name="file_list_empty_favorites_filter">Your search returned no favorited files.</string>
+    <string name="file_list_loading">Loading…</string>
+    <string name="file_list_no_app_for_file_type">No app set up to handle this file type.</string>
+    <string name="local_file_list_empty">There are no files in this folder.</string>
+    <string name="local_folder_list_empty">There are no further folders.</string>
+    <string name="file_list_empty_headline_search">No results in this folder</string>
+    <string name="file_list_empty_headline_server_search">No results</string>
+    <string name="file_list_empty_favorite_headline">Nothing favorited yet</string>
+    <string name="file_list_empty_shared_headline">Nothing shared yet</string>
+    <string name="file_list_empty_shared">Files and folders you share will show up here</string>
+    <string name="file_list_empty_headline_server_search_videos">No videos</string>
+    <string name="file_list_empty_headline_server_search_photos">No photos</string>
+    <string name="file_list_empty_search">Maybe it is in a different folder?</string>
+    <string name="file_list_empty_recently_modified">Found no files modified within the last 7 days</string>
+    <string name="file_list_empty_recently_modified_filter">No files modified the last 7 days.</string>
+    <string name="file_list_empty_recently_added">Found no recently added files</string>
+    <string name="file_list_empty_recently_added_filter">No recently added files.</string>
+    <string name="file_list_empty_text_photos">Upload some photos or activate auto upload.</string>
+    <string name="file_list_empty_text_photos_filter">No photos.</string>
+    <string name="file_list_empty_text_videos">Upload some videos or activate auto upload.</string>
+    <string name="file_list_empty_text_videos_filter">No videos.</string>
+    <string name="trashbin_empty_headline">No deleted files</string>
+    <string name="trashbin_empty_message">You will be able to recover deleted files from here</string>
+    <string name="upload_list_empty_headline">No uploads available</string>
+    <string name="upload_list_empty_text_auto_upload">Upload some content or activate auto upload.</string>
+    <string name="file_list_folder">folder</string>
+    <string name="filedetails_download">Download</string>
+    <string name="filedetails_sync_file">Sync</string>
+    <string name="filedetails_renamed_in_upload_msg">File renamed %1$s during upload</string>
+    <string name="list_layout">Listed layout</string>
+    <string name="action_send_share">Send/Share</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel_sync">Cancel sync</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_back">Back</string>
+    <string name="common_save">Save</string>
+    <string name="common_error">Error</string>
+    <string name="common_loading">Loading…</string>
+    <string name="common_unknown">unknown</string>
+    <string name="common_error_unknown">Unknown error</string>
+    <string name="common_pending">Pending</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_send">Send</string>
+    <string name="about_title">About</string>
+    <string name="delete_account">Remove account</string>
+    <string name="delete_account_warning">Remove account %s and delete all local files?\n\nDeletion cannot be undone.</string>
+    <string name="avatar">Avatar</string>
+    <string name="active_user">Active user</string>
+    <string name="upload_chooser_title">Upload from…</string>
+    <string name="uploader_info_dirname">Folder name</string>
+    <string name="uploader_upload_in_progress_ticker">Uploading…</string>
+    <string name="uploader_upload_in_progress_content">%1$d%% Uploading %2$s</string>
+    <string name="uploader_upload_succeeded_ticker">Uploaded</string>
+    <string name="uploader_upload_succeeded_content_single">%1$s uploaded</string>
+    <string name="uploader_upload_failed_ticker">Upload failed</string>
+    <string name="uploader_upload_failed_content_single">Could not upload %1$s</string>
+    <string name="uploader_upload_failed_credentials_error">Upload failed, log in again</string>
+    <string name="uploads_view_upload_status_failed_ssl_certificate_not_trusted">Untrusted server certificate</string>
+    <string name="uploads_view_title">Uploads</string>
+    <string name="uploads_view_group_current_uploads">Current</string>
+    <string name="uploads_view_group_failed_uploads">Failed/pending restart</string>
+    <string name="uploads_view_group_finished_uploads">Uploaded</string>
+    <string name="uploads_view_upload_status_succeeded">Completed</string>
+    <string name="uploads_view_upload_status_cancelled">Cancelled</string>
+    <string name="uploads_view_upload_status_failed_connection_error">Connection error</string>
+    <string name="uploads_view_upload_status_failed_credentials_error">Credentials error</string>
+    <string name="uploads_view_upload_status_failed_folder_error">Folder error</string>
+    <string name="uploads_view_upload_status_failed_file_error">File error</string>
+    <string name="uploads_view_upload_status_failed_localfile_error">Local file not found</string>
+    <string name="uploads_view_upload_status_failed_permission_error">Permission error</string>
+    <string name="uploads_view_upload_status_conflict">Conflict</string>
+    <string name="uploads_view_upload_status_service_interrupted">App terminated</string>
+    <string name="uploads_view_upload_status_unknown_fail">Unknown error</string>
+    <string name="uploads_view_upload_status_waiting_for_wifi">Waiting for Wi-Fi</string>
+    <string name="uploads_view_upload_status_waiting_exit_power_save_mode">Waiting to exit power save mode</string>
+    <string name="uploads_view_later_waiting_to_upload">Waiting to upload</string>
+    <string name="uploads_view_group_header" translatable="false">%1$s (%2$d)</string>
+    <string name="downloader_download_in_progress_ticker">Downloading…</string>
+    <string name="downloader_download_in_progress_content">%1$d%% Downloading %2$s</string>
+    <string name="downloader_download_succeeded_ticker">Downloaded</string>
+    <string name="downloader_download_succeeded_content">%1$s downloaded</string>
+    <string name="downloader_download_failed_ticker">Download failed</string>
+    <string name="downloader_download_failed_content">Could not download %1$s</string>
+    <string name="downloader_not_downloaded_yet">Not downloaded yet</string>
+    <string name="downloader_download_failed_credentials_error">Download failed, log in again</string>
+    <string name="common_choose_account">Choose account</string>
+    <string name="common_switch_account">Switch Account</string>
+    <string name="sync_fail_ticker">Sync failed</string>
+    <string name="sync_fail_ticker_unauthorized">Sync failed, log in again</string>
+    <string name="sync_fail_content">Could not sync %1$s</string>
+    <string name="sync_fail_content_unauthorized">Wrong password for %1$s</string>
+    <string name="sync_conflicts_in_favourites_ticker">Conflicts found</string>
+    <string name="sync_fail_in_favourites_ticker">Kept-in-sync files failed</string>
+    <plurals name="sync_fail_in_favourites_content">
+        <item quantity="one">Could not sync %1$d file (conflicts: %2$d)</item>
+        <item quantity="other">Could not sync %1$d files (conflicts: %2$d)</item>
+    </plurals>
+    <string name="sync_foreign_files_forgotten_ticker">Some local files were forgotten</string>
+    <plurals name="sync_foreign_files_forgotten_content">
+        <item quantity="one">Failed to copy %1$d file from the %2$s folder into</item>
+        <item quantity="other">Failed to copy %1$d files from the %2$s folder into</item>
+    </plurals>
+    <string name="sync_foreign_files_forgotten_explanation">As of version 1.3.16, files uploaded from this device are copied into the local %1$s folder to prevent data loss when a single file is synced with multiple accounts.\n\nDue to this change, all files uploaded with earlier versions of this app were copied into the %2$s folder. However, an error prevented the completion of this operation during account synchronization. You may either leave the file(s) as is and delete the link to %3$s, or move the file(s) into the %1$s folder and retain the link to %4$s.\n\nListed below are the local file(s), and the remote file(s) in %5$s they were linked to.</string>
+    <string name="sync_current_folder_was_removed">The folder %1$s does not exist anymore</string>
+    <string name="foreign_files_move">Move all</string>
+    <string name="foreign_files_success">All files were moved</string>
+    <string name="foreign_files_fail">Some files could not be moved</string>
+    <string name="foreign_files_local_text">Local: %1$s</string>
+    <string name="foreign_files_remote_text">Remote: %1$s</string>
+    <string name="upload_query_move_foreign_files">Insufficient space prevents copying the selected files into the %1$s folder. Would you like to move them there instead?</string>
+    <string name="pass_code_enter_pass_code">Please enter your passcode</string>
+    <string name="default_credentials_wrong">Incorrect credentials</string>
+    <string name="credentials_disabled">Credentials disabled</string>
+    
+    <string name="pass_code_configure_your_pass_code">Enter your passcode</string>
+    <string name="pass_code_configure_your_pass_code_explanation">The passcode will be requested every time the app is started</string>
+    <string name="pass_code_reenter_your_pass_code">Please reenter your passcode</string>
+    <string name="pass_code_remove_your_pass_code">Delete your passcode</string>
+    <string name="pass_code_mismatch">The passcodes are not the same</string>
+    <string name="pass_code_wrong">Incorrect passcode</string>
+    <string name="pass_code_removed">Passcode deleted</string>
+    <string name="pass_code_stored">Passcode stored</string>
+    
+    <string name="media_notif_ticker">%1$s music player</string>
+    <string name="media_state_playing">%1$s (playing)</string>
+    <string name="media_state_loading">%1$s (loading)</string>
+    <string name="media_event_done">%1$s playback finished</string>
+    <string name="media_err_nothing_to_play">No media file found</string>
+    <string name="media_err_not_in_owncloud">The file is not in a valid account</string>
+    <string name="media_err_unsupported">Unsupported media codec</string>
+    <string name="media_err_io">Could not read the media file</string>
+    <string name="media_err_malformed">The media file has incorrect encoding</string>
+    <string name="media_err_timeout">Attempt to play file timed out</string>
+    <string name="media_err_invalid_progressive_playback">The media file can not be streamed</string>
+    <string name="media_err_unknown">The built-in media player is unable to play the media file</string>
+    <string name="media_err_playing">Unexpected error while trying to play %1$s</string>
+    <string name="media_rewind_description">Rewind button</string>
+    <string name="media_play_pause_description">Play or pause button</string>
+    <string name="media_forward_description">Fast forward button</string>
+
+    <string name="auth_getting_authorization">Getting authorization…</string>
+    <string name="auth_trying_to_login">Trying to log in…</string>
+	<string name="auth_no_net_conn_title">No network connection</string>
+	<string name="auth_nossl_plain_ok_title">Secure connection unavailable.</string>
+	<string name="auth_connection_established">Connection established</string>
+	<string name="auth_testing_connection">Testing connection</string>
+	<string name="auth_not_configured_title">Malformed server configuration</string>
+	<string name="auth_account_not_new">An account for the same user and server already exists on the device</string>
+	<string name="auth_account_not_the_same">The entered user does not match the user of this account</string>
+	<string name="auth_unknown_error_http_title">Unknown HTTP error occurred!</string>
+	<string name="auth_unknown_error_title">Unknown error occurred!</string>
+	<string name="auth_unknown_error_exception_title">Unknown error: %1$s</string>
+	<string name="auth_unknown_host_title">Could not find host</string>
+	<string name="auth_incorrect_path_title">Server not found</string>
+	<string name="auth_timeout_title">The server took too long to respond</string>
+	<string name="auth_incorrect_address_title">Wrong address format for server</string>
+	<string name="auth_ssl_general_error_title">SSL initialization failed</string>
+	<string name="auth_ssl_unverified_server_title">Could not verify the identity of the SSL server</string>
+	<string name="auth_bad_oc_version_title">Unrecognized server version</string>
+	<string name="auth_wrong_connection_title">Could not establish connection</string>
+	<string name="auth_secure_connection">Secure connection established</string>
+	<string name="auth_unauthorized">Wrong username or password</string>
+	<string name="auth_oauth_error">Unsuccessful authorization</string>
+	<string name="auth_oauth_error_access_denied">Access denied by authorization server</string>
+	<string name="auth_wtf_reenter_URL">Unexpected state, please enter the server address again</string>
+	<string name="auth_expired_oauth_token_toast">Your authorization expired. Please, authorize again</string>
+	<string name="auth_expired_basic_auth_toast">Please enter the current password</string>
+	<string name="auth_expired_saml_sso_token_toast">Your session expired. Please connect again</string>
+    <string name="auth_connecting_auth_server">Connecting to authentication server…</string>
+	<string name="auth_unsupported_multiaccount">%1$s does not support multiple accounts</string>
+	<string name="auth_fail_get_user_name">Your server is not returning a correct user ID, please contact an admin</string>
+	<string name="auth_can_not_auth_against_server">Cannot authenticate to this server</string>
+    <string name="auth_account_does_not_exist">The account is not added on this device yet</string>
+    <string name="auth_access_failed">Access failed: %1$s</string>
+    <string name="auth_illegal_login_used">Illegal login data URL used</string>
+
+    <string name="favorite">Set as available offline</string>
+    <string name="unfavorite">Unset as available offline</string>
+    <string name="favorite_real">Add to favorites</string>
+    <string name="unset_favorite_real">Remove from favourites</string>
+    <string name="encrypted">Set as encrypted</string>
+    <string name="unset_encrypted">Unset encryption</string>
+    <string name="common_rename">Rename</string>
+    <string name="common_remove">Delete</string>
+    <string name="confirmation_remove_file_alert">Do you really want to delete %1$s?</string>
+    <string name="confirmation_remove_folder_alert">Do you really want to delete %1$s and the contents thereof?</string>
+    <string name="confirmation_remove_local">Local only</string>
+    <string name="remove_success_msg">Deleted</string>
+    <string name="remove_fail_msg">Deletion failed</string>
+    <string name="rename_dialog_title">Enter a new name</string>
+    <string name="rename_local_fail_msg">Could not rename local copy, try a different name</string>
+    <string name="rename_server_fail_msg">Renaming not possible, name already taken</string>
+    <string name="sync_file_nothing_to_do_msg">File contents already synchronized</string>
+    <string name="create_dir_fail_msg">Could not create folder</string>
+    <string name="filename_forbidden_characters">Forbidden characters: / \\ &lt; &gt; : " | ? *</string>
+    <string name="filename_forbidden_charaters_from_server">Filename contains at least one invalid character</string>
+    <string name="filename_empty">Filename cannot be empty</string>
+    <string name="wait_a_moment">Wait a moment…</string>
+    <string name="wait_checking_credentials">Checking stored credentials</string>
+    <string name="filedisplay_no_file_selected">No file selected</string>
+    <string name="activity_chooser_title">Send link to…</string>
+    <string name="wait_for_tmp_copy_from_private_storage">Copying file from private storage</string>
+    
+    <string name="oauth_check_onoff">Log in with OAuth 2.0</string>
+    <string name="oauth_login_connection">Connecting to OAuth 2.0 server…</string>
+        
+    <string name="ssl_validator_header">The identity of the server could not be verified</string>
+    <string name="ssl_validator_reason_cert_not_trusted">- The server certificate is not trusted</string>
+    <string name="ssl_validator_reason_cert_expired">- The server certificate expired</string>
+    <string name="ssl_validator_reason_cert_not_yet_valid">- The server certificate valid dates are in the future</string>
+    <string name="ssl_validator_reason_hostname_not_verified">- The URL does not match the hostname in the certificate</string>
+    <string name="ssl_validator_question">Do you want to trust this certificate anyway?</string>
+    <string name="ssl_validator_not_saved">Could not save certificate</string>
+    <string name="ssl_validator_btn_details_see">Details</string>
+    <string name="ssl_validator_btn_details_hide">Hide</string>
+    <string name="ssl_validator_label_subject">Issued to:</string>
+    <string name="ssl_validator_label_issuer">Issued by:</string>
+    <string name="ssl_validator_label_CN">Common name:</string>
+    <string name="ssl_validator_label_O">Organization:</string>
+    <string name="ssl_validator_label_OU">Organizational unit:</string>
+    <string name="ssl_validator_label_C">Country:</string>
+    <string name="ssl_validator_label_ST">State:</string>
+    <string name="ssl_validator_label_L">Location:</string>
+    <string name="ssl_validator_label_validity">Validity:</string>
+    <string name="ssl_validator_label_validity_from">From:</string>
+    <string name="ssl_validator_label_validity_to">To:</string>
+    <string name="ssl_validator_label_signature">Signature:</string>
+    <string name="ssl_validator_label_signature_algorithm">Algorithm:</string>
+    <string name="digest_algorithm_not_available">This digest algorithm is not available on your phone.</string>
+    <string name="ssl_validator_label_certificate_fingerprint">Fingerprint:</string>
+    <string name="certificate_load_problem">There is a problem loading the certificate.</string>
+    <string name="ssl_validator_null_cert">The certificate could not be shown.</string>
+    <string name="ssl_validator_no_info_about_error">- No information about the error</string>
+
+    <string name="placeholder_sentence">This is a placeholder</string>
+    <string name="placeholder_filename">placeholder.txt</string>
+    <string name="placeholder_fileSize">389 KB</string>
+    <string name="placeholder_timestamp">2012/05/18 12:23 PM</string>
+    <string name="placeholder_media_time">12:23:45</string>
+
+    <string name="auto_upload_on_wifi">Only upload on unmetered Wi-Fi</string>
+    <string name="instant_upload_on_charging">Only upload when charging</string>
+    <string name="instant_upload_path">/InstantUpload</string>
+    <string name="auto_upload_path">/AutoUpload</string>
+    <string name="conflict_title">File conflict</string>
+    <string name="conflict_message">Which files do you want to keep? If you select both versions, the local file will have a number appended to its name.</string>
+    <string name="conflict_keep_both">Keep both</string>
+    <string name="conflict_use_local_version">local version</string>
+    <string name="conflict_use_server_version">server version</string>
+
+    <string name="preview_sorry">Sorry</string>
+    <string name="preview_image_description">Image preview</string>
+    <string name="preview_image_error_unknown_format">Unable to show image</string>
+    <string name="preview_image_error_no_local_file">There is no local file to preview</string>
+
+    <string name="error__upload__local_file_not_copied">%1$s could not be copied to %2$s local folder</string>
+    <string name="prefs_synced_folders_local_path_title">Local folder</string>
+    <string name="prefs_synced_folders_remote_path_title">Remote folder</string>
+    <string name="prefs_instant_upload_path_use_subfolders_title">Use subfolders</string>
+    <string name="prefs_instant_upload_path_use_subfolders_summary">Store in subfolders based on year and month</string>
+
+	<string name="share_link_file_no_exist">Unable to share. Please check whether the file exists</string>
+	<string name="share_link_file_error">An error occurred while trying to share this file or folder</string>
+	<string name="unshare_link_file_no_exist">Unable to unshare. Please check whether the file exists</string>
+	<string name="unshare_link_file_error">An error occurred while trying to unshare this file or folder</string>
+    <string name="update_link_file_no_exist">Unable to update. Please check whether the file exists</string>
+    <string name="update_link_file_error">An error occurred while trying to update the share</string>
+    <string name="share_link_password_title">Enter a password</string>
+    <string name="share_link_empty_password">You must enter a password</string>
+
+    <string name="activity_chooser_send_file_title">Send</string>
+
+    <string name="copy_link">Copy link</string>
+    <string name="clipboard_text_copied">Copied to clipboard</string>
+    <string name="clipboard_no_text_to_copy">Received no text to copy to clipboard</string>
+    <string name="clipboard_unexpected_error">Unexpected error while copying to clipboard</string>
+    <string name="clipboard_label">Text copied from %1$s</string>
+
+    <string name="error_cant_bind_to_operations_service">Critical error: Unable to perform operations</string>
+
+    <string name="network_error_socket_exception">An error occurred during connection to the server</string>
+    <string name="network_error_socket_timeout_exception">An error occurred while waiting for the server. Could not complete operation</string>
+    <string name="network_error_connect_timeout_exception">An error occurred while waiting for the server. Could not complete operation</string>
+    <string name="network_host_not_available">Could not complete operation. Server unavailable</string>
+
+    <string name="forbidden_permissions">You are not permitted %s</string>
+    <string name="forbidden_permissions_rename">to rename this file</string>
+    <string name="forbidden_permissions_delete">to delete this file</string>
+    <string name="share_link_forbidden_permissions">to share this file</string>
+    <string name="unshare_link_forbidden_permissions">to unshare this file</string>
+    <string name="update_link_forbidden_permissions">to update this share</string>
+    <string name="forbidden_permissions_create">to create this file</string>
+    <string name="uploader_upload_forbidden_permissions">to upload to this folder</string>
+    <string name="downloader_download_file_not_found">The file is no longer available on the server</string>
+
+    <string name="file_migration_dialog_title">Updating storage path</string>
+    <string name="file_migration_preparing">Preparing migration…</string>
+    <string name="file_migration_checking_destination">Checking destination…</string>
+    <string name="file_migration_saving_accounts_configuration">Saving account config…</string>
+    <string name="file_migration_waiting_for_unfinished_sync">Awaiting full sync…</string>
+    <string name="file_migration_migrating">Moving data…</string>
+    <string name="file_migration_updating_index">Updating index…</string>
+    <string name="file_migration_cleaning">Cleaning…</string>
+    <string name="file_migration_restoring_accounts_configuration">Restoring account config…</string>
+    <string name="file_migration_ok_finished">Finished</string>
+    <string name="file_migration_failed_not_enough_space">More space needed</string>
+    <string name="file_migration_failed_not_writable">Could not write to destination file</string>
+    <string name="file_migration_failed_not_readable">Could not read source file</string>
+    <string name="file_migration_failed_dir_already_exists">Nextcloud folder already exists</string>
+    <string name="file_migration_failed_while_coping">Failed during migration</string>
+    <string name="file_migration_failed_while_updating_index">Failed to update index</string>
+
+    <string name="file_migration_directory_already_exists">Data folder already exists. Choose one of the following:</string>
+    <string name="file_migration_override_data_folder">Replace</string>
+    <string name="file_migration_use_data_folder">Use</string>
+
+    <string name="file_migration_source_not_readable_title">Source folder not readable!</string>
+    <string name="file_migration_source_not_readable">Do you still want to change the storage path to %1$s?\n\nNote: All data will have to be downloaded again.</string>
+
+    <string name="prefs_add_account">Add account</string>
+    <string name="drawer_manage_accounts">Manage accounts</string>
+    <string name="auth_redirect_non_secure_connection_title">Secure connection redirected through an unsecured route.</string>
+
+	<string name="actionbar_logger">Logs</string>
+	<string name="log_send_history_button">Send history</string>
+	<string name="log_send_no_mail_app">No app for sending logs found. Please install an e-mail client.</string>
+	<string name="log_send_mail_subject">%1$s Android app logs</string>
+    <string name="log_progress_dialog_text">Loading data…</string>
+
+	<string name="saml_authentication_required_text">Password required</string>
+	<string name="saml_authentication_wrong_pass">Wrong password</string>
+	<string name="actionbar_move">Move</string>
+    <string name="actionbar_copy">Copy</string>
+	<string name="file_list_empty_moving">Nothing in here. You can add a folder.</string>
+	<string name="folder_picker_choose_button_text">Choose</string>
+
+    <string name="move_file_not_found">Unable to move file. Please check whether it exists</string>
+    <string name="move_file_invalid_into_descendent">It is not possible to move a folder into one of its own underlying folders</string>
+    <string name="move_file_invalid_overwrite">The file is already present in the destination folder</string>
+    <string name="move_file_error">An error occurred while trying to move this file or folder</string>
+    <string name="forbidden_permissions_move">to move this file</string>
+
+
+    <string name="copy_file_not_found">Unable to copy. Please check whether the file exists</string>
+    <string name="copy_file_invalid_into_descendent">It is not possible to copy a folder into one of its own underlying folders</string>
+    <string name="copy_file_invalid_overwrite">The file is already present in the destination folder</string>
+    <string name="copy_file_error">An error occurred while trying to copy this file or folder</string>
+    <string name="forbidden_permissions_copy">to copy this file</string>
+
+    <string name="prefs_category_details">Details</string>
+
+    <string name="sync_folder_failed_content">Sync of %1$s folder could not be completed</string>
+
+	<string name="subject_user_shared_with_you">%1$s shared \"%2$s\" with you</string>
+    <string name="subject_shared_with_you">\"%1$s\" has been shared with you</string>
+
+    <string name="auth_refresh_button">Refresh connection</string>
+    <string name="auth_host_address">Server address</string>
+    <string name="common_error_out_memory">Not enough memory</string>
+
+    <string name="username">Username</string>
+
+    <plurals name="file_list__footer__folder">
+        <item quantity="one">%1$d folder</item>
+        <item quantity="other">%1$d folders</item>
+    </plurals>
+    <plurals name="file_list__footer__file">
+        <item quantity="one">%1$d file</item>
+        <item quantity="other">%1$d files</item>
+    </plurals>
+    <string name="set_picture_as">Use picture as</string>
+    <string name="set_as">Set As</string>
+
+    <string name="prefs_instant_behaviour_dialogTitle">Original file will be…</string>
+    <string name="prefs_instant_behaviour_title">Original file will be…</string>
+    <string name="select_all">Select all</string>
+    <string name="deselect_all">Deselect all</string>
+
+    <string name="pref_behaviour_entries_keep_file">kept in original folder</string>
+    <string name="pref_behaviour_entries_move">moved to app folder</string>
+    <string name="pref_behaviour_entries_delete_file">deleted</string>
+    <string name="prefs_storage_path">Storage path</string>
+
+    <string name="share_dialog_title">Sharing</string>
+    <string name="share_file">Share %1$s</string>
+    <string name="share_with_user_section_title">Share with users and groups</string>
+    <string name="share_no_users">No data shared with users yet</string>
+    <string name="share_add_user_or_group">Add user or group</string>
+    <string name="share_via_link_edit_permission_label">Allow editing</string>
+    <string name="share_via_link_password_label">Protect with password</string>
+    <string name="share_via_link_password_title">Secured</string>
+    <string name="share_via_link_expiration_date_label">Set expiration date</string>
+    <string name="share_via_link_menu_password_label">Password protect (%1$s)</string>
+    <string name="share_expiration_date_label">Expires %1$s</string>
+    <string name="share_no_expiration_date_label">Set expiration date</string>
+    <string name="share_via_link_section_title">Share link</string>
+    <string name="share_via_link_send_link_label">Send link</string>
+    <string name="share_password_title">Password-protected</string>
+    <string name="share_no_password_title">Set password</string>
+    <string name="edit_permission_label">edit</string>
+    <string name="share_via_link_hide_file_listing_permission_label">Hide file listing</string>
+    <string name="share_get_public_link_button">Get link</string>
+    <string name="share_with_title">Share with…</string>
+    <string name="share_with_edit_title">Share with %1$s</string>
+    <string name="share_via_link_unset_password">Unset</string>
+
+    <string name="share_search">Name, federated cloud ID or email address…</string>
+
+    <string name="search_users_and_groups_hint">Search users and groups</string>
+    <string name="share_group_clarification">%1$s (group)</string>
+    <string name="share_remote_clarification">%1$s (remote)</string>
+    <string name="share_email_clarification">%1$s (email)</string>
+    <string name="share_known_remote_clarification">%1$s ( at %2$s )</string>
+
+    <string name="share_sharee_unavailable">Upgrade the server version to allow sharing between users from within their clients.\nPlease contact your admin</string>
+    <string name="share_privilege_unshare">Unshare</string>
+    <string name="share_privilege_can_share">can share</string>
+    <string name="share_privilege_can_edit">can edit</string>
+    <string name="share_privilege_can_edit_create">can create</string>
+    <string name="share_privilege_can_edit_change">can change</string>
+    <string name="share_privilege_can_edit_delete">can delete</string>
+
+    <string name="action_retry_uploads">Retry failed uploads</string>
+    <string name="action_clear_failed_uploads">Clear failed uploads</string>
+    <string name="action_clear_successful_uploads">Clear successful uploads</string>
+    <string name="action_force_rescan">Force rescan</string>
+
+    <string name="action_switch_grid_view">Grid view</string>
+    <string name="action_switch_list_view">List view</string>
+
+    <string name="manage_space_title">Manage space</string>
+    <string name="manage_space_description">Settings, database and server certificates from %1$s\'s data will be deleted permanently. \n\nDownloaded files will be kept untouched.\n\nThis process can take a while.</string>
+    <string name="manage_space_clear_data">Clear data</string>
+
+    <string name="permission_storage_access">Additional permissions required to upload and download files.</string>
+    <string name="local_file_not_found_message">File not found in local file system</string>
+    <string name="confirmation_remove_files_alert">Do you really want to delete the selected items?</string>
+    <string name="confirmation_remove_folders_alert">Do you really want to delete the selected items and their contents?</string>
+    <string name="maintenance_mode">Server in maintenance mode</string>
+    <string name="offline_mode">No internet connection</string>
+
+    <string name="uploads_view_upload_status_waiting_for_charging">Awaiting charge</string>
+    <string name="actionbar_search">Search</string>
+    <string name="files_drop_not_supported">This is a Nextcloud feature, please upgrade.</string>
+    <string name="learn_more">Learn more</string>
+    <string name="drawer_synced_folders">Auto upload</string>
+    <string name="drawer_participate">Participate</string>
+    <string name="participate_testing_headline">Help by testing</string>
+    <string name="participate_testing_bug_text">Found a bug? Oddments?</string>
+    <string name="participate_testing_report_text">Report an issue on GitHub</string>
+    <string name="participate_testing_version_text">Interested in helping out by testing what will be the next version?</string>
+    <string name="participate_beta_headline">Test the dev version</string>
+    <string name="participate_beta_text">This includes all upcoming features and it is on the very bleeding edge. Bugs/errors can occur, if and when they do, please report of your findings.</string>
+    <string name="participate_release_candidate_headline">Release candidate</string>
+    <string name="participate_release_candidate_text">The release candidate (RC) is a snapshot of the upcoming release and is expected to be stable. Testing your individual setup could help ensure this. Sign up for testing on the Play store or manually look in the \"Version\" section of F-Droid.</string>
+    <string name="participate_contribute_headline">Actively Contribute</string>
+    <string name="participate_contribute_irc_text">Join the chat on IRC:</string>
+    <string name="participate_contribute_irc_text_link" translatable="false"> &lt;font color=\"%1$s\">&lt;a href=\"%2$s\">#nextcloud-mobile&lt;/a>&lt;/font></string>
+    <string name="participate_contribute_forum_text">Help others on the</string>
+    <string name="participate_contribute_forum_forum">forum</string>
+    <string name="participate_contribute_forum_text_link" translatable="false">&lt;font color=\"%1$s\">&lt;a href=\"%2$s\">%3$s&lt;/a>&lt;/font></string>
+    <string name="participate_contribute_translate_translate">Translate</string>
+    <string name="participate_contribute_translate_text">the app</string>
+    <string name="participate_contribute_translate_link" translatable="false">&lt;font color=\"%1$s\">&lt;a href=\"%2$s\">%3$s&lt;/a>&lt;/font></string>
+    <string name="participate_contribute_github_text">Review, amend and write code, see %1$s for details</string>
+    <string name="participate_contribute_github_text_link" translatable="false">&lt;font color=\"%1$s\">&lt;a href=\"%2$s\">CONTRIBUTING.md&lt;/a>&lt;/font></string>
+    <string name="participate_rc_play_store">Get release candidate from Google Play store</string>
+    <string name="participate_rc_fdroid">Get release candidate from F-Droid app</string>
+    <string name="participate_dev_fdroid">Get development release from F-Droid app</string>
+    <string name="participate_dev_direct_download">Download development release directly</string>
+    <string name="move_to">Move to…</string>
+    <string name="copy_to">Copy to…</string>
+    <string name="choose_remote_folder">Choose remote folder…</string>
+    <string name="choose_local_folder">Choose local folder…</string>
+    <string name="synced_folders_loading_folders">Loading folders…</string>
+    <string name="synced_folders_no_results">No media folders found.</string>
+    <string name="synced_folders_preferences">Preferences for auto uploading</string>
+    <string name="synced_folders_new_info">Instant uploading has been revamped completely. Re-configure your auto upload from within the main menu.\n\nEnjoy the new and extended auto uploading.</string>
+    <string name="synced_folders_preferences_folder_path">For %1$s</string>
+    <string name="synced_folders_plus" translatable="false">+</string>
+    <plurals name="items_selected_count">
+        <!--
+             As a developer, you should always supply "one" and "other"
+             strings. Your translators will know which strings are actually
+             needed for their language. Always include %d in "one" because
+             translators will need to use %d for languages where "one"
+             doesn't mean 1 (as explained above).
+          -->
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+
+    <string name="notifications_loading_activity">Loading notifications…</string>
+    <string name="notifications_no_results_headline">No notifications</string>
+    <string name="notifications_no_results_message">Please check back later.</string>
+
+    <string name="upload_file_dialog_title">Input filename and filetype to upload</string>
+    <string name="upload_file_dialog_filename">Filename</string>
+    <string name="upload_file_dialog_filetype">Filetype</string>
+    <string name="upload_file_dialog_filetype_snippet_text">Snippet text file(.txt)</string>
+    <string name="upload_file_dialog_filetype_internet_shortcut">Internet shortcut file(%s)</string>
+    <string name="upload_file_dialog_filetype_googlemap_shortcut">Google Maps shortcut file(%s)</string>
+
+    <string name="storage_description_default">Default</string>
+
+    <!-- What's new feature and texts to show -->
+    <string name="whats_new_title">New in %1$s</string>
+    <string name="whats_new_skip">Skip</string>
+
+    <!-- User information -->
+    <string name="user_info_email">E-mail</string>
+    <string name="user_info_phone">Phone number</string>
+    <string name="user_info_address">Address</string>
+    <string name="user_info_website">Website</string>
+    <string name="user_info_twitter">Twitter</string>
+
+    <string name="user_information_retrieval_error">Error retrieving user information</string>
+
+    <!-- Activities -->
+    <string name="activities_no_results_headline">No activity yet</string>
+    <string name="activities_no_results_message">No events like additions, changes and shares yet</string>
+    <string name="prefs_category_about">About</string>
+
+    <string name="actionbar_contacts">Back up contacts</string>
+    <string name="actionbar_contacts_restore">Restore contacts</string>
+    <string name="contacts_backup_button">Back up now</string>
+    <string name="contacts_automatic_backup">Automatic backup</string>
+    <string name="contacts_last_backup">Last backup</string>
+    <string name="contacts_read_permission">Permission to read contact list needed</string>
+    <string name="contaclist_restore_selected">Restore selected contacts</string>
+    <string name="contactlist_account_chooser_title">Choose account to import</string>
+    <string name="contactlist_no_permission">No permission given, nothing imported.</string>
+    <string name="contacts_preference_choose_date">Choose date</string>
+    <string name="contacts_preference_backup_never">never</string>
+    <string name="contacts_preferences_no_file_found">No file found</string>
+    <string name="contacts_preferences_something_strange_happened">Could not find your last backup!</string>
+    <string name="contacts_preferences_backup_scheduled">Backup scheduled and will start shortly</string>
+    <string name="contacts_preferences_import_scheduled">Import scheduled and will start shortly</string>
+
+    <string name="drawer_logout">Log out</string>
+    <string name="picture_set_as_no_app">No app found to set a picture with</string>
+    <string name="privacy">Privacy</string>
+    <string name="file_not_found">File not found</string>
+    <string name="file_not_synced">File could not be synced. Showing latest available version.</string>
+
+    <!-- Auto upload -->
+    <string name="autoupload_custom_folder">Set up a custom folder</string>
+    <string name="autoupload_create_new_custom_folder">Create new custom folder setup</string>
+    <string name="synced_folders_configure_folders">Configure folders</string>
+
+    <string name="empty" translatable="false"/>
+    <string name="test_server_button">Test server connection</string>
+    <string name="info_separator" translatable="false">,</string>
+    <string name="resharing_is_not_allowed">Resharing is not allowed</string>
+    <string name="fallback_weblogin_back">Back</string>
+    <string name="fallback_weblogin_text">Revert to old login method</string>
+
+    <string name="foreground_service_upload">Uploading files…</string>
+    <string name="foreground_service_download">Downloading files…</string>
+
+    <string name="prefs_sourcecode">Get source code</string>
+    <string name="prefs_license">License</string>
+    <string name="prefs_gpl_v2">GNU General Public License, version 2</string>
+    <string name="push_notifications_not_implemented">Push notifications disabled due to dependencies on proprietary Google Play services.</string>
+    <string name="push_notifications_old_login">No push notifications due to outdated login session. Please consider re-adding your account.</string>
+    <string name="push_notifications_temp_error">Push notifications currently not available.</string>
+
+    <string name="sync_in_progress">Fetching most recent version of the file.</string>
+    <string name="date_unknown">Unknown</string>
+
+    <string name="resized_image_not_possible">No resized image available.</string>
+    <string name="resized_image_not_possible_download">No resized image available. Download full image?</string>
+    <string name="resized_images_download_full_image">Download full image?</string>
+
+    <string name="store_short_desc">The Nextcloud Android app gives mobile access to all files on your Nextcloud.</string>
+    <string name="store_full_desc">The copylefted libre Nextcloud Android app, giving you mobile freedom.\n\nFeatures:\n* Easy, modern interface, suited to the theme of your server\n* Upload files to your Nextcloud server\n* Share them with others\n* Keep your favorite files and folders synced\n* Search across all folders on your server\n* Auto Upload for photos and videos taken by your device\n* Keep up to date with notifications\n* Multi-account support\n* Secure access to your data with fingerprint or PIN\n* Integration with DAVdroid for easy setup of calendar &amp; Contacts synchronization\n\nPlease report all issues at https://github.com/nextcloud/android/issues and discuss this app at https://help.nextcloud.com/c/clients/android\n\nNew to Nextcloud? Nextcloud is a private file sync &amp; share and communication server. It is libre software, and you can host it yourself or pay a company to do it for you. That way, you are in control of your photos, your calendar and contact data, your documents and everything else.\n\nCheck out Nextcloud at https://nextcloud.com</string>
+
+    <string name="drawer_current_account">Current account</string>
+    <string name="drawer_middle_account">Middle account</string>
+    <string name="drawer_end_account">Last account</string>
+    <string name="contactlist_item_icon">User icon for contact list</string>
+    <string name="activity_icon">Activity</string>
+    <string name="file_icon">File</string>
+    <string name="user_icon">User</string>
+    <string name="favorite_icon">Favorite</string>
+    <string name="synced_icon">Synced</string>
+    <string name="available_offline_icon">Available offline</string>
+    <string name="checkbox">Checkbox</string>
+    <string name="shared_icon_share">share</string>
+    <string name="shared_icon_shared_via_link">shared via link</string>
+    <string name="shared_icon_shared">shared</string>
+    <string name="overflow_menu">More menu</string>
+    <string name="sort_by_name_ascending">A - Z</string>
+    <string name="sort_by_modification_date_ascending">Newest first</string>
+    <string name="sort_by_size_descending">Biggest first</string>
+    <string name="sort_by_size_ascending">Smallest first</string>
+    <string name="sort_by_name_descending">Z - A</string>
+    <string name="sort_by_modification_date_descending">Oldest first</string>
+    <string name="synced_folders_type">Type</string>
+    <string name="sync_status_button">Sync status button</string>
+    <string name="synced_folder_settings_button">Settings button</string>
+    <string name="synced_folder_custom_folder_image">Custom folder image</string>
+    <string name="upload_item_action_button">Upload item action button</string>
+    <string name="forward">Forward</string>
+    <string name="what_s_new_image">What\'s new image</string>
+
+    <string name="store_short_dev_desc">The Nextcloud Dev app is a development snapshot and can be installed parallel.</string>
+    <string name="store_full_dev_desc">The copylefted libre Nextcloud Android app, gives you mobile freedom.\nThis is the official development version, featuring a daily sample of any new untested functionality, which may cause instability and data loss. The app is for users willing to test, and report bugs should they occur. Do not use it for your productive work!\n\nBoth the official dev and regular version are available on F-droid, and can be installed at the same time.</string>
+
+    <string name="prefs_category_dev">Dev</string>
+    <string name="dev_version_no_information_available">No info available.</string>
+    <string name="dev_version_no_new_version_available">No new version available.</string>
+    <string name="folder_icon">Folder icon</string>
+    <string name="dev_version_new_version_available">New version available</string>
+    <string name="version_dev_download">Download</string>
+
+    <string name="send">Send</string>
+    <string name="share">Share</string>
+    <string name="link">Link</string>
+
+    <string name="notification_channel_upload_name">Upload notification channel</string>
+    <string name="notification_channel_download_name">Download notification channel</string>
+    <string name="notification_channel_download_description">Shows download progress</string>
+    <string name="notification_channel_upload_description">Shows upload progress</string>
+    <string name="notification_channel_media_name">Media player</string>
+    <string name="notification_channel_media_description">Music player progress</string>
+    <string name="notification_channel_file_sync_name">File sync</string>
+    <string name="notification_channel_file_sync_description">Shows file sync progress and results</string>
+    <string name="notification_channel_file_observer_name">File observer</string>
+    <string name="notification_channel_file_observer_description">Monitors files for changes</string>
+  
+    <string name="account_not_found">Account not found!</string>
+
+    <string name="screenshot_01_gridView">A safe home for all your data</string>
+    <string name="screenshot_02_listView">Browse and share your files easily</string>
+    <string name="screenshot_03_drawer">Quickly access activity, shares, offline files and more</string>
+    <string name="screenshot_04_accounts">Connect to different accounts</string>
+    <string name="screenshot_05_autoUpload">Automatically upload your photos &amp; videos</string>
+    <string name="screenshot_06_davdroid">Sync calendar &amp; contacts with DAVdroid</string>
+    
+    <string name="userinfo_no_info_headline">No personal info set</string>
+    <string name="userinfo_no_info_text">Add name, picture and contact details on your profile page.</string>
+    <string name="drawer_header_background">Background image of drawer header</string>
+    <string name="account_icon">Account icon</string>
+    
+    <string name="end_to_end_encryption_folder_not_empty">This folder is not empty.</string>
+    <string name="end_to_end_encryption_wrong_password">Error while decrypting. Wrong password?</string>
+    <string name="end_to_end_encryption_decrypting">Decrypting…</string>
+    <string name="end_to_end_encryption_retrieving_keys">Retrieving keys…</string>
+    <string name="end_to_end_encryption_enter_password">Please enter password to decrypt private key.</string>
+    <string name="end_to_end_encryption_generating_keys">Generating new keys…</string>
+    <string name="end_to_end_encryption_keywords_description">All 12 words together make a very strong password, letting only you view and make use of your encrypted files. Please write it down and keep it somewhere safe.</string>
+    <string name="end_to_end_encryption_title">Set up encryption</string>
+    <string name="end_to_end_encryption_passphrase_title">Make note of your 12 word encryption password</string>
+    <string name="end_to_end_encryption_not_supported">Encryption only works on KitKat(4.4) and beyond.</string>
+    <string name="end_to_end_encryption_not_enabled">End-to-end encryption disabled on server.</string>
+    <string name="end_to_end_encryption_confirm_button">Set up encryption</string>
+    <string name="end_to_end_encryption_password">Password…</string>
+    <string name="end_to_end_encryption_unsuccessful">Could not save keys, please try again.</string>
+    <string name="end_to_end_encryption_dialog_close">Close</string>
+    <string name="end_to_end_encryption_storing_keys">Storing keys</string>
+    <string name="copy_move_to_encrypted_folder_not_supported">Copy/move into encrypted folder currently not supported.</string>
+    <string name="untrusted_domain">Access through untrusted domain. Please see documentation for further info.</string>
+    <string name="notification_channel_push_name">Push notifications</string>
+    <string name="notification_channel_push_description">Show push notifications sent by the server: Mentions in comments, reception of new remote shares, announcements posted by an admin etc.</string>
+    <string name="sendbutton_description">Send button icon</string>
+
+    <string name="oauth_2_0_auth_end_point_address_hint">Auth end point address</string>
+    <string name="oauth_2_0_access_end_point_address_hint">Access end point address</string>
+    <string name="hidden_character" translatable="false">*</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_password">Password</string>
+    <string name="add_to_cloud">Add to %1$s</string>
+    <string name="upload_files">Upload files</string>
+    <string name="upload_content_from_other_apps">Upload content from other apps</string>
+    <string name="create_new_folder">Create new folder</string>
+    <string name="uploads_view_upload_status_virus_detected">Virus detected. Upload cannot be completed!</string>
+    <string name="tags">Tags</string>
+    <string name="sharee_add_failed">Adding sharee failed</string>
+    <string name="unsharing_failed">Unsharing failed</string>
+    <string name="updating_share_failed">Updating share failed</string>
+    <string name="prefs_e2e_mnemonic">E2E mnemonic</string>
+    <string name="prefs_e2e_no_device_credentials">To show mnemonic please enable device credentials.</string>
+    <string name="whats_new_device_credentials_title">Use Android\'s device internal protection</string>
+    <string name="login">Log in</string>
+    <string name="signup_with_provider">Sign up with provider</string>
+    <string name="host_your_own_server">Host your own server</string>
+    <string name="first_run_1_text">Keep your data secure and under your control</string>
+    <string name="first_run_2_text">Secure collaboration &amp; file exchange</string>
+    <string name="first_run_3_text">Easy-to-use web mail, calendering &amp; contacts</string>
+    <string name="first_run_4_text">Screensharing, online meetings &amp; web conferences</string>
+    <string name="whats_new_device_credentials_content">Use anything like a pattern, password, pin or your fingerprint to keep your data safe.</string>
+    <string name="restore_button_description">Restore deleted file</string>
+	<string name="restore">Restore file</string>
+    <string name="new_version_was_created">New version was created</string>
+    <string name="new_comment">New comment…</string>
+    <string name="error_comment_file">Error commenting file</string>
+    <string name="file_version_restored_successfully">Successfully restored file version.</string>
+    <string name="file_version_restored_error">Error restoring file version!</string>
+    <string name="notification_channel_general_name">General notifications</string>
+    <string name="notification_channel_general_description">Show notifications for new media folders and similar</string>
+    <string name="new_media_folder_detected">New %1$s media folder detected.</string>
+    <string name="new_media_folder_photos">photo</string>
+    <string name="new_media_folder_videos">video</string>
+    <string name="outdated_server">The server has reached end of life, please upgrade!</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="feedback_no_mail_app">No app available to send mails!</string>
+    <string name="drawer_item_trashbin">Deleted files</string>
+    <string name="trashbin_activity_title">Deleted files</string>
+    <string name="action_empty_trashbin">Empty trashbin</string>
+    <string name="trashbin_loading_failed">Loading trashbin failed!</string>
+    <string name="trashbin_file_not_deleted">File %1$s could not be deleted!</string>
+    <string name="trashbin_file_not_restored">File %1$s could not be restored!</string>
+    <string name="trashbin_not_emptied">Files could not be deleted permanently!</string>
+    <string name="stream">Stream with…</string>
+    <string name="stream_not_possible_headline">Internal streaming not possible</string>
+    <string name="stream_not_possible_message">Please download media instead or use external app.</string>
+    <string name="folder_already_exists">Folder already exists</string>
+    <string name="notification_icon">Notification icon</string>
+    <string name="folder_confirm_create">Create</string>
+    <string name="file_delete">Delete</string>
+    <string name="file_keep">Keep</string>
+    <string name="file_rename">Rename</string>
+    <string name="fab_label">Add or upload</string>
+
+
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_user">User</string>
+    <string name="prompt_website">(host) 127.0.0.1</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_update">UpdateActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+
+
+    <string name="short_description">Application who quickly manage openmediavault.</string>
+    <string name="full_description">This application aims to control OMV directly with its smartphone.</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">OMV Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_packages_infomation">Package Infomation</string>
+    <string name="title_activity_file_systems">File Systems</string>
+    <string name="title_activity_plugins">Plugins</string>
+    <string name="title_activity_omv_extras">OMV-extras.org</string>
+    <string name="title_activity_web_administration">Web Administration</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_host_manager">Host Manager</string>
+    <string name="title_activity_omvsystem">OMV System</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--<string name="crash_toast_text">Send to dev by mail</string> -->
+    <string name="title_activity_services">Services</string>
+
+    <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
+
+    <string name="crash_dialog_title">CrashTest has crashed</string>
+    <string name="crash_dialog_text">An unexpected error occurred forcing the
+    application to stop. Please help us fix this by sending us error data,
+    all you have to do is click OK.</string>
+    <string name="crash_dialog_comment_prompt">You might add your comments about the problem below:</string>
+    <string name="crash_dialog_ok_toast">Thank you !</string>
+    <string name="SharedFolder">SharedFolder</string>
+    <string name="SharedFolderName">Shared folder name</string>
+    <string name="Comment">Comment</string>
+    <string name="Yes_no">yes / no</string>
+    <string name="Public">Public</string>
+    <string name="ReadOnly">ReadOnly</string>
+    <string name="Browsable">Browsable</string>
+    <string name="Client">Client</string>
+    <string name="Option">Option</string>
+    <string name="Options">Options</string>
+    <string name="SecurityLevel">Security level</string>
+    <string name="AuthentificationType">Authentification type</string>
+    <string name="PrivacyType">Privacy type</string>
+    <string name="title_activity_shared_folders">Shared Folders</string>
+    <string name="ClearAcl">Clear ACLs</string>
+    <string name="prompt_Name">name</string>
+    <string name="action_name">name</string>
+    <string name="prompt_Path">path</string>
+    <string name="action_path">path</string>
+    <string name="prompt_Comment">Comment</string>
+    <string name="action_comment">comment</string>
+    <string name="title_activity_add_edite_shared_folder">Shared folder</string>
+    <string name="you_want_send_logs">You want send a report without any Exception , just because you know that this application is in an unexpected state. So push the button</string>
+    <string name="edite_folder">Edite shared folder</string>
+    <string name="No_OMV_Extra">OMVEXTRA is not installed. Please visite website</string>
+    <string name="dialog_delete_item">Do you really want to delete the selected item?</string>
+    <string name="dialog_delete_Content">Do you want to remove the content of the shared folder recursively? The shared folder content will be permanently removed and cannot be recovered. Select \'No\' to delete the shared folder configuration only or \'Cancel\' to abort.</string>
+    <string name="_no">No</string>
+    <string name="_yes">Yes</string>
+    <string name="_cancel">Cancel</string>
+    <string name="InstalledKernels">Installed kernels</string>
+    <string name="Set_as_default_boot_kernel">Set as default boot kernel</string>
+    <string name="NotesKernel">Setting the wrong default boot kernel may cause the system to be inaccessible.The boot menu will still be available to select a different kernel.
+        \nInstalling the backports kernel with not uninstall the standard kernel.
+        \nIf the system does not boot using the backports kernel, the boot menu will still have the option to boot the standard kernel.</string>
+    <string name="install_Backports_kernel">Intall backports kernel</string>
+    <string name="install_Headers_kernel">Install kernel headers</string>
+    <string name="title_activity_OMV_ExtraSettingsActivity">OMV-Extra settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_omv__extra_settings_tabbed">OMV-Extra.org Settings</string>
+    <string name="action_add_custom_repo">Add custom repo</string>
+    <string name="action_repo">Repo</string>
+    <string name="action_key">Key</string>
+    <string name="action_power">power</string>
+    <string name="action_reboot">reboot</string>
+    <string name="action_standby">standby</string>
+    <string name="action_shutdown">shutdown</string>
+    <string name="title_activity_cpu_usage_scrolling">CpuUsageScrollingActivity</string>
+    <string name="action_show_shared_folders">Manage Shared folders</string>
+    <string name="action_show_statistics">Show statistics</string>
+    <string name="title_activity_statistics_scrolling">Statistics</string>
+    <string name="action_wakeup">wakeup</string>
+    <string name="action_translate">translate</string>
+    <string name="action_click_translate">Click here for translate OMV Remote</string>
+    <string name="translate_url">https://www.getlocalization.com/OMV_REMOTE</string>
+    <string name="action_click_forum">Questions, requests for improvement? Please follow the link.</string>
+    <string name="Forum">forum</string>
+    <string name="snackbar_error_occurred">an error occurred!</string>
+    <string name="not_volumes">No available volumes</string>
+    <string name="title_activity_certificate">Certificates</string>
+    <string name="SSL">SSL</string>
+    <string name="SSH">SSH</string>
+    <string name="Used">used</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_update">Update</string>
+    <string name="nav_disk">File Systems</string>
+    <string name="nav_plugin">Plugin</string>
+    <string name="nav_extra">OMV-Extra</string>
+    <string name="nav_certificate">Certificates</string>
+    <string name="nav_host">Manage hosts</string>
+    <string name="nav_about">About</string>
+    <string name="action_add_certificate_ssh">add ssh certificate</string>
+    <string name="action_add_certificate_ssl">add ssl certificate</string>
+    <string name="select">select</string>
+    <string name="edite">edite</string>
+    <string name="delete">delete</string>
+    <string name="detail">detail</string>
+    <string name="not_implemented">not implemented</string>
+    <string name="title_activity_edite_certificate_ssh">Edite CertificateSsh</string>
+    <string name="certificate_is_used">certificate is used</string>
+    <string name="title_activity_edite_certificate">Edite Certificate</string>
+    <string name="Private_key">Private key</string>
+    <string name="Public_key">Public key</string>
+    <string name="Certificate">Certificate</string>
+    <string name="Omv_app_version">Omv app version :</string>
+    <string name="App_code_version">App code version :</string>
+    <string name="key_size">Key size</string>
+    <string name="RSA_key_length">The RSA key length</string>
+    <string name="period_validity">Period of validity</string>
+    <string name="day_certificate_valid">The number of days the certificate is valid for</string>
+    <string name="Common_name">Common Name</string>
+    <string name="Organisation_name">Organisation Name</string>
+    <string name="Organisation_unit">Organization Unit</string>
+    <string name="Organization_name">Organization Name</string>
+    <string name="Organization_unit">Organization Unit</string>
+    <string name="City">City</string>
+    <string name="State_Province">State / Province</string>
+    <string name="Country">Country</string>
+    <string name="Response_null">Can\'t read response</string>
+    <string name="action_back">back</string>
+    <string name="title_activity_logs">LogsActivity</string>
+    <string name="nav_logs">Logs</string>
+    <string name="Installed_Kernels">Installed Kernels</string>
+    <string name="Clonezilla">Clonezilla</string>
+    <string name="GParted_live">GParted live</string>
+    <string name="SystemRescueCD">SystemRescueCD</string>
+    <string name="Installed_Kernels_info">•\tSetting the wrong default boot kernel may cause the system to be inaccessible. The boot menu will still be available to select a different kernel.\n
+        •\tInstalling the backports kernel with not uninstall the standard kernel.\n
+        •\tInstalling the backports kernel and Proxmox kernel on the same system may cause problems.\n
+        •\tIf the system does not boot using the backports kernel, the boot menu will still have the option to boot the standard kernel.</string>
+    <string name="Clonezilla_info">•\tDownloads Clonezilla ISO and configures grub bootloader to allow booting from ISO.\n
+        •\tSSH server is enabled by default. Login with username: user and password: live\n
+        •\tWhen connecting via ssh, the ssh key will be different than the OpenMediaVault ssh key and need to be updated on the client system.\n
+        •\tIP Address will be set by DHCP. Using static DHCP is recommended for headless servers.\n
+        •\tWhen logging in remotely, start clonezilla with: sudo clonezilla\n
+        •\tISO uses approximately 139 Mb in /boot directory on OS drive.</string>
+    <string name="GParted_info">•\tDownloads GParted Live ISO and configures grub bootloader to allow booting from ISO.\n
+        •\tNot recommended for headless servers. SSH is not enabled by default.\n
+        •\tDefault username: user and password: live\n
+        •\tIP Address will be set by DHCP.\n
+        •\tISO uses approximately 219 Mb in /boot directory on OS drive.</string>
+    <string name="SystemRescueCD_info">•\tDownloads SystemRescuecd ISO and configures grub bootloader to allow booting from ISO.\n
+        •\tSSH server is enabled by default. Login with username: root and password: openmediavault\n
+        •\tWhen connecting via ssh, the ssh key will be different than the OpenMediaVault ssh key and need to be updated on the client system.\n
+        •\tIP Address will be set by DHCP. Using static DHCP is recommended for headless servers.\n
+        •\tISO uses approximately 381 Mb in /boot directory on OS drive.</string>
+    <string name="title_activity_cron">Cron</string>
+    <string name="Enable">Enable</string>
+    <string name="Time_Exec">Time of execution</string>
+    <string name="Minute">Minute</string>
+    <string name="EveryNMinute">Every N minute</string>
+    <string name="Hour">Hour</string>
+    <string name="EveryNHour">Every N hour</string>
+    <string name="DayMonth">Day of month</string>
+    <string name="EveryNDayMonth">Every N day of month</string>
+    <string name="Month">Month</string>
+    <string name="DayWeek">Day of week</string>
+    <string name="SendEmail">Send Email</string>
+    <string name="SendEmailInfoCron">Send command output via email\\r\\nAn email message with the command output (if any produced) is send to the user  who performs the job.</string>
+    <string name="User">User</string>
+    <string name="Command">Command</string>
+    <string name="Scheduling">Scheduling</string>
+    <string name="action_run">Run</string>
+    <string name="action_edite">Edite</string>
+    <string name="action_delete">Delete</string>
+    <string name="nav_cron">Scheduled Jobs</string>
+    <string name="title_activity_add_edite_cron">AddEditeCronActivity</string>
+    <string name="edite_Cron">Edite Cron</string>
+    <string name="ExcecCron">Execute cron job</string>
+    <string name="title_activity_login_by_step">LoginByStepActivity</string>
+    <string name="wizard_add_host">This wizard will guide you through the process of adding hosts to OMV Remote.</string>
+    <string name="wizard_check_host">Verify that the host to be added is turned on and connected to the network and / or properly configured for remote access.</string>
+    <string name="wizard_entering_ip">Start by entering the IP address of the host.</string>
+    <string name="wizard_entering_user">Entering your username and password (WebUi)</string>
+    <string name="wizard_entering_port">Entering port with you use webui. Default is 80 or if you have check secure connection default is 443.\\r\\n Please check SSL if you are un secure connection.</string>
+    <string name="wizard_entering_wol">The wol parameters are not required.</string>
+    <string name="Date">Date</string>
+    <string name="Time">Time</string>
+    <string name="Times_Servers">Times Servers</string>
+    <string name="manualDate">Manual Date</string>
+    <string name="title_activity_add_repo_v3">Add Repo</string>
+    <string name="Name">Name</string>
+    <string name="Repo1">Repo #1</string>
+    <string name="Repo">Repo</string>
+    <string name="Key">Key</string>
+    <string name="Package">Package</string>
+    <string name="Pin">Pin</string>
+    <string name="Priority">Priority</string>
+    <string name="Repo3">Repo #3</string>
+    <string name="Repo2">Repo #2</string>
+    <string name="Add_Repo">Add repo</string>
+    <string name="edite_Repo">Edite repo</string>
+    <string name="UpdateNow">Update now</string>
+    <string name="ApplyChanges">Apply changes</string>
+    <string name="ApplyChangesMessage">The configuration has been changed.You must apply the changes in order for then to take effect.</string>
+    <string name="title_activity_virtualbox">Virtualbox</string>
+    <string name="VMDirectoty">VM directory</string>
+    <string name="fixModulKernel">Fix module for backports kernels</string>
+    <string name="AdvancedConfig">Advenced configuration</string>
+    <string name="ShowTab">Show tab</string>
+    <string name="StatUpMode">Startup mode</string>
+    <string name="action_ACPI_shutdown">ACPI shutdown</string>
+    <string name="action_power_off_machine">Power off the machine</string>
+    <string name="action_Start">Start</string>
+    <string name="action_Pause">Pause</string>
+    <string name="action_Save_machine_state">Save the machine state</string>
+    <string name="action_Reset">Reset</string>
+    <string name="MovedPermanentlyException">You don\'t use the good port.</string>
+    <string name="send_logs">Send Logs</string>
+    <string name="fix_Error">Fix error</string>
+    <string name="SendFeedback">Send feedback</string>
+    <string name="send_logs_btn">logs from btn</string>
+    <string name="error_no_network_message">Your device is not connected to the internet.</string>
+    <string name="Update">Upgrade</string>
+    <string name="Upgrade">Upgrade</string>
+    <string name="Check">Check</string>
+    <string name="SelectAll">Select all</string>
+    <string name="widget_omv">Choose your OMV</string>
+    <string name="core_temp">CORE Temperature</string>
+    <string name="core_freq">CORE Frequency</string>
+    <string name="average_load">Average load</string>
+    <string name="used_memory">Used memory</string>
+    <string name="widget_auto_update">Automatic updates</string>
+    <string name="widget_update_interval">Update interval</string>
+    <string name="default_update_interval">60</string>
+    <string name="widget_configure_title">Configure widget</string>
+    <string name="widget_add_no_device">You need to add a OMV server in the app first.</string>
+
+    <string name="widget_update_interval_zero">Must be greater than zero.</string>
+    <string name="widget_update_interval_five_min">5 Minutes</string>
+    <string name="widget_update_interval_ten_min">10 Minutes</string>
+    <string name="widget_update_interval_thirty_min">30 Minutes</string>
+    <string name="widget_update_interval_one_hour">1 Hour</string>
+    <string name="widget_update_interval_two_hours">2 Hours</string>
+    <string name="widget_update_interval_eight_hours">8 Hours</string>
+    <string name="widget_update_interval_one_day">1 Day</string>
+    <string name="widget_update_interval_custom">Custom interval</string>
+    <string name="widget_update_interval_custom_text">Update interval (in minutes)</string>
+    <string name="widget_auto_update_yes">Yes</string>
+    <string name="widget_auto_update_wifi">Only on Wi-Fi</string>
+    <string name="widget_auto_update_no">No</string>
+    <string name="Save">Save</string>
+    <string name="widget_update_interval_error">Not a valid update interval.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="widget_memory_header" translatable="false">RAM</string>
+    <string name="widget_load_header" translatable="false">LOAD</string>
+    <string name="widget_arm_header" translatable="false">ARM</string>
+    <string name="widget_temp_header" translatable="false">TEMP</string>
+    <string name="widget_no_read_permission">OMV remote has no permission to access the external storage. Can\\\'t update widget.</string>
+    <string name="widget_cpu_header">CPU</string>
+    <string name="widget_uptime_header">UPTIME</string>
+    <string name="Uptime">Uptime</string>
+    <string name="CPU_usage">CPU usage</string>
+    <string name="Reboot_send">Reboot send</string>
+    <string name="Shutdown_send">Shutdown send</string>
+    <string name="Standby_send">Standby send</string>
+    <string name="Wakeup_send">Wakup send</string>
+    <string name="Continue">Would you continue ?</string>
+    <string name="noUpdate">no update found. Use check for refresh.</string>
+    <string name="title_activity_ad_mob">AdMobActivity</string>
+
+    <string name="interstitial_ad_sample">Interstitial Ad Sample</string>
+    <string name="start_level">Level 1</string>
+    <string name="next_level">Next Level</string>
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="interstitial_ad_text">This interstitial ads is show just 1 time (no host detected).</string>
+    <string name="_welcome">Welcome to OMV remote app !</string>
+    <string name="_next_step">Next step will be configure the app for manage your OMV.</string>
+    <string name="title_activity_testthibactivity">Settings</string>
+    <string name="title_activity_bindable">Sign in</string>
+    <string name="no_mac">MAC Address !</string>
+    <string name="set_mac">Set MAC Address manualy ?</string>
+    <string name="title_activity_lets_encrypt">LetsEncryptActivity</string>
+    <string name="Schedule_Refresh">Schedule Refresh</string>
+    <string name="Test_Certificate">Test Certificate</string>
+    <string name="Info_letsEncrypt">Enable monthly update of certificate. This will create an entry in Scheduled Jobs.</string>
+    <string name="Info_Test_letsEncrypt">Do not enable until first certificate has been successfully generated. Once you have a certificate use this to avoid rate limit errors.</string>
+    <string name="Tips_letsEncrypt">Plugin uses the webroot installation method provided by Let\'s Encrypt. OMV configuration needs to be applied after generating certificate due to the plugin adding entries to certificates and scheduled jobs. If you generate your first certificate with the test flag enabled your certificate will have an invalid root cert from Happy Hacker. You will need to delete your /etc/letsencrypt folder and start over. Server Setup  Port 80 must be open for Let\'s Encrypt to verify your domain. Since the plugin only supports one webroot, use a reverse proxy to direct all of Let\'s Encrypt validation calls to yourdomain.tld/.well-known/acme-challenge/* to your configured webroot.</string>
+    <string name="info_LetsEncrypt_Domain">Domains the certificate will be generated for and must point to this server, e.g yourdomain.tld, sub.afraid.org. Wildcard (*) domains are not supported. Separate multiple (sub)domains with a comma (,) Adresse mail</string>
+    <string name="Adresse_Mail">Adresse Mail</string>
+    <string name="Domain">Domain</string>
+    <string name="info_LetsEncrypt_Mail">Required for registration with LetsEncrypt.org. This email address can be used to recover lost certificates.</string>
+    <string name="info_LetsEncrypt_WebRoot">The root directory of the files served by your internet facing webserver.</string>
+    <string name="WebRoot">WebRoot</string>
+    <string name="Saved">Saved</string>
+    <string name="Label_get_Unloker">Get unlocker</string>
+    <string name="Unlocker_info">Unlocker allows you to :\n
+        Remove advertisements.\n
+        To download and view the logs of your server.\n
+        Add more than one server.\n
+        But also to participate in the costs of developing the application\n
+        Support and motivate the developer of your favorite application ;). \n
+    </string>
+    <string name="title_activity_command">Commands</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_add_command">Add Command</string>
+    <string name="ServiceName">Service name</string>
+    <string name="SetServiceName">Set service name</string>
+    <string name="CommandName">Command name</string>
+    <string name="SetMethodName">Set method name</string>
+    <string name="MethodName">Method name</string>
+    <string name="Value">Value</string>
+    <string name="nav_Command">Command</string>
+    <string name="Test">Test</string>
+    <string name="BuyUnlocker">you can\'t add more than one host in free version. please buy the unlocker in about section.</string>
+    <string name="title_activity_fail2ban">Fail2ban</string>
+    <string name="Ignoreip">Ignoreip</string>
+    <string name="info_Fail2ban_Ignoreip">Can be an IP address, a CIDR mask or a DNS host, separe with space for multiple ip.</string>
+    <string name="Findtime">Findtime</string>
+    <string name="info_Fail2ban_Findtime">The counter is set to zero if no match is found within \'findtime\' seconds. (604800 = 1 week)</string>
+    <string name="Bantime">Bantime</string>
+    <string name="info_Fail2ban_Bantime">Duration (in seconds) for IP to be banned for. Negative number for \'permanent\' ban. (604800 = 1 week)</string>
+    <string name="info_Fail2ban_Maxretry">Number of matches (i.e. value of the counter) which triggers ban action on the IP.</string>
+    <string name="Maxretry">Maxretry</string>
+    <string name="info_Fail2ban_Destemail">An email address to receive ban messages.</string>
+    <string name="Destemail">Destemail</string>
+    <string name="info_Fail2ban_Action"><![CDATA[action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an email with whois report and log lines.]]></string>
+    <string name="Action">Action</string>
+    <string name="title_activity_add_edite_jail">Add/Edite Jail</string>
+    <string name="info_Fail2ban_Jail_Name">The name of the jail.</string>
+    <string name="Port">Port</string>
+    <string name="info_Fail2ban_Jail_Port">The port of the jail.</string>
+    <string name="Max_Retry">Max Retry</string>
+    <string name="info_Fail2ban_Jail_Max_Retry">Max Retry in seconds.</string>
+    <string name="Ban_Time">Ban Time</string>
+    <string name="info_Fail2ban_Jail_Ban_Time">Ban time in seconds.</string>
+    <string name="info_Fail2ban_Jail_Filter">A filter defines a regular expression which must match a pattern corresponding to a log-in failure or any other expression.</string>
+    <string name="Filter">Filter</string>
+    <string name="info_Fail2ban_Jail_Log_Path">The log file to be scanned by the filter.</string>
+    <string name="Log_Path">Log Path</string>
+    <string name="Day">Day</string>
+    <string name="Year">Year</string>
+    <string name="Week">Week</string>
+    <string name="title_activity_autoshutdown">Autoshutdown</string>
+    <string name="Cycles">Cycles</string>
+    <string name="info_Autoshutdown_Cycles">Set the number of cycles with no result (no PC online, etc) before shutdown.</string>
+    <string name="Sleep">Sleep</string>
+    <string name="info_Autoshutdown_Sleep">Numbers of seconds between each cycle.</string>
+    <string name="Shutdown_Command">Shutdown Command</string>
+    <string name="Uphours_Begin">Uphours Begin</string>
+    <string name="Uphours_End">Uphours End</string>
+    <string name="Check_Clock">Check Clock</string>
+    <string name="info_Autoshutdown_CheckClock">Check Clock to identify forced uptime.</string>
+    <string name="IP_Range">IP-Range</string>
+    <string name="info_Autoshutdown_IPRange"><![CDATA[Define a range of IPs which should be scanned, via XXX.XXX.XXX.xxx last triple of IP address in a list.\n
+    The following scheme is mandatoryv..v+m,w,x..x+n,y+o..y,z\n
+    - define an ip range : start..end -> the two dots are mandatory\n
+    - define a single ip : ip\n
+    - all list entries are seperated by comma \',\'\n
+    Please make sure to leave 1 and 255 out of the list!\n
+    Enter a single dash \'-\' in the field to disable check.]]>
+    </string>
+    <string name="Sockets">Sockets</string>
+    <string name="info_Autoshutdown_Sockets">Socket number to check for activity.</string>
+    <string name="ULDL_Rate">ULDL Rate</string>
+    <string name="info_Autoshutdown_ULDLRate">Define the network traffic in kB/s</string>
+    <string name="Load_Average">Load Average</string>
+    <string name="info_Autoshutdown_LoadAverage">If the load average of the server is above this value, then no shutdown. Example: 50 means a loadaverage of 0.50, 8 means a loadaverage of 0.08, 220 means a loadaverage of 2.20</string>
+    <string name="HDDIO_Rate">HDDIO_Rate</string>
+    <string name="info_Autoshutdown_HDDIORate">If the HDD-IO-average of the server is above this value, then no shutdown.</string>
+    <string name="Check_smbstatus">Check smbstatus</string>
+    <string name="info_Autoshutdown_Checksmbstatus">Check smbstatus for connected clients.</string>
+    <string name="Check_Users">Check Users</string>
+    <string name="info_Autoshutdown_CheckUsers">Check for connected users.</string>
+    <string name="Log_to_Syslog">Log to Syslog</string>
+    <string name="info_Autoshutdown_LogToSyslog">Write log informations to system logs.</string>
+    <string name="Verbose">Verbose</string>
+    <string name="info_Autoshutdown_Verbose">Verbose mode.</string>
+    <string name="Fake">Fake</string>
+    <string name="info_Autoshutdown_Fake">Fake/Test mode.</string>
+    <string name="Extra_Options">Extra Options</string>
+    <string name="title_activity_smart">S.M.A.R.T</string>
+    <string name="action_smart">S.M.A.R.T</string>
+    <string name="Check_interval">Check interval</string>
+    <string name="info_Smart_CheckInterval">Sets the interval between disk checks to N seconds, logging S.M.A.R.T. errors and changes of S.M.A.R.T. attributes.</string>
+    <string name="Power_mode">Power mode</string>
+    <string name="info_Smart_Powermode">Prevent a disk from being spun-up when it is periodically polled.\n
+        •\tNever - Poll (check) the device regardless of its power mode. This may cause a disk which is spun-down to be spun-up when it is checked.\n
+        •\tSleep - Check the device unless it is in SLEEP mode.\n
+        •\tStandby - Check the device unless it is in SLEEP or STANDBY mode. In these modes most disks are not spinning, so if you want to prevent a disk from spinning up each poll, this is probably what you want.\n
+        •\tIdle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.
+    </string>
+    <string name="Temp_monitoring">Temperature monitoring</string>
+    <string name="Difference">Difference</string>
+    <string name="info_Smart_Difference">Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report.</string>
+    <string name="Informal">Informal</string>
+    <string name="info_Smart_Informal">Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.</string>
+    <string name="Critical">Critical</string>
+    <string name="info_Smart_Critical">Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.</string>
+    <string name="Power_Mode">Power mode</string>
+    <string name="title_activity_add_edite_scheduled_test">Scheduled Test</string>
+    <string name="Device">Device</string>
+    <string name="Type">Type</string>
+    <string name="edite_Scheduled">Edite Scheduled</string>
+    <string name="plzClickMe">It is a free application, think about clicking on an advertisement sometimes to say thanks ;).</string>
+    <string name="action_settings_sensors">Sensors settings</string>
+    <string name="mount">Mount</string>
+    <string name="umount">Umount</string>
+    <string name="device_no_mounted">Your device is not mounted</string>
+    <string name="send_failed">Send failed</string>
+    <string name="action_settings_nut">Network UPS tools</string>
+</resources>

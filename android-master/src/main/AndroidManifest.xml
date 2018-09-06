@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Nextcloud Android client application
+
+  Copyright (C) 2012  Bartek Przybylski
+  Copyright (C) 2012-2016 ownCloud Inc.
+  Copyright (C) 2016 Nextcloud
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 2,
+  as published by the Free Software Foundation.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.owncloud.android">
+
+    <!-- GET_ACCOUNTS is needed for API <= 22.
+        For API >= 23 results in the addition of CONTACTS group to the list of permissions that may be
+        dynamically disabled or enabled by the user after installation; but it is not important,
+        since GET_ACCOUNTS is an special case, the permission is not really needed to access accounts
+        owned by the app, our use case.
+        See note in http://developer.android.com/intl/es/reference/android/Manifest.permission.html#GET_ACCOUNTS -->
+    <uses-permission
+        android:maxSdkVersion="22"
+        android:name="android.permission.GET_ACCOUNTS" />
+
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS" />
+    <uses-permission
+        android:name="android.permission.WRITE_CONTACTS" />
+
+    <!-- USE_CREDENTIALS, MANAGE_ACCOUNTS and AUTHENTICATE_ACCOUNTS are needed for API <= 22.
+        In API >= 23 they do not exist anymore -->
+    <uses-permission
+        android:maxSdkVersion="22"
+        android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission
+        android:maxSdkVersion="22"
+        android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission
+        android:maxSdkVersion="22"
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <!-- WRITE_EXTERNAL_STORAGE may be enabled or disabled by the user after installation in
+        API >= 23; the app needs to handle this -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Next permissions are always approved in installation time, the apps needs to do nothing special in runtime -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+
+    <application
+        android:name=".MainApp"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:fullBackupContent="@xml/backup_config"
+        android:theme="@style/Theme.ownCloud.Toolbar"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:installLocation="internalOnly"
+        android:manageSpaceActivity="com.owncloud.android.ui.activity.ManageSpaceActivity"
+        tools:ignore="UnusedAttribute">
+        <activity
+            android:name=".ui.activity.FileDisplayActivity"
+            android:launchMode="singleTop"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.ownCloud.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/users_and_groups_searchable"/>
+        </activity>
+        <activity android:name=".ui.activity.ManageAccountsActivity" />
+        <activity android:name=".ui.activity.UserInfoActivity" />
+        <activity android:name=".ui.activity.NotificationsActivity"/>
+        <activity android:name=".ui.activity.ParticipateActivity" />
+        <activity android:name=".ui.activities.ActivitiesActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".ui.activity.SyncedFoldersActivity"/>
+        <activity android:name=".ui.activity.UploadFilesActivity" />
+        <activity android:name=".ui.activity.ExternalSiteWebView"
+                  android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".ui.activity.ContactsPreferenceActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".ui.activity.ReceiveExternalFilesActivity"
+                  
+                  android:taskAffinity=""
+                  android:excludeFromRecents="true"
+                  android:theme="@style/Theme.ownCloud.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.Preferences"
+            android:theme="@style/Theme.ownCloud" >
+        </activity>
+        <activity
+            android:name=".ui.preview.PreviewImageActivity"
+            android:theme="@style/Theme.ownCloud.Overlay" />
+        <activity
+            android:name=".ui.preview.PreviewVideoActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.ownCloud.Fullscreen" />
+
+        <service
+            android:name=".jobs.NContentObserverJob"
+            android:permission="android.permission.BIND_JOB_SERVICE" >
+        </service>
+
+        <service
+            android:name=".authentication.AccountAuthenticatorService"
+            android:exported="true" >
+            <intent-filter android:priority="100" >
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <service
+            android:name=".syncadapter.FileSyncService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter_files" />
+        </service>
+
+        <provider
+            android:name=".providers.FileContentProvider"
+            android:authorities="@string/authority"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/sync_string_files"
+            android:syncable="true" />
+
+        <provider
+            android:name=".providers.UsersAndGroupsSearchProvider"
+            android:authorities="@string/users_and_groups_search_authority"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/search_users_and_groups_hint" />
+
+        <provider
+            android:name=".providers.DocumentsStorageProvider"
+            android:authorities="@string/document_provider_authority"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS"
+            android:enabled="@bool/atLeastKitKat">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
+
+        <!-- new provider used to generate URIs without file:// scheme (forbidden from Android 7) -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="@string/file_provider_authority"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/exposed_filepaths" />
+        </provider>
+
+        <provider
+            android:name=".providers.DiskLruImageCacheFileProvider"
+            android:authorities="@string/image_cache_provider_authority"
+            android:exported="true">
+        </provider>
+
+        <activity
+            android:name=".authentication.AuthenticatorActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/Theme.ownCloud.noActionBar.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/oauth2_redirect_scheme" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.owncloud.android.workaround.accounts.CREATE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/login_data_own_scheme" android:host="login"/>
+            </intent-filter>
+        </activity>
+
+        <service android:name=".services.OperationsService" />
+        <service android:name=".files.services.FileDownloader" />
+        <service android:name=".files.services.FileUploader" />
+        <service android:name=".media.MediaService" />
+
+        <activity android:name=".ui.activity.PassCodeActivity" />
+        <activity android:name=".ui.activity.RequestCredentialsActivity" />
+        <activity android:name=".ui.activity.ConflictsResolveActivity"/>
+        <activity android:name=".ui.activity.ErrorsWhileCopyingHandlerActivity"/>
+        
+        <activity android:name=".ui.activity.LogHistoryActivity"/>
+
+        <activity android:name=".ui.errorhandling.ErrorShowActivity" />
+        <activity android:name=".ui.activity.UploadListActivity" />
+        <activity
+            android:name=".ui.trashbin.TrashbinActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".ui.activity.WhatsNewActivity"
+                  android:theme="@style/Theme.ownCloud.noActionBar.Login" />
+        <activity
+            android:name=".ui.activity.FirstRunActivity"
+            android:theme="@style/Theme.ownCloud.noActionBar.Login"
+            android:configChanges="orientation|screenSize"/>
+
+        <receiver android:name=".files.BootupBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+
+
+        <activity
+            android:name=".ui.activity.CopyToClipboardActivity"
+            android:icon="@drawable/copy_link"
+            android:label="@string/copy_link" />
+        <activity
+            android:name=".ui.activity.FolderPickerActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ui.activity.UploadPathActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ui.activity.ShareActivity"
+            android:label="@string/share_dialog_title"
+            android:exported="false"
+            android:theme="@style/Theme.ownCloud.Dialog.NoTitle"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                       android:resource="@xml/users_and_groups_searchable"/>
+        </activity>
+        <activity android:name=".ui.activity.ManageSpaceActivity"
+                  android:label="@string/manage_space_title"
+                  android:theme="@style/Theme.ownCloud" />
+
+
+
+        <!--<meta-data
+                    android:name="omg.doods.dev.omremote.base.appIdentifier"
+                    android:value="light" />-->
+        <meta-data
+            android:name="net.hockeyapp.android.appIdentifier"
+            android:value="${HOCKEYAPP_APP_ID}" />
+        <meta-data
+            android:name="net.hockeyapp.android.appSecret"
+            android:value="${HOCKEYAPP_APP_ID}" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"
+            tools:node="merge" />
+        <activity android:name="com.dev.doods.omvremote2.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:icon="@drawable/logo3"
+            android:process=":process.sub"
+            android:launchMode="singleInstance"/>
+        <activity android:name="com.dev.doods.omvremote2.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.dev.doods.omvremote2.UpdateActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.dev.doods.omvremote2.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <!--android:icon="@drawable/logo3"-->
+            <!--android:process=":process.sub"-->
+            <!--android:launchMode="singleInstance">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity
+            android:name="com.dev.doods.omvremote2.System.PackagesInfomationActivity"
+            android:label="@string/title_activity_packages_infomation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.dev.doods.omvremote2.UpdateSetingsActivity" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Storage.FileSystems.FileSystemsActivity"
+            android:label="@string/title_activity_file_systems"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Plugins.PluginsActivity"
+            android:label="@string/title_activity_plugins"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.omv_extrasActivity"
+            android:label="@string/title_activity_omv_extras"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.dev.doods.omvremote2.HomeSettingsActivity" />
+        <activity
+            android:name="com.dev.doods.omvremote2.System.WebAdministrationActivity"
+            android:label="@string/title_activity_web_administration" />
+        <activity
+            android:name="com.dev.doods.omvremote2.HostManagerActivity"
+            android:label="@string/title_activity_host_manager"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.dev.doods.omvremote2.SearchHostActivity" />
+        <activity
+            android:name="com.dev.doods.omvremote2.OMVSystemActivity"
+            android:label="@string/title_activity_omvsystem"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.dev.doods.omvremote2.AboutActivity" />
+        <activity
+            android:name="com.dev.doods.omvremote2.ServicesActivity"
+            android:label="@string/title_activity_services"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Storage.SharedFoldersActivity"
+            android:label="@string/title_activity_shared_folders"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.AddEditeSharedFolderActivity"
+            android:label="@string/title_activity_add_edite_shared_folder"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.dev.doods.omvremote2.OMV_ExtraSettingsActivity"
+            android:label="@string/title_activity_OMV_ExtraSettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.OMV_ExtraSettingsTabbedActivity"
+            android:label="@string/title_activity_omv__extra_settings_tabbed"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.StatisticsScrollingActivity"
+            android:label="@string/title_activity_statistics_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.CertificateActivity"
+            android:label="@string/title_activity_certificate"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.EditeCertificateSshActivity"
+            android:label="@string/title_activity_edite_certificate_ssh"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.EditeCertificateActivity"
+            android:label="@string/title_activity_edite_certificate"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.LogsActivity"
+            android:label="@string/title_activity_logs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.System.CronActivity"
+            android:label="@string/title_activity_cron"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.System.AddEditeCronActivity"
+            android:label="@string/title_activity_add_edite_cron"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.LoginByStepActivity"
+            android:label="@string/title_activity_login_by_step"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.AddRepoV3Activity"
+            android:label="@string/title_activity_add_repo_v3"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Plugins.Virtualbox.VirtualboxActivity"
+            android:label="@string/title_activity_virtualbox"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity"
+            android:label="@string/title_activity_fail2ban"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="widget.SystemInformationWidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <receiver android:name="widget.SystemInformationWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/overclocking_widget_info" />
+        </receiver>
+
+        <service android:name="widget.WidgetUpdateService" />
+
+        <receiver android:name="widget.DiskUsageWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/disk_usage_widget_info" />
+        </receiver>
+
+        <activity android:name="com.dev.doods.omvremote2.TestUi.TestActivity" />
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.dev.doods.omvremote2.AdMobActivity"
+            android:label="@string/title_activity_ad_mob" />
+        <activity
+            android:name="com.dev.doods.omvremote2.TestUi.testthibactivity"
+            android:label="@string/title_activity_testthibactivity" />
+        <activity
+            android:name="com.dev.doods.omvremote2.BindableActivity"
+            android:label="@string/title_activity_bindable"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Plugins.LetsEncrypt.LetsEncryptActivity"
+            android:label="@string/title_activity_lets_encrypt"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.CommandActivity"
+            android:label="@string/title_activity_command"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.AddCommandActivity"
+            android:label="@string/title_activity_add_command"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.AddEditeJailActivity"
+            android:label="@string/title_activity_add_edite_jail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Plugins.Autoshutdown.AutoshutdownActivity"
+            android:label="@string/title_activity_autoshutdown"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Storage.Smart.SwipeViewSmartActivity"
+            android:label="@string/title_activity_smart"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.Storage.Smart.AddEditeScheduledTestActivity"
+            android:label="@string/title_activity_add_edite_scheduled_test"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+    </application>
+
+</manifest>
