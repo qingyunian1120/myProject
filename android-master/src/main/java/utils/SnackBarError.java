@@ -31,8 +31,8 @@ private View mView;
     {
         mView = v;
 
-        InputMethodManager imm = (InputMethodManager)getAppContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput (InputMethodManager.HIDE_IMPLICIT_ONLY, InputMethodManager.RESULT_HIDDEN);
+        //InputMethodManager imm = (InputMethodManager)getAppContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        //imm.toggleSoftInput (InputMethodManager.HIDE_IMPLICIT_ONLY, InputMethodManager.RESULT_HIDDEN);
        this.set(v,message);
     }
 

@@ -177,7 +177,7 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
                         Integer levelLog = mSMBSettings.getLoglevel();
                         //TODO make list;
 
-                        mwithNULLPasswords.setChecked(mSMBSettings.getNullpasswords());
+                        mwithNULLPasswords.setChecked(false);
                         mSwithUseSendfile.setChecked(mSMBSettings.getUsesendfile());
                         mSwithAsyncIO.setChecked(mSMBSettings.getAio());
                         mOptionView.setText(mSMBSettings.getExtraoptions());
