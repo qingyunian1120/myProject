@@ -327,6 +327,7 @@
         <activity
             android:name="com.dev.doods.omvremote2.HomeActivity"
             android:label="@string/title_activity_home"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <!--android:icon="@drawable/logo3"-->
             <!--android:process=":process.sub"-->

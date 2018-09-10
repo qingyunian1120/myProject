@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -130,6 +131,11 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
 
         mWINSServer= (EditText) rootView.findViewById(R.id.etWINSServer);
         mLogsLevel = (Spinner) rootView.findViewById(R.id.spinnerLogs);
+        //xuzhenyue
+        String[] arrays = new String[] {"QML", "XML", "JS", "HTML"};
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, arrays);
+        mLogsLevel.setAdapter(arrayAdapter);
 
         mwithNULLPasswords = (Switch) rootView.findViewById(R.id.swithNULLPasswords);
         mSwithUseSendfile = (Switch) rootView.findViewById(R.id.swithUseSendfile);
@@ -177,7 +183,7 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
                         Integer levelLog = mSMBSettings.getLoglevel();
                         //TODO make list;
 
-                        mwithNULLPasswords.setChecked(false);
+                        mwithNULLPasswords.setChecked(true);
                         mSwithUseSendfile.setChecked(mSMBSettings.getUsesendfile());
                         mSwithAsyncIO.setChecked(mSMBSettings.getAio());
                         mOptionView.setText(mSMBSettings.getExtraoptions());

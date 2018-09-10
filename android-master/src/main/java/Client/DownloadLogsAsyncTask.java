@@ -86,11 +86,10 @@ public class DownloadLogsAsyncTask extends AsyncTask<String, Integer, Void> {
         String type = mime.getMimeTypeFromExtension(ext);
         Intent openFile = new Intent(Intent.ACTION_VIEW, Uri.fromFile(mFile));
         //openFile.setDataAndType(Uri.fromFile(mFile), type);
-
+        //xzy fix log download bug
         Uri apkURI = FileProvider.getUriForFile(
                 mContext,
-                mContext.getApplicationContext()
-                        .getPackageName() + ".provider", mFile);
+                "org.nextcloud.files", mFile);
         openFile.setDataAndType(apkURI, type);
         openFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 

@@ -1,6 +1,9 @@
 package OMV.Base;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -196,5 +199,21 @@ public class AppCompatBaseActivity  extends AppCompatActivity implements IHandle
         bld.setNeutralButton("OK", null);
         Log.d(TAG, "Showing alert dialog: " + message);
         bld.create().show();
+    }
+
+
+//xzy add for back error
+    @Override
+    public void onBackPressed() {
+
+        ActivityManager manager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+        String name = manager.getRunningTasks(1).get(0).topActivity.getClassName();
+        Log.d("xuzhenyue"," name = " + name);
+        if(!name.equals("com.dev.doods.omvremote2.HomeActivity")){
+            Intent movhomeIntent = new Intent(getApplicationContext(), com.dev.doods.omvremote2.HomeActivity.class);
+            startActivity(movhomeIntent);
+        }else{
+            super.onBackPressed();
+        }
     }
 }
