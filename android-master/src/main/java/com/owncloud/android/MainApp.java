@@ -44,11 +44,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 
-import com.dev.doods.omvremote2.Billing.IabHelper;
-import com.dev.doods.omvremote2.Billing.IabResult;
-import com.dev.doods.omvremote2.Billing.Inventory;
-import com.dev.doods.omvremote2.Billing.Purchase;
-import com.dev.doods.omvremote2.MyApplicationBase;
+
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 import com.google.android.gms.ads.AdRequest;
@@ -100,7 +96,6 @@ import java.util.concurrent.TimeUnit;
 import OMV.Classe.MyCustomCrashManagerListener;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import static com.dev.doods.omvremote2.Billing.IabHelper.SKU_PREMUIM_YEARLY;
 import static com.owncloud.android.ui.activity.ContactsPreferenceActivity.PREFERENCE_CONTACTS_AUTOMATIC_BACKUP;
 
 
@@ -133,9 +128,6 @@ public class MainApp extends MultiDexApplication {
     @SuppressWarnings("unused")
     private boolean mBound;
 
-    //MyApplicationBase
-    // The helper object
-    IabHelper mHelper;
     private static Context context;
     public static AdRequest mAdRequest;
     public static AdView mAdViewSmall;
@@ -255,7 +247,7 @@ public class MainApp extends MultiDexApplication {
         });
 
         //xuzhenyue
-        checkForPremium();
+//        checkForPremium();
 
         //ACRA.init(this);
         //MobileCenter.setLogLevel(Log.VERBOSE);
@@ -724,78 +716,6 @@ public class MainApp extends MultiDexApplication {
             }
         }
     }
-    //xuzhenyue
-    private void checkForPremium()
-    {
-
-        Log.d("MainApp", "Creating IAB helper.");
-        mHelper = new IabHelper(this, IabHelper.base64EncodedPublicKey);
-
-        // enable debug logging (for a production application, you should set this to false).
-        mHelper.enableDebugLogging(false);
-
-        // Start setup. This is asynchronous and the specified listener
-        // will be called once setup completes.
-        Log.d("MainApp", "Starting setup.");
-        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-            public void onIabSetupFinished(IabResult result) {
-                Log.d("MainApp", "Setup finished.");
-
-                if (!result.isSuccess()) {
-                    // Oh noes, there was a problem.
-                    Log.i("MainApp", "Problem setting up in-app billing: " + result);
-
-                    return;
-                }
-
-                // Have we been disposed of in the meantime? If so, quit.
-                if (mHelper == null) return;
-
-
-
-                // IAB is fully set up. Now, let's get an inventory of stuff we own.
-                Log.d("MainApp", "Setup successful. Querying inventory.");
-                try {
-                    mHelper.queryInventoryAsync(mGotInventoryListener);
-                } catch (IabHelper.IabAsyncInProgressException e) {
-                    Log.i("MainApp","Error querying inventory. Another async operation in progress.");
-                }
-            }
-        });
-    }
-
-    // Listener that's called when we finish querying the items and subscriptions we own
-    IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
-        public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-            Log.d("MainApp", "Query inventory finished.");
-
-            // Have we been disposed of in the meantime? If so, quit.
-            if (mHelper == null) return;
-
-            // Is it a failure?
-            if (result.isFailure()) {
-                Log.i("MainApp","Failed to query inventory: " + result);
-                return;
-            }
-
-            Log.d("MainApp", "Query inventory was successful.");
-
-            /*
-             * Check for items we own. Notice that for each purchase, we check
-             * the developer payload to see if it's correct! See
-             * verifyDeveloperPayload().
-             */
-
-            // Do we have the premium upgrade?
-            Purchase premiumPurchaseYearly = inventory.getPurchase(SKU_PREMUIM_YEARLY);
-            mIsPremium = (premiumPurchaseYearly != null);
-            Log.d("MainApp", "User is " + (mIsPremium ? "PREMIUM" : "NOT PREMIUM"));
-
-            light = !mIsPremium;
-
-            Log.d("MainApp", "Initial inventory query finished; enabling main UI.");
-        }
-    };
 
     private void checkForCrashes() {
         Context context = getAppContext();
