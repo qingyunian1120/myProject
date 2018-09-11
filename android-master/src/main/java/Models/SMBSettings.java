@@ -32,9 +32,9 @@ public class SMBSettings extends BaseSettings {
     @SerializedName("aio")
     @Expose
     private Boolean aio;
-    @SerializedName("nullpasswords")
+/*    @SerializedName("nullpasswords")
     @Expose
-    private Boolean nullpasswords;
+    private Boolean nullpasswords;*/
     @SerializedName("localmaster")
     @Expose
     private Boolean localmaster;
@@ -168,23 +168,23 @@ public class SMBSettings extends BaseSettings {
         this.aio = aio;
     }
 
-    /**
+/*    *//**
      *
      * @return
      * The nullpasswords
-     */
+     *//*
     public Boolean getNullpasswords() {
         return nullpasswords;
     }
 
-    /**
+    *//**
      *
      * @param nullpasswords
      * The nullpasswords
-     */
+     *//*
     public void setNullpasswords(Boolean nullpasswords) {
         this.nullpasswords = nullpasswords;
-    }
+    }*/
 
     /**
      *
@@ -352,7 +352,7 @@ public class SMBSettings extends BaseSettings {
         sb.append(",\"winssupport\":"+(winssupport?"true":"false"));
         sb.append(",\"winsserver\":\""+winsserver+"\"");
         sb.append(",\"loglevel\":"+loglevel);
-        sb.append(",\"nullpasswords\":"+(nullpasswords?"true":"false"));
+//        sb.append(",\"nullpasswords\":"+(nullpasswords?"true":"false"));
         sb.append(",\"usesendfile\":"+(usesendfile?"true":"false"));
         sb.append(",\"aio\":"+(aio?"true":"false"));
         sb.append(",\"extraoptions\":\""+extraoptions+"\"");
@@ -370,7 +370,7 @@ public class SMBSettings extends BaseSettings {
         dictionary.put("loglevel",loglevel.toString());
         dictionary.put("usesendfile",usesendfile?"mTrue":"mFalse");
         dictionary.put("aio",aio?"mTrue":"mFalse");
-        dictionary.put("nullpasswords",nullpasswords?"mTrue":"mFalse");
+//        dictionary.put("nullpasswords",nullpasswords?"mTrue":"mFalse");
         dictionary.put("localmaster",localmaster?"mTrue":"mFalse");
         dictionary.put("timeserver",timeserver?"mTrue":"mFalse");
 
@@ -389,7 +389,7 @@ public class SMBSettings extends BaseSettings {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(enable).append(workgroup).append(serverstring).append(loglevel).append(usesendfile).append(aio).append(nullpasswords).append(localmaster).append(timeserver).append(winssupport).append(winsserver).append(homesenable).append(homesbrowseable).append(extraoptions).append(shares).toHashCode();
+        return new HashCodeBuilder().append(enable).append(workgroup).append(serverstring).append(loglevel).append(usesendfile).append(aio).append(localmaster).append(timeserver).append(winssupport).append(winsserver).append(homesenable).append(homesbrowseable).append(extraoptions).append(shares).toHashCode();
     }
 
     @Override
@@ -401,7 +401,7 @@ public class SMBSettings extends BaseSettings {
             return false;
         }
         SMBSettings rhs = ((SMBSettings) other);
-        return new EqualsBuilder().append(enable, rhs.enable).append(workgroup, rhs.workgroup).append(serverstring, rhs.serverstring).append(loglevel, rhs.loglevel).append(usesendfile, rhs.usesendfile).append(aio, rhs.aio).append(nullpasswords, rhs.nullpasswords).append(localmaster, rhs.localmaster).append(timeserver, rhs.timeserver).append(winssupport, rhs.winssupport).append(winsserver, rhs.winsserver).append(homesenable, rhs.homesenable).append(homesbrowseable, rhs.homesbrowseable).append(extraoptions, rhs.extraoptions).append(shares, rhs.shares).isEquals();
+        return new EqualsBuilder().append(enable, rhs.enable).append(workgroup, rhs.workgroup).append(serverstring, rhs.serverstring).append(loglevel, rhs.loglevel).append(usesendfile, rhs.usesendfile).append(aio, rhs.aio).append(localmaster, rhs.localmaster).append(timeserver, rhs.timeserver).append(winssupport, rhs.winssupport).append(winsserver, rhs.winsserver).append(homesenable, rhs.homesenable).append(homesbrowseable, rhs.homesbrowseable).append(extraoptions, rhs.extraoptions).append(shares, rhs.shares).isEquals();
     }
 
 }

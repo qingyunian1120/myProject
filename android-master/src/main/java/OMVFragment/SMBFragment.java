@@ -96,7 +96,7 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
     private Switch mSwithBrowsable;
     private Switch mSwithWinsSupport;
 
-    private Switch mwithNULLPasswords;
+    //private Switch mwithNULLPasswords;
     private Switch mSwithUseSendfile;
     private Switch mSwithAsyncIO;
 
@@ -132,12 +132,13 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
         mWINSServer= (EditText) rootView.findViewById(R.id.etWINSServer);
         mLogsLevel = (Spinner) rootView.findViewById(R.id.spinnerLogs);
         //xuzhenyue
-        String[] arrays = new String[] {"QML", "XML", "JS", "HTML"};
+        String[] arrays = new String[] {"无", "最小", "正常", "全部","调试"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, arrays);
         mLogsLevel.setAdapter(arrayAdapter);
 
-        mwithNULLPasswords = (Switch) rootView.findViewById(R.id.swithNULLPasswords);
+        //mwithNULLPasswords = (Switch) rootView.findViewById(R.id.swithNULLPasswords);
+        //mwithNULLPasswords.setVisibility(View.GONE);
         mSwithUseSendfile = (Switch) rootView.findViewById(R.id.swithUseSendfile);
         mSwithAsyncIO = (Switch) rootView.findViewById(R.id.swithAsyncIO);
 
@@ -181,9 +182,10 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
                         mSwithWinsSupport.setChecked(mSMBSettings.getWinssupport());
                         mWINSServer.setText(mSMBSettings.getWinsserver());
                         Integer levelLog = mSMBSettings.getLoglevel();
+                        mLogsLevel.setSelection(levelLog);
                         //TODO make list;
 
-                        mwithNULLPasswords.setChecked(true);
+                        //mwithNULLPasswords.setChecked(true);
                         mSwithUseSendfile.setChecked(mSMBSettings.getUsesendfile());
                         mSwithAsyncIO.setChecked(mSMBSettings.getAio());
                         mOptionView.setText(mSMBSettings.getExtraoptions());
@@ -206,7 +208,8 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
         mSwithBrowsable.setEnabled(b);
         mSwithWinsSupport.setEnabled(b);
         mWINSServer.setEnabled(b);
-        mwithNULLPasswords.setEnabled(b);
+        mLogsLevel.setEnabled(b);
+        //mwithNULLPasswords.setEnabled(b);
         mSwithUseSendfile.setEnabled(b);
         mSwithAsyncIO.setEnabled(b);
         mOptionView.setEnabled(b);
@@ -263,7 +266,8 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
         mSMBSettings.setHomesbrowseable(mSwithBrowsable.isChecked());
         mSMBSettings.setWinssupport(mSwithWinsSupport.isChecked());
         mSMBSettings.setWinsserver(mWINSServer.getText().toString());
-        mSMBSettings.setNullpasswords(mwithNULLPasswords.isChecked());
+        mSMBSettings.setLoglevel(mLogsLevel.getSelectedItemPosition());
+        //mSMBSettings.setNullpasswords(mwithNULLPasswords.isChecked());
         mSMBSettings.setUsesendfile(mSwithUseSendfile.isChecked());
         mSMBSettings.setAio(mSwithAsyncIO.isChecked());
         mSMBSettings.setExtraoptions(mOptionView.getText().toString());
@@ -271,7 +275,7 @@ public class SMBFragment extends Fragment implements IUpdateFragment {
         mController.setService(mSMBSettings, new Callback() {
             @Override
             public void onFailure(Call call, Exception e) {
-
+                OnMessage(mSMBSettings.getServiceName()+"  fail");
             }
 
             @Override

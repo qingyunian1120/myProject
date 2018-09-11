@@ -143,13 +143,13 @@
             android:id="@+id/spinnerLogs"
             android:layout_weight="1" />
 
-        <Switch
+        <!--<Switch
             android:layout_margin="8dp"
             android:id="@+id/swithNULLPasswords"
             android:text="Null passwords"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            />-->
 
         <Switch
             android:layout_margin="8dp"
