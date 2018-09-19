@@ -208,7 +208,6 @@ public class AppCompatBaseActivity  extends AppCompatActivity implements IHandle
 
         ActivityManager manager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
         String name = manager.getRunningTasks(1).get(0).topActivity.getClassName();
-        Log.d("xuzhenyue"," name = " + name);
         if(!name.equals("com.dev.doods.omvremote2.HomeActivity")){
             Intent movhomeIntent = new Intent(getApplicationContext(), com.dev.doods.omvremote2.HomeActivity.class);
             startActivity(movhomeIntent);

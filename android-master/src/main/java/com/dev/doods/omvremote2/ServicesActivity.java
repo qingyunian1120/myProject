@@ -178,6 +178,8 @@ public class ServicesActivity extends AppCompatBaseActivity implements OnFragmen
                     return new OMVFragment.SNMPFragment();
                 case 4:
                     return new OMVFragment.SMBFragment();
+                case 5:
+                    return new OMVFragment.FTPFragment();
             }
             return null;
         }
@@ -185,7 +187,7 @@ public class ServicesActivity extends AppCompatBaseActivity implements OnFragmen
         @Override
         public int getCount() {
             // Show 5 total pages.
-            return 5;
+            return 6;
         }
 
         @Override
@@ -201,6 +203,8 @@ public class ServicesActivity extends AppCompatBaseActivity implements OnFragmen
                     return "SNMP";
                 case 4:
                     return "SMB";
+                case 5:
+                    return "FTP";
             }
             return null;
         }

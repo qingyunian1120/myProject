@@ -1,5 +1,7 @@
 package Models;
 
+import android.util.Log;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -362,6 +364,7 @@ public class SMBSettings extends BaseSettings {
 
     public Map<String, String> getPArams()
     {
+
         Map<String, String> dictionary = new HashMap<String, String>();
 
         dictionary.put("enable",enable?"mTrue":"mFalse");

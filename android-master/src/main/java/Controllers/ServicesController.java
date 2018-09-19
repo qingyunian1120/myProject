@@ -1,6 +1,7 @@
 package Controllers;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class ServicesController extends Abstractcontroller {
     }
 
 
-    List<String> Services = new ArrayList<String>() {{add("SSH");add("NFS");add("TFTP");add("SNMP");add("SMB");}};
+    List<String> Services = new ArrayList<String>() {{add("SSH");add("NFS");add("TFTP");add("SNMP");add("SMB");add("FTP");}};
 
 
 
@@ -35,7 +36,7 @@ public class ServicesController extends Abstractcontroller {
 
             params.setService(ServiceName);
 
-            if(ServiceName.equals("NFS") || ServiceName.equals("SMB"))
+            if(ServiceName.equals("NFS") || ServiceName.equals("SMB") || ServiceName.equals("FTP"))
                 params.setMethod("getSettings");
             else
                 params.setMethod("get");
@@ -56,7 +57,8 @@ public class ServicesController extends Abstractcontroller {
             String ServiceName = Service.getServiceName();
             JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
             params.setService(Service.getServiceName());
-            if(ServiceName.equals("NFS") || ServiceName.equals("SMB"))
+            Log.d("xuzhenyue","Service.getServiceName()" + Service.getServiceName());
+            if(ServiceName.equals("NFS") || ServiceName.equals("SMB") || ServiceName.equals("FTP"))
                 params.setMethod("setSettings");
             else
             params.setMethod("set");
