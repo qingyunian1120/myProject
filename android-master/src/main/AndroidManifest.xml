@@ -374,10 +374,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.dev.doods.omvremote2.AboutActivity" />
         <activity
-            android:name="com.dev.doods.omvremote2.ServicesActivity"
-            android:label="@string/title_activity_services"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.dev.doods.omvremote2.Storage.SharedFoldersActivity"
             android:label="@string/title_activity_shared_folders"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -487,10 +483,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.CommandActivity"
             android:label="@string/title_activity_command"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.AddCommandActivity"
-            android:label="@string/title_activity_add_command"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.AddEditeJailActivity"

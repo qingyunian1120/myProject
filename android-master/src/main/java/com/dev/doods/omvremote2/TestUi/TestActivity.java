@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.dev.doods.omvremote2.MyApplicationBase;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
 import com.google.android.gms.ads.AdListener;

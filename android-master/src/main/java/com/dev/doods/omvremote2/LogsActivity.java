@@ -47,7 +47,6 @@ import Client.DownloadLogsAsyncTask;
 import Client.Response;
 import Controllers.HomeController;
 import Controllers.LogsController;
-import Controllers.ServicesController;
 import Models.Datum;
 import Models.Errors;
 import Models.LogRow;
@@ -61,7 +60,6 @@ public class LogsActivity extends NavigationBaseActivity {
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 42;
 
     LogsController mController = new LogsController(this);
-    ServicesController mServicesController = new ServicesController(this);
     HomeController mHomeController = new HomeController(this);
     RecyclerView mRecyclerLogs;
     List<LogRow> lst = new ArrayList<LogRow>();

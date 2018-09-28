@@ -338,7 +338,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
     private final List<Datum> LstServices = new ArrayList<Datum>();
 
-    private void showStatusServices(List<Datum> res)
+/*    private void showStatusServices(List<Datum> res)
     {
         LstServices.clear();
         LstServices.addAll(res);
@@ -374,7 +374,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
             }
         });
 
-    }
+    }*/
 
     private void showSystemInformation(List<SystemInformation> res)
     {
