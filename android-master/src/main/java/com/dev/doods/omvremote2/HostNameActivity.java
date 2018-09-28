@@ -51,7 +51,6 @@ public class HostNameActivity extends NavigationBaseActivity {
 
                 controller.setGeneralSettings(mSettingsNetwork,new CallbackImpl(HostNameActivity.this));
                 new CheckDirty(HostNameActivity.this).Check();
-
             }
         });
 

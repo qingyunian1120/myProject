@@ -143,7 +143,7 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
         }
         else if (id == R.id.nav_Command)
         {
-            startActivity(new Intent(this, CommandActivity.class));
+            //startActivity(new Intent(this, CommandActivity.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

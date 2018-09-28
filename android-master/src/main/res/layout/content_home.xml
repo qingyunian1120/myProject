@@ -189,6 +189,23 @@
                 android:layout_below="@+id/Memory_usageTitle"
                 android:paddingBottom="10dp"
                 android:text="Memory usage" />
+            <TextView
+                android:id="@+id/System_statusTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/Memory_usage"
+                android:text="设备状态："
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/System_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/HostName"
+                android:layout_below="@+id/System_statusTitle"
+                android:paddingBottom="10dp"
+                android:text="离线" />
 
         </RelativeLayout>
 

@@ -59,6 +59,16 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
         setContentView(R.layout.activity_login_by_step);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //xuzhenyue
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null && bundle.containsKey("host"))
+        {
+            mHost = (Host) bundle.getSerializable("host");
+        }
+        else
+            mHost = new Host();
+        Save();
+        //end
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -83,15 +93,6 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
         });
 
         BindViews();
-
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.containsKey("host"))
-        {
-            mHost = (Host) bundle.getSerializable("host");
-        }
-        else
-            mHost = new Host();
-
         PopulateViews();
     }
 
@@ -199,7 +200,6 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
         }).run();
 
     }
-
     private void CheckUser()
     {
         if(!CheckVarByState())
@@ -211,9 +211,6 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
         boolean ssl = mSSLView.isChecked();
         String login = mLoginView.getText().toString();
         String password = mPasswordView.getText().toString();
-
-
-
 
         AsyncTask task = new UserLoginTask(hostname,login,password,port,ssl);
         new CallBackAsyncTask(task, new CallBackTask() {
@@ -231,7 +228,6 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
             }
         }).run();
     }
-
     private boolean CheckVarByState()
     {
         mHostNameView.setError(null);
@@ -280,8 +276,6 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
                 mPasswordView.requestFocus();
                 return false;
             }
-
-
         }
 
         return true;
@@ -289,15 +283,15 @@ public class LoginByStepActivity extends AppCompatActivity implements IYesNoList
 
     private void Save()
     {
-        String hostname = mHostNameView.getText().toString();
-        String addr = mUrlView.getText().toString();
-        Integer port =Integer.parseInt(mPortView.getText().toString());
-        boolean ssl = mSSLView.isChecked();
-        String login = mLoginView.getText().toString();
-        String password = mPasswordView.getText().toString();
-        Integer wolport = Integer.parseInt(mWolPortView.getText().toString());
-        String macaddr =  mMacView.getText().toString();
-        String addrBroadcastView =  mAddrBroadcastView.getText().toString();
+        String hostname = "192.168.88.94";//mHostNameView.getText().toString();
+        String addr = "192.168.88.94";//mUrlView.getText().toString();
+        Integer port =Integer.parseInt("8081"/*mPortView.getText().toString()*/);
+        boolean ssl = false;//mSSLView.isChecked();
+        String login = "admin";//mLoginView.getText().toString();
+        String password = "openmediavault";//mPasswordView.getText().toString();
+        Integer wolport = Integer.parseInt("9");
+        String macaddr =  "";
+        String addrBroadcastView =  "";
 
 
         HostsDAO datasource = new HostsDAO(getApplicationContext());

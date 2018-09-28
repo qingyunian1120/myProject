@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.dev.doods.omvremote2.Plugins.Autoshutdown.AutoshutdownActivity;
 import com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity;
 import com.dev.doods.omvremote2.Plugins.Virtualbox.VirtualboxActivity;
-import com.dev.doods.omvremote2.TestUi.TestActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -62,6 +61,7 @@ import com.owncloud.android.R;
 public class HomeActivity extends NavigationBaseActivity implements View.OnClickListener, IYesNoListenerDialog {
     private HomeController controller;
     private SystemController mSystemController = new SystemController(this);
+    private boolean isConnect = false;
 
 
     FloatingActionButton fab;
@@ -88,8 +88,8 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         registerForContextMenu(fab);
         controller = new HomeController(this);
 
-       /* fabInfo = (FloatingActionButton) findViewById(R.id.fabInfo);
-        fabInfo.setOnClickListener(new View.OnClickListener() {
+        fabInfo = (FloatingActionButton) findViewById(R.id.fabInfo);
+        /*fabInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(IsFinalized(true))
@@ -111,7 +111,9 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
             if(MainApp.light)
                 startActivity(new Intent(HomeActivity.this, com.dev.doods.omvremote2.AdMobActivity.class));
             else
-                startActivity(new Intent(HomeActivity.this, com.dev.doods.omvremote2.SearchHostActivity.class));
+                startActivity(new Intent(HomeActivity.this, LoginByStepActivity.class));
+                //startActivity(new Intent(HomeActivity.this, com.dev.doods.omvremote2.SearchHostActivity.class));
+            //xuzhenyue
         }
 
         SharedPreferences sharedPref = getSharedPreferences("electedHost", Context.MODE_PRIVATE);
@@ -135,7 +137,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
@@ -227,7 +229,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
     @Override
     public void onClick(View v) {
 
@@ -265,12 +267,13 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
             @Override
             public void onFailure(Call call, Exception e) {
+                isConnect = false;
                 //super.onFailure(call,e);
                 e.printStackTrace();
+                isConnect = false;
                 ShowSnackError(e.getMessage(),false);
                 mHandler.post(new Runnable(){
                     public void run() {
-
                         fab.clearAnimation();
                     }
                 });
@@ -279,6 +282,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
             @Override
             public void OnOMVServeurError(Call call, Errors error) {
+                isConnect = false;
                 //super.OnOMVServeurError(call,error);
                 ShowSnackError(error.getMessage(),false);
                 mHandler.post(new Runnable(){
@@ -304,6 +308,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
                     final  ArrayList<SystemInformation> res = gson.fromJson(j,t);
                 mHandler.post(new Runnable(){
                         public void run() {
+                            isConnect = true;
                             showSystemInformation(res);
                             fab.clearAnimation();
                         }
@@ -427,6 +432,8 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
             default:
                 Log.i("MainActivity","unknown property name : "+tb.replace(' ','_'));
         }
+        tv = findViewById(R.id.System_status);
+        tv.setText("在线");
     }
 
 
