@@ -339,7 +339,11 @@
         </activity>
 
         <activity
-            android:name="com.dev.doods.omvremote2.System.PackagesInfomationActivity"
+        android:name="com.dev.doods.omvremote2.System.PackagesInfomationActivity"
+        android:label="@string/title_activity_packages_infomation"
+        android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.dev.doods.omvremote2.HostNameActivity"
             android:label="@string/title_activity_packages_infomation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.dev.doods.omvremote2.UpdateSetingsActivity" />

@@ -12,6 +12,10 @@
             android:icon="@android:drawable/stat_sys_upload_done"
             android:title="@string/nav_update" />
         <item
+            android:id="@+id/nav_name"
+            android:icon="@android:drawable/stat_sys_upload_done"
+            android:title="设备名称" />
+        <item
             android:id="@+id/nav_disk"
             android:icon="@drawable/ic_folder_black_24dp"
             android:title="@string/nav_disk" />

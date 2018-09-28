@@ -88,14 +88,14 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         registerForContextMenu(fab);
         controller = new HomeController(this);
 
-        fabInfo = (FloatingActionButton) findViewById(R.id.fabInfo);
+       /* fabInfo = (FloatingActionButton) findViewById(R.id.fabInfo);
         fabInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(IsFinalized(true))
                     startActivity(new Intent(HomeActivity.this, StatisticsScrollingActivity.class));
             }
-        });
+        });*/
         getInfo();
         new CheckDirty(HomeActivity.this).Check();
     }
@@ -238,7 +238,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
             getInfo();
         }
-        else if(v.getId() == R.id.RelativeLayout_Info_Server)
+        /*else if(v.getId() == R.id.RelativeLayout_Info_Server)
         {
 
             if(i == 5) {
@@ -246,13 +246,13 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
                 i=0;
             }
             i++;
-        }
+        }*/
     }
     int i = 0;
-    private void ShowDebug()
+    /*private void ShowDebug()
     {
         startActivity(new Intent(HomeActivity.this, TestActivity.class));
-    }
+    }*/
 
     private void getInfo()
     {
@@ -311,7 +311,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
             }
         });
 
-        controller.GetStatusServices(new CallbackImpl(this){
+        /*controller.GetStatusServices(new CallbackImpl(this){
 
 
             @Override
@@ -320,14 +320,14 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
                 final Result<Datum> res = response.GetResultObject(new TypeToken<Result<Datum>>(){});
                 mHandler.post(new Runnable(){
                         public void run() {
-                            showStatusServices(res.getData());
+                            //showStatusServices(res.getData());
                         }
                     });
 
 
 
             }
-        });
+        });*/
 
     }
 

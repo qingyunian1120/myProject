@@ -21,6 +21,7 @@ import com.dev.doods.omvremote2.HostManagerActivity;
 import com.dev.doods.omvremote2.LogsActivity;
 import com.dev.doods.omvremote2.System.PackagesInfomationActivity;
 import com.dev.doods.omvremote2.Plugins.PluginsActivity;
+import com.dev.doods.omvremote2.HostNameActivity;
 import com.owncloud.android.R;
 import com.dev.doods.omvremote2.omv_extrasActivity;
 import com.google.android.gms.ads.AdView;
@@ -102,6 +103,11 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
         else if(id == R.id.nav_update)
         {
             startActivity(new Intent(this, PackagesInfomationActivity.class));
+        }
+        //xuzhenyue
+        else if(id == R.id.nav_name)
+        {
+            startActivity(new Intent(this, HostNameActivity.class));
         }
         else if(id == R.id.nav_disk)
         {

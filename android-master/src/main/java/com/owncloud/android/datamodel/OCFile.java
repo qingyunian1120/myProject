@@ -733,6 +733,11 @@ public class OCFile implements Parcelable, Comparable<OCFile>, ServerFileInterfa
         return mRemoteId;
     }
 
+    @Override
+    public boolean isFavorite() {
+        return mIsFavorite;
+    }
+
     /**
      * The unique id for the file within the instance
      *

@@ -1091,7 +1091,7 @@
     <string name="SSL">SSL</string>
     <string name="SSH">SSH</string>
     <string name="Used">used</string>
-    <string name="nav_home">Home</string>
+    <string name="nav_home">设备信息</string>
     <string name="nav_update">Update</string>
     <string name="nav_disk">File Systems</string>
     <string name="nav_plugin">Plugin</string>
