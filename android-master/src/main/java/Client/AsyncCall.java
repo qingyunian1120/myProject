@@ -4,15 +4,12 @@ import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.dev.doods.omvremote2.HostManagerActivity;
 import com.owncloud.android.R;
 
 import java.io.IOException;
 
 import Interfaces.IJSONRPCParamsBuilder;
 import OMV.Base.AppCompatBaseActivity;
-import OMV.Base.FragmentInteractionBase;
-import OMV.Base.SwipeViewBaseActivity;
 import utils.SnackBarError;
 import utils.SnackBarStartActivity;
 
@@ -62,7 +59,7 @@ public class AsyncCall extends CallImpl implements Runnable  {
             ex.printStackTrace();
             if(mActivity != null)
             {
-                new SnackBarStartActivity(mActivity.getCurrentFocus(),mActivity.getString(R.string.MovedPermanentlyException), HostManagerActivity.class);
+                //new SnackBarStartActivity(mActivity.getCurrentFocus(),mActivity.getString(R.string.MovedPermanentlyException), HostManagerActivity.class);
             }
 
         }

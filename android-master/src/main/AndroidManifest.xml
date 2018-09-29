@@ -351,10 +351,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.System.WebAdministrationActivity"
             android:label="@string/title_activity_web_administration" />
-        <activity
-            android:name="com.dev.doods.omvremote2.HostManagerActivity"
-            android:label="@string/title_activity_host_manager"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.dev.doods.omvremote2.SearchHostActivity" />
         <activity
             android:name="com.dev.doods.omvremote2.OMVSystemActivity"
@@ -416,7 +412,6 @@
                 android:resource="@xml/disk_usage_widget_info" />
         </receiver>
 
-        <activity android:name="com.dev.doods.omvremote2.TestUi.TestActivity" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
@@ -424,9 +419,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.AdMobActivity"
             android:label="@string/title_activity_ad_mob" />
-        <activity
-            android:name="com.dev.doods.omvremote2.TestUi.testthibactivity"
-            android:label="@string/title_activity_testthibactivity" />
         <activity
             android:name="com.dev.doods.omvremote2.BindableActivity"
             android:label="@string/title_activity_bindable"

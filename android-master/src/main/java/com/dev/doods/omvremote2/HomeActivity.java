@@ -252,7 +252,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
     int i = 0;
     /*private void ShowDebug()
     {
-        startActivity(new Intent(HomeActivity.this, TestActivity.class));
+
     }*/
 
     private void getInfo()
