@@ -344,10 +344,6 @@
             android:label="@string/title_activity_file_systems"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.dev.doods.omvremote2.omv_extrasActivity"
-            android:label="@string/title_activity_omv_extras"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.dev.doods.omvremote2.ShutDownDeviceActivity"
             android:label="@string/nav_shutdowndevice"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -388,10 +384,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.LoginByStepActivity"
             android:label="@string/title_activity_login_by_step"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.AddRepoV3Activity"
-            android:label="@string/title_activity_add_repo_v3"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity"
