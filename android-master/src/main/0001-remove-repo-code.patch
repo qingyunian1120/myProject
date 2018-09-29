@@ -1,0 +1,4159 @@
+From 6f9a90899845cfb0c1664e977ec0ce6c38ba678a Mon Sep 17 00:00:00 2001
+From: zsx <zhangsanxi@revoview.com>
+Date: Sat, 29 Sep 2018 18:19:36 +0800
+Subject: [PATCH] remove repo code
+
+---
+ android-master/src/main/AndroidManifest.xml        |   8 -
+ .../java/Adapters/PinnedSectionRepoAdapter.java    |   1 -
+ .../main/java/Controllers/omvExtrasController.java | 421 ---------------
+ .../src/main/java/Models/CurentKernel.java         | 570 ---------------------
+ .../src/main/java/Models/CustomRepo.java           | 146 ------
+ .../src/main/java/Models/KernelItem.java           |  62 ---
+ android-master/src/main/java/Models/Repo.java      | 138 -----
+ android-master/src/main/java/Models/RepoV3.java    | 461 -----------------
+ .../main/java/OMVFragment/CustomReposFragment.java | 269 ----------
+ .../Dialogs/AddEditeCustomRepoDialogFragment.java  | 203 --------
+ .../java/OMVFragment/OMVExtraKernelFragment.java   | 301 -----------
+ .../java/OMVFragment/OMVExtraKernelV3Fragment.java | 297 -----------
+ .../omvremote2/OMV_ExtraSettingsActivity.java      | 287 -----------
+ .../OMV_ExtraSettingsTabbedActivity.java           | 115 -----
+ .../res/layout/activity_omv__extra_settings.xml    | 130 -----
+ .../layout/activity_omv__extra_settings_tabbed.xml |  49 --
+ .../main/res/layout/app_bar_omv_extra_settings.xml |  83 ---
+ .../res/layout/dialog_add_edite_custom_repo.xml    |  76 ---
+ .../src/main/res/layout/fragment_custom_repos.xml  |  16 -
+ .../layout/fragment_omv__extra_settings_tabbed.xml |  16 -
+ .../main/res/layout/fragment_omvextra_kernel.xml   | 181 -------
+ .../res/layout/fragment_omvextra_kernel_v3.xml     | 114 -----
+ .../res/menu/menu_omv__extra_settings_tabbed.xml   |  10 -
+ 23 files changed, 3954 deletions(-)
+ delete mode 100644 android-master/src/main/java/Controllers/omvExtrasController.java
+ delete mode 100644 android-master/src/main/java/Models/CurentKernel.java
+ delete mode 100644 android-master/src/main/java/Models/CustomRepo.java
+ delete mode 100644 android-master/src/main/java/Models/KernelItem.java
+ delete mode 100644 android-master/src/main/java/Models/Repo.java
+ delete mode 100644 android-master/src/main/java/Models/RepoV3.java
+ delete mode 100644 android-master/src/main/java/OMVFragment/CustomReposFragment.java
+ delete mode 100644 android-master/src/main/java/OMVFragment/Dialogs/AddEditeCustomRepoDialogFragment.java
+ delete mode 100644 android-master/src/main/java/OMVFragment/OMVExtraKernelFragment.java
+ delete mode 100644 android-master/src/main/java/OMVFragment/OMVExtraKernelV3Fragment.java
+ delete mode 100644 android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsActivity.java
+ delete mode 100644 android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsTabbedActivity.java
+ delete mode 100644 android-master/src/main/res/layout/activity_omv__extra_settings.xml
+ delete mode 100644 android-master/src/main/res/layout/activity_omv__extra_settings_tabbed.xml
+ delete mode 100644 android-master/src/main/res/layout/app_bar_omv_extra_settings.xml
+ delete mode 100644 android-master/src/main/res/layout/dialog_add_edite_custom_repo.xml
+ delete mode 100644 android-master/src/main/res/layout/fragment_custom_repos.xml
+ delete mode 100644 android-master/src/main/res/layout/fragment_omv__extra_settings_tabbed.xml
+ delete mode 100644 android-master/src/main/res/layout/fragment_omvextra_kernel.xml
+ delete mode 100644 android-master/src/main/res/layout/fragment_omvextra_kernel_v3.xml
+ delete mode 100644 android-master/src/main/res/menu/menu_omv__extra_settings_tabbed.xml
+
+diff --git a/android-master/src/main/AndroidManifest.xml b/android-master/src/main/AndroidManifest.xml
+index 2426e81..7393079 100644
+--- a/android-master/src/main/AndroidManifest.xml
++++ b/android-master/src/main/AndroidManifest.xml
+@@ -366,14 +366,6 @@
+             android:theme="@style/AppTheme.NoActionBar" />
+ 
+         <activity
+-            android:name="com.dev.doods.omvremote2.OMV_ExtraSettingsActivity"
+-            android:label="@string/title_activity_OMV_ExtraSettingsActivity"
+-            android:theme="@style/AppTheme.NoActionBar" />
+-        <activity
+-            android:name="com.dev.doods.omvremote2.OMV_ExtraSettingsTabbedActivity"
+-            android:label="@string/title_activity_omv__extra_settings_tabbed"
+-            android:theme="@style/AppTheme.NoActionBar" />
+-        <activity
+             android:name="com.dev.doods.omvremote2.StatisticsScrollingActivity"
+             android:label="@string/title_activity_statistics_scrolling"
+             android:theme="@style/AppTheme.NoActionBar" />
+diff --git a/android-master/src/main/java/Adapters/PinnedSectionRepoAdapter.java b/android-master/src/main/java/Adapters/PinnedSectionRepoAdapter.java
+index 55d94c7..fc0a007 100644
+--- a/android-master/src/main/java/Adapters/PinnedSectionRepoAdapter.java
++++ b/android-master/src/main/java/Adapters/PinnedSectionRepoAdapter.java
+@@ -14,7 +14,6 @@ import com.owncloud.android.R;
+ import java.util.List;
+ 
+ 
+-import Models.Repo;
+ import de.halfbit.pinnedsection.PinnedSectionListView;
+ 
+ /**
+diff --git a/android-master/src/main/java/Controllers/omvExtrasController.java b/android-master/src/main/java/Controllers/omvExtrasController.java
+deleted file mode 100644
+index 59fe0a4..0000000
+--- a/android-master/src/main/java/Controllers/omvExtrasController.java
++++ /dev/null
+@@ -1,421 +0,0 @@
+-package Controllers;
+-
+-import android.app.Activity;
+-
+-import org.apache.commons.lang3.StringUtils;
+-import org.json.JSONArray;
+-import org.json.JSONObject;
+-
+-import java.util.List;
+-
+-import Client.Callback;
+-import Client.JSONRPCParamsBuilder;
+-import Models.CustomRepo;
+-import Models.Repo;
+-import Models.RepoV3;
+-
+-/**
+- * Created by thiba on 14/09/2016.
+- */
+-public class omvExtrasController extends Abstractcontroller{
+-
+-
+-    public omvExtrasController(Activity activity) { super(activity); }
+-
+-    public void getRepo(Callback callBack)
+-    {
+-        try {
+-
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-            {
+-                getRepoList(callBack);
+-                return;
+-            }
+-
+-            params.setService("OmvExtrasOrg");
+-            params.setMethod("getRepo");
+-            this.enqueue(params,callBack);
+-
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-    private void getRepoV3 (String uuid,Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            params.setService("OmvExtras");
+-            params.setMethod("getRepo");
+-            params.addParam("uuid",uuid);
+-
+-            this.enqueue(params,callBack);
+-
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-
+-    private void getRepoList (Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            params.setService("OmvExtras");
+-            params.setMethod("getRepoList");
+-            params.addParam("limit",25);
+-            params.addParam("sortdir","mNull");
+-            params.addParam("sortfield","mNull");
+-            params.addParam("start",0);
+-            this.enqueue(params,callBack);
+-
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-    public void SetRepo(List<Repo> repos,Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("setRepo");
+-
+-            JSONArray array = new JSONArray ();
+-
+-            for (Repo r:repos) {
+-                if(r.getEnable() == null) continue;
+-                JSONObject item = new JSONObject();
+-                item.put("enable",r.isSelected());
+-                item.put("id",r.getId());
+-                array.put(item);
+-            }
+-            params.SetparamArray(array);
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-    public void Aptclean(Callback callBack)
+-    {
+-        // return filename
+-        try {
+-
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("doCommand");
+-            params.addParam("command","aptclean");
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-
+-    }
+-
+-    public void GetArch(Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("getArch");
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-    public void getKernelList(Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("getKernelList");
+-            params.addParam("limit",25);
+-            params.addParam("sortdir","mNull");
+-            params.addParam("sortfield","mNull");
+-            params.addParam("start",0);
+-            this.enqueue(params,callBack);
+-
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-    public void getKernel(Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("getKernel");
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-    public void setBootKernel(int key,Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("setBootKernel");
+-            params.addParam("key",key);
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-
+-    public void installheaders(Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("doCommand");
+-            params.addParam("command","installheaders");
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-    public void installbackports(Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("doCommand");
+-            params.addParam("command","installbackports");
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-
+-    public void getCustomList(Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("getCustomList");
+-            params.addParam("limit",25);
+-            params.addParam("sortdir","mNull");
+-            params.addParam("sortfield","mNull");
+-            params.addParam("start",0);
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-    public void deleteCustom(String uuid,Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("deleteCustom");
+-            params.addParam("uuid",uuid);
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-    public void setCustom(CustomRepo custom, Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-            if(GetApiVersion() == 3)
+-                params.setService("OmvExtras");
+-            else
+-                params.setService("OmvExtrasOrg");
+-            params.setMethod("setCustom");
+-            params.addParam("comment",custom.getComment());
+-            params.addParam("key",custom.getKey());
+-            params.addParam("name",custom.getName());
+-            params.addParam("repo",custom.getRepo());
+-            params.addParam("uuid", StringUtils.isEmpty(custom.getUuid())? "undefined":custom.getUuid() );
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-
+-
+-    public void setRepoV3(RepoV3 repo,  Callback callBack)
+-    {
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-
+-            params.setService("OmvExtras");
+-            params.setMethod("setRepo");
+-
+-            params.addParam("comment",repo.getComment());
+-            params.addParam("enable",repo.getEnable()?"mTrue":"mFalse");
+-            params.addParam("key1",repo.getKey1());
+-            params.addParam("key2",repo.getKey2());
+-            params.addParam("key3",repo.getKey3());
+-            params.addParam("name",repo.getName());
+-            params.addParam("package1",repo.getPackage1());
+-            params.addParam("package2",repo.getPackage2());
+-            params.addParam("package3",repo.getPackage3());
+-            params.addParam("permanent",repo.getPermanent()?"mTrue":"mFalse");
+-            params.addParam("pin1",repo.getPin1());
+-            params.addParam("pin2",repo.getPin2());
+-            params.addParam("pin3",repo.getPin3());
+-            params.addParam("priority1",repo.getPriority1());
+-            params.addParam("priority2",repo.getPriority2());
+-            params.addParam("priority3",repo.getPriority3());
+-            params.addParam("repo1",repo.getRepo1());
+-            params.addParam("repo2",repo.getRepo2());
+-            params.addParam("repo3",repo.getRepo3());
+-            params.addParam("uuid",repo.getUuid());
+-
+-
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-
+-    }
+-
+-
+-    public void DeleteRepoV3(String uuid,Callback callBack)
+-    {
+-
+-        try {
+-            JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
+-
+-            //set parameters
+-
+-            params.setService("OmvExtras");
+-            params.setMethod("deleteRepo");
+-            params.addParam("uuid",uuid);
+-
+-
+-            this.enqueue(params,callBack);
+-        }
+-        catch (Exception e)
+-        {
+-            e.printStackTrace();
+-
+-        }
+-    }
+-
+-}
+diff --git a/android-master/src/main/java/Models/CurentKernel.java b/android-master/src/main/java/Models/CurentKernel.java
+deleted file mode 100644
+index 7ff450c..0000000
+--- a/android-master/src/main/java/Models/CurentKernel.java
++++ /dev/null
+@@ -1,570 +0,0 @@
+-package Models;
+-
+-import com.google.gson.annotations.Expose;
+-import com.google.gson.annotations.SerializedName;
+-
+-import org.apache.commons.lang3.builder.EqualsBuilder;
+-import org.apache.commons.lang3.builder.HashCodeBuilder;
+-import org.apache.commons.lang3.builder.ToStringBuilder;
+-
+-/**
+- * Created by thiba on 09/11/2016.
+- */
+-
+-public class CurentKernel {
+-
+-    @SerializedName("enable")
+-    @Expose
+-    private String enable;
+-    @SerializedName("testing")
+-    @Expose
+-    private String testing;
+-    @SerializedName("vbox")
+-    @Expose
+-    private String vbox;
+-    @SerializedName("plex")
+-    @Expose
+-    private String plex;
+-    @SerializedName("greyhole")
+-    @Expose
+-    private String greyhole;
+-    @SerializedName("vdr")
+-    @Expose
+-    private String vdr;
+-    @SerializedName("miller")
+-    @Expose
+-    private String miller;
+-    @SerializedName("millertesting")
+-    @Expose
+-    private String millertesting;
+-    @SerializedName("btsync")
+-    @Expose
+-    private String btsync;
+-    @SerializedName("vpn")
+-    @Expose
+-    private String vpn;
+-    @SerializedName("zfs")
+-    @Expose
+-    private String zfs;
+-    @SerializedName("zfstesting")
+-    @Expose
+-    private String zfstesting;
+-    @SerializedName("gluster")
+-    @Expose
+-    private String gluster;
+-    @SerializedName("mono")
+-    @Expose
+-    private String mono;
+-    @SerializedName("monotesting")
+-    @Expose
+-    private String monotesting;
+-    @SerializedName("docker")
+-    @Expose
+-    private String docker;
+-    @SerializedName("dockertesting")
+-    @Expose
+-    private String dockertesting;
+-    @SerializedName("hwraid")
+-    @Expose
+-    private String hwraid;
+-    @SerializedName("beta")
+-    @Expose
+-    private String beta;
+-    @SerializedName("developer")
+-    @Expose
+-    private String developer;
+-    @SerializedName("kernels")
+-    @Expose
+-    private Integer kernels;
+-    @SerializedName("versionname")
+-    @Expose
+-    private String versionname;
+-    @SerializedName("version")
+-    @Expose
+-    private String version;
+-    @SerializedName("kernel")
+-    @Expose
+-    private String kernel;
+-    @SerializedName("arch")
+-    @Expose
+-    private String arch;
+-
+-    /**
+-     *
+-     * @return
+-     * The enable
+-     */
+-    public String getEnable() {
+-        return enable;
+-    }
+-
+-    /**
+-     *
+-     * @param enable
+-     * The enable
+-     */
+-    public void setEnable(String enable) {
+-        this.enable = enable;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The testing
+-     */
+-    public String getTesting() {
+-        return testing;
+-    }
+-
+-    /**
+-     *
+-     * @param testing
+-     * The testing
+-     */
+-    public void setTesting(String testing) {
+-        this.testing = testing;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The vbox
+-     */
+-    public String getVbox() {
+-        return vbox;
+-    }
+-
+-    /**
+-     *
+-     * @param vbox
+-     * The vbox
+-     */
+-    public void setVbox(String vbox) {
+-        this.vbox = vbox;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The plex
+-     */
+-    public String getPlex() {
+-        return plex;
+-    }
+-
+-    /**
+-     *
+-     * @param plex
+-     * The plex
+-     */
+-    public void setPlex(String plex) {
+-        this.plex = plex;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The greyhole
+-     */
+-    public String getGreyhole() {
+-        return greyhole;
+-    }
+-
+-    /**
+-     *
+-     * @param greyhole
+-     * The greyhole
+-     */
+-    public void setGreyhole(String greyhole) {
+-        this.greyhole = greyhole;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The vdr
+-     */
+-    public String getVdr() {
+-        return vdr;
+-    }
+-
+-    /**
+-     *
+-     * @param vdr
+-     * The vdr
+-     */
+-    public void setVdr(String vdr) {
+-        this.vdr = vdr;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The miller
+-     */
+-    public String getMiller() {
+-        return miller;
+-    }
+-
+-    /**
+-     *
+-     * @param miller
+-     * The miller
+-     */
+-    public void setMiller(String miller) {
+-        this.miller = miller;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The millertesting
+-     */
+-    public String getMillertesting() {
+-        return millertesting;
+-    }
+-
+-    /**
+-     *
+-     * @param millertesting
+-     * The millertesting
+-     */
+-    public void setMillertesting(String millertesting) {
+-        this.millertesting = millertesting;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The btsync
+-     */
+-    public String getBtsync() {
+-        return btsync;
+-    }
+-
+-    /**
+-     *
+-     * @param btsync
+-     * The btsync
+-     */
+-    public void setBtsync(String btsync) {
+-        this.btsync = btsync;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The vpn
+-     */
+-    public String getVpn() {
+-        return vpn;
+-    }
+-
+-    /**
+-     *
+-     * @param vpn
+-     * The vpn
+-     */
+-    public void setVpn(String vpn) {
+-        this.vpn = vpn;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The zfs
+-     */
+-    public String getZfs() {
+-        return zfs;
+-    }
+-
+-    /**
+-     *
+-     * @param zfs
+-     * The zfs
+-     */
+-    public void setZfs(String zfs) {
+-        this.zfs = zfs;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The zfstesting
+-     */
+-    public String getZfstesting() {
+-        return zfstesting;
+-    }
+-
+-    /**
+-     *
+-     * @param zfstesting
+-     * The zfstesting
+-     */
+-    public void setZfstesting(String zfstesting) {
+-        this.zfstesting = zfstesting;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The gluster
+-     */
+-    public String getGluster() {
+-        return gluster;
+-    }
+-
+-    /**
+-     *
+-     * @param gluster
+-     * The gluster
+-     */
+-    public void setGluster(String gluster) {
+-        this.gluster = gluster;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The mono
+-     */
+-    public String getMono() {
+-        return mono;
+-    }
+-
+-    /**
+-     *
+-     * @param mono
+-     * The mono
+-     */
+-    public void setMono(String mono) {
+-        this.mono = mono;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The monotesting
+-     */
+-    public String getMonotesting() {
+-        return monotesting;
+-    }
+-
+-    /**
+-     *
+-     * @param monotesting
+-     * The monotesting
+-     */
+-    public void setMonotesting(String monotesting) {
+-        this.monotesting = monotesting;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The docker
+-     */
+-    public String getDocker() {
+-        return docker;
+-    }
+-
+-    /**
+-     *
+-     * @param docker
+-     * The docker
+-     */
+-    public void setDocker(String docker) {
+-        this.docker = docker;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The dockertesting
+-     */
+-    public String getDockertesting() {
+-        return dockertesting;
+-    }
+-
+-    /**
+-     *
+-     * @param dockertesting
+-     * The dockertesting
+-     */
+-    public void setDockertesting(String dockertesting) {
+-        this.dockertesting = dockertesting;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The hwraid
+-     */
+-    public String getHwraid() {
+-        return hwraid;
+-    }
+-
+-    /**
+-     *
+-     * @param hwraid
+-     * The hwraid
+-     */
+-    public void setHwraid(String hwraid) {
+-        this.hwraid = hwraid;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The beta
+-     */
+-    public String getBeta() {
+-        return beta;
+-    }
+-
+-    /**
+-     *
+-     * @param beta
+-     * The beta
+-     */
+-    public void setBeta(String beta) {
+-        this.beta = beta;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The developer
+-     */
+-    public String getDeveloper() {
+-        return developer;
+-    }
+-
+-    /**
+-     *
+-     * @param developer
+-     * The developer
+-     */
+-    public void setDeveloper(String developer) {
+-        this.developer = developer;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The kernels
+-     */
+-    public Integer getKernels() {
+-        return kernels;
+-    }
+-
+-    /**
+-     *
+-     * @param kernels
+-     * The kernels
+-     */
+-    public void setKernels(Integer kernels) {
+-        this.kernels = kernels;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The versionname
+-     */
+-    public String getVersionname() {
+-        return versionname;
+-    }
+-
+-    /**
+-     *
+-     * @param versionname
+-     * The versionname
+-     */
+-    public void setVersionname(String versionname) {
+-        this.versionname = versionname;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The version
+-     */
+-    public String getVersion() {
+-        return version;
+-    }
+-
+-    /**
+-     *
+-     * @param version
+-     * The version
+-     */
+-    public void setVersion(String version) {
+-        this.version = version;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The kernel
+-     */
+-    public String getKernel() {
+-        return kernel;
+-    }
+-
+-    /**
+-     *
+-     * @param kernel
+-     * The kernel
+-     */
+-    public void setKernel(String kernel) {
+-        this.kernel = kernel;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The arch
+-     */
+-    public String getArch() {
+-        return arch;
+-    }
+-
+-    /**
+-     *
+-     * @param arch
+-     * The arch
+-     */
+-    public void setArch(String arch) {
+-        this.arch = arch;
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return ToStringBuilder.reflectionToString(this);
+-    }
+-
+-    @Override
+-    public int hashCode() {
+-        return new HashCodeBuilder().append(enable).append(testing).append(vbox).append(plex).append(greyhole).append(vdr).append(miller).append(millertesting)
+-                .append(btsync).append(vpn).append(zfs).append(zfstesting).append(gluster).append(mono).append(monotesting).append(docker).append(dockertesting)
+-                .append(hwraid).append(beta).append(developer).append(kernels).append(versionname).append(version).append(kernel).append(arch).toHashCode();
+-    }
+-
+-    @Override
+-    public boolean equals(Object other) {
+-        if (other == this) {
+-            return true;
+-        }
+-        if ((other instanceof CurentKernel) == false) {
+-            return false;
+-        }
+-        CurentKernel rhs = ((CurentKernel) other);
+-        return new EqualsBuilder().append(enable, rhs.enable).append(testing, rhs.testing).append(vbox, rhs.vbox).append(plex, rhs.plex).append(greyhole, rhs.greyhole)
+-                .append(vdr, rhs.vdr).append(miller, rhs.miller).append(millertesting, rhs.millertesting).append(btsync, rhs.btsync).append(vpn, rhs.vpn).append(zfs, rhs.zfs)
+-                .append(zfstesting, rhs.zfstesting).append(gluster, rhs.gluster).append(mono, rhs.mono).append(monotesting, rhs.monotesting).append(docker, rhs.docker).append(dockertesting, rhs.dockertesting)
+-                .append(hwraid, rhs.hwraid).append(beta, rhs.beta).append(developer, rhs.developer).append(kernels, rhs.kernels).append(versionname, rhs.versionname).append(version, rhs.version)
+-                .append(kernel, rhs.kernel).append(arch, rhs.arch).isEquals();
+-    }
+-
+-}
+diff --git a/android-master/src/main/java/Models/CustomRepo.java b/android-master/src/main/java/Models/CustomRepo.java
+deleted file mode 100644
+index c38d795..0000000
+--- a/android-master/src/main/java/Models/CustomRepo.java
++++ /dev/null
+@@ -1,146 +0,0 @@
+-package Models;
+-
+-import com.google.gson.annotations.Expose;
+-import com.google.gson.annotations.SerializedName;
+-
+-import org.apache.commons.lang3.builder.EqualsBuilder;
+-import org.apache.commons.lang3.builder.HashCodeBuilder;
+-import org.apache.commons.lang3.builder.ToStringBuilder;
+-
+-import java.io.Serializable;
+-
+-/**
+- * Created by thiba on 10/11/2016.
+- */
+-
+-public class CustomRepo implements Serializable {
+-
+-    @SerializedName("uuid")
+-    @Expose
+-    private String uuid;
+-    @SerializedName("name")
+-    @Expose
+-    private String name;
+-    @SerializedName("repo")
+-    @Expose
+-    private String repo;
+-    @SerializedName("key")
+-    @Expose
+-    private String key;
+-    @SerializedName("comment")
+-    @Expose
+-    private String comment;
+-
+-    /**
+-     *
+-     * @return
+-     * The uuid
+-     */
+-    public String getUuid() {
+-        return uuid;
+-    }
+-
+-    /**
+-     *
+-     * @param uuid
+-     * The uuid
+-     */
+-    public void setUuid(String uuid) {
+-        this.uuid = uuid;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The name
+-     */
+-    public String getName() {
+-        return name;
+-    }
+-
+-    /**
+-     *
+-     * @param name
+-     * The name
+-     */
+-    public void setName(String name) {
+-        this.name = name;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The repo
+-     */
+-    public String getRepo() {
+-        return repo;
+-    }
+-
+-    /**
+-     *
+-     * @param repo
+-     * The repo
+-     */
+-    public void setRepo(String repo) {
+-        this.repo = repo;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The key
+-     */
+-    public String getKey() {
+-        return key;
+-    }
+-
+-    /**
+-     *
+-     * @param key
+-     * The key
+-     */
+-    public void setKey(String key) {
+-        this.key = key;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The comment
+-     */
+-    public String getComment() {
+-        return comment;
+-    }
+-
+-    /**
+-     *
+-     * @param comment
+-     * The comment
+-     */
+-    public void setComment(String comment) {
+-        this.comment = comment;
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return this.name;
+-    }
+-
+-    @Override
+-    public int hashCode() {
+-        return new HashCodeBuilder().append(uuid).append(name).append(repo).append(key).append(comment).toHashCode();
+-    }
+-
+-    @Override
+-    public boolean equals(Object other) {
+-        if (other == this) {
+-            return true;
+-        }
+-        if ((other instanceof CustomRepo) == false) {
+-            return false;
+-        }
+-        CustomRepo rhs = ((CustomRepo) other);
+-        return new EqualsBuilder().append(uuid, rhs.uuid).append(name, rhs.name).append(repo, rhs.repo).append(key, rhs.key).append(comment, rhs.comment).isEquals();
+-    }
+-
+-}
+diff --git a/android-master/src/main/java/Models/KernelItem.java b/android-master/src/main/java/Models/KernelItem.java
+deleted file mode 100644
+index f7f96be..0000000
+--- a/android-master/src/main/java/Models/KernelItem.java
++++ /dev/null
+@@ -1,62 +0,0 @@
+-package Models;
+-
+-import com.google.gson.annotations.Expose;
+-import com.google.gson.annotations.SerializedName;
+-
+-/**
+- * Created by thiba on 09/11/2016.
+- */
+-
+-public class KernelItem {
+-
+-    @SerializedName("key")
+-    @Expose
+-    private Integer key;
+-    @SerializedName("name")
+-    @Expose
+-    private String name;
+-
+-    /**
+-     *
+-     * @return
+-     * The key
+-     */
+-    public Integer getKey() {
+-        return key;
+-    }
+-
+-    /**
+-     *
+-     * @param key
+-     * The key
+-     */
+-    public void setKey(Integer key) {
+-        this.key = key;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The name
+-     */
+-    public String getName() {
+-        return name;
+-    }
+-
+-    /**
+-     *
+-     * @param name
+-     * The name
+-     */
+-    public void setName(String name) {
+-        this.name = name;
+-    }
+-
+-
+-    @Override
+-    public String toString()
+-    {
+-
+-        return name;
+-    }
+-}
+diff --git a/android-master/src/main/java/Models/Repo.java b/android-master/src/main/java/Models/Repo.java
+deleted file mode 100644
+index 769bbd2..0000000
+--- a/android-master/src/main/java/Models/Repo.java
++++ /dev/null
+@@ -1,138 +0,0 @@
+-package Models;
+-
+-import com.google.gson.annotations.Expose;
+-import com.google.gson.annotations.SerializedName;
+-
+-/**
+- * Created by thiba on 14/09/2016.
+- */
+-public class Repo {
+-
+-    @SerializedName("id")
+-    @Expose
+-    private String id;
+-    @SerializedName("type")
+-    @Expose
+-    private String type;
+-    @SerializedName("enable")
+-    @Expose
+-    private String enable;
+-    @SerializedName("repo")
+-    @Expose
+-    private String repo;
+-    @SerializedName("description")
+-    @Expose
+-    private String description;
+-
+-    /**
+-     *
+-     * @return
+-     * The id
+-     */
+-    public String getId() {
+-        return id;
+-    }
+-
+-    /**
+-     *
+-     * @param id
+-     * The id
+-     */
+-    public void setId(String id) {
+-        this.id = id;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The type
+-     */
+-    public String getType() {
+-        return type;
+-    }
+-
+-    /**
+-     *
+-     * @param type
+-     * The type
+-     */
+-    public void setType(String type) {
+-        this.type = type;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The enable
+-     */
+-    public String getEnable() {
+-        return enable;
+-    }
+-
+-    /**
+-     *
+-     * @param enable
+-     * The enable
+-     */
+-    public void setEnable(String enable) {
+-        this.enable = enable;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The repo
+-     */
+-    public String getRepo() {
+-        return repo;
+-    }
+-
+-    /**
+-     *
+-     * @param repo
+-     * The repo
+-     */
+-    public void setRepo(String repo) {
+-        this.repo = repo;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The description
+-     */
+-    public String getDescription() {
+-        return description;
+-    }
+-
+-    /**
+-     *
+-     * @param description
+-     * The description
+-     */
+-    public void setDescription(String description) {
+-        this.description = description;
+-    }
+-
+-    public Repo(){}
+-
+-    public Repo(int type,String name)
+-    {
+-        this.typeAffichage = type;
+-        this.repo = name;
+-
+-    }
+-
+-
+-    public static final int ITEM = 0;
+-    public static final int SECTION = 1;
+-    public int typeAffichage = ITEM;
+-
+-    public boolean isSelected() {
+-        return enable.equals("1");
+-    }
+-
+-    public void setSelected(boolean isSelected) {
+-        enable = isSelected?"1":"0";
+-    }
+-}
+diff --git a/android-master/src/main/java/Models/RepoV3.java b/android-master/src/main/java/Models/RepoV3.java
+deleted file mode 100644
+index 96e0ce3..0000000
+--- a/android-master/src/main/java/Models/RepoV3.java
++++ /dev/null
+@@ -1,461 +0,0 @@
+-package Models;
+-
+-import com.google.gson.annotations.Expose;
+-import com.google.gson.annotations.SerializedName;
+-
+-import org.apache.commons.lang3.builder.EqualsBuilder;
+-import org.apache.commons.lang3.builder.HashCodeBuilder;
+-import org.apache.commons.lang3.builder.ToStringBuilder;
+-
+-import java.io.Serializable;
+-
+-/**
+- * Created by thiba on 11/12/2016.
+- */
+-
+-public class RepoV3 implements Serializable {
+-    @SerializedName("uuid")
+-    @Expose
+-    private String uuid;
+-    @SerializedName("enable")
+-    @Expose
+-    private Boolean enable;
+-    @SerializedName("name")
+-    @Expose
+-    private String name;
+-    @SerializedName("repo1")
+-    @Expose
+-    private String repo1;
+-    @SerializedName("key1")
+-    @Expose
+-    private String key1;
+-    @SerializedName("package1")
+-    @Expose
+-    private String package1;
+-    @SerializedName("pin1")
+-    @Expose
+-    private String pin1;
+-    @SerializedName("priority1")
+-    @Expose
+-    private String priority1;
+-    @SerializedName("repo2")
+-    @Expose
+-    private String repo2;
+-    @SerializedName("key2")
+-    @Expose
+-    private String key2;
+-    @SerializedName("package2")
+-    @Expose
+-    private String package2;
+-    @SerializedName("pin2")
+-    @Expose
+-    private String pin2;
+-    @SerializedName("priority2")
+-    @Expose
+-    private String priority2;
+-    @SerializedName("repo3")
+-    @Expose
+-    private String repo3;
+-    @SerializedName("key3")
+-    @Expose
+-    private String key3;
+-    @SerializedName("package3")
+-    @Expose
+-    private String package3;
+-    @SerializedName("pin3")
+-    @Expose
+-    private String pin3;
+-    @SerializedName("priority3")
+-    @Expose
+-    private String priority3;
+-    @SerializedName("comment")
+-    @Expose
+-    private String comment;
+-    @SerializedName("permanent")
+-    @Expose
+-    private Boolean permanent;
+-
+-    /**
+-     *
+-     * @return
+-     * The uuid
+-     */
+-    public String getUuid() {
+-        return uuid;
+-    }
+-
+-    /**
+-     *
+-     * @param uuid
+-     * The uuid
+-     */
+-    public void setUuid(String uuid) {
+-        this.uuid = uuid;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The enable
+-     */
+-    public Boolean getEnable() {
+-        return enable;
+-    }
+-
+-    /**
+-     *
+-     * @param enable
+-     * The enable
+-     */
+-    public void setEnable(Boolean enable) {
+-        this.enable = enable;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The name
+-     */
+-    public String getName() {
+-        return name;
+-    }
+-
+-    /**
+-     *
+-     * @param name
+-     * The name
+-     */
+-    public void setName(String name) {
+-        this.name = name;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The repo1
+-     */
+-    public String getRepo1() {
+-        return repo1;
+-    }
+-
+-    /**
+-     *
+-     * @param repo1
+-     * The repo1
+-     */
+-    public void setRepo1(String repo1) {
+-        this.repo1 = repo1;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The key1
+-     */
+-    public String getKey1() {
+-        return key1;
+-    }
+-
+-    /**
+-     *
+-     * @param key1
+-     * The key1
+-     */
+-    public void setKey1(String key1) {
+-        this.key1 = key1;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The package1
+-     */
+-    public String getPackage1() {
+-        return package1;
+-    }
+-
+-    /**
+-     *
+-     * @param package1
+-     * The package1
+-     */
+-    public void setPackage1(String package1) {
+-        this.package1 = package1;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The pin1
+-     */
+-    public String getPin1() {
+-        return pin1;
+-    }
+-
+-    /**
+-     *
+-     * @param pin1
+-     * The pin1
+-     */
+-    public void setPin1(String pin1) {
+-        this.pin1 = pin1;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The priority1
+-     */
+-    public String getPriority1() {
+-        return priority1;
+-    }
+-
+-    /**
+-     *
+-     * @param priority1
+-     * The priority1
+-     */
+-    public void setPriority1(String priority1) {
+-        this.priority1 = priority1;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The repo2
+-     */
+-    public String getRepo2() {
+-        return repo2;
+-    }
+-
+-    /**
+-     *
+-     * @param repo2
+-     * The repo2
+-     */
+-    public void setRepo2(String repo2) {
+-        this.repo2 = repo2;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The key2
+-     */
+-    public String getKey2() {
+-        return key2;
+-    }
+-
+-    /**
+-     *
+-     * @param key2
+-     * The key2
+-     */
+-    public void setKey2(String key2) {
+-        this.key2 = key2;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The package2
+-     */
+-    public String getPackage2() {
+-        return package2;
+-    }
+-
+-    /**
+-     *
+-     * @param package2
+-     * The package2
+-     */
+-    public void setPackage2(String package2) {
+-        this.package2 = package2;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The pin2
+-     */
+-    public String getPin2() {
+-        return pin2;
+-    }
+-
+-    /**
+-     *
+-     * @param pin2
+-     * The pin2
+-     */
+-    public void setPin2(String pin2) {
+-        this.pin2 = pin2;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The priority2
+-     */
+-    public String getPriority2() {
+-        return priority2;
+-    }
+-
+-    /**
+-     *
+-     * @param priority2
+-     * The priority2
+-     */
+-    public void setPriority2(String priority2) {
+-        this.priority2 = priority2;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The repo3
+-     */
+-    public String getRepo3() {
+-        return repo3;
+-    }
+-
+-    /**
+-     *
+-     * @param repo3
+-     * The repo3
+-     */
+-    public void setRepo3(String repo3) {
+-        this.repo3 = repo3;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The key3
+-     */
+-    public String getKey3() {
+-        return key3;
+-    }
+-
+-    /**
+-     *
+-     * @param key3
+-     * The key3
+-     */
+-    public void setKey3(String key3) {
+-        this.key3 = key3;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The package3
+-     */
+-    public String getPackage3() {
+-        return package3;
+-    }
+-
+-    /**
+-     *
+-     * @param package3
+-     * The package3
+-     */
+-    public void setPackage3(String package3) {
+-        this.package3 = package3;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The pin3
+-     */
+-    public String getPin3() {
+-        return pin3;
+-    }
+-
+-    /**
+-     *
+-     * @param pin3
+-     * The pin3
+-     */
+-    public void setPin3(String pin3) {
+-        this.pin3 = pin3;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The priority3
+-     */
+-    public String getPriority3() {
+-        return priority3;
+-    }
+-
+-    /**
+-     *
+-     * @param priority3
+-     * The priority3
+-     */
+-    public void setPriority3(String priority3) {
+-        this.priority3 = priority3;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The comment
+-     */
+-    public String getComment() {
+-        return comment;
+-    }
+-
+-    /**
+-     *
+-     * @param comment
+-     * The comment
+-     */
+-    public void setComment(String comment) {
+-        this.comment = comment;
+-    }
+-
+-    /**
+-     *
+-     * @return
+-     * The permanent
+-     */
+-    public Boolean getPermanent() {
+-        return permanent;
+-    }
+-
+-    /**
+-     *
+-     * @param permanent
+-     * The permanent
+-     */
+-    public void setPermanent(Boolean permanent) {
+-        this.permanent = permanent;
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return ToStringBuilder.reflectionToString(this);
+-    }
+-
+-    @Override
+-    public int hashCode() {
+-        return new HashCodeBuilder().append(uuid).append(enable).append(name).append(repo1).append(key1).append(package1).append(pin1).append(priority1).append(repo2).append(key2).append(package2).append(pin2).append(priority2).append(repo3).append(key3).append(package3).append(pin3).append(priority3).append(comment).append(permanent).toHashCode();
+-    }
+-
+-    @Override
+-    public boolean equals(Object other) {
+-        if (other == this) {
+-            return true;
+-        }
+-        if ((other instanceof Datum) == false) {
+-            return false;
+-        }
+-        RepoV3 rhs = ((RepoV3) other);
+-        return new EqualsBuilder().append(uuid, rhs.uuid).append(enable, rhs.enable).append(name, rhs.name).append(repo1, rhs.repo1).append(key1, rhs.key1).append(package1, rhs.package1).append(pin1, rhs.pin1).append(priority1, rhs.priority1).append(repo2, rhs.repo2).append(key2, rhs.key2).append(package2, rhs.package2).append(pin2, rhs.pin2).append(priority2, rhs.priority2).append(repo3, rhs.repo3).append(key3, rhs.key3).append(package3, rhs.package3).append(pin3, rhs.pin3).append(priority3, rhs.priority3).append(comment, rhs.comment).append(permanent, rhs.permanent).isEquals();
+-    }
+-
+-
+-}
+diff --git a/android-master/src/main/java/OMVFragment/CustomReposFragment.java b/android-master/src/main/java/OMVFragment/CustomReposFragment.java
+deleted file mode 100644
+index 648cb9f..0000000
+--- a/android-master/src/main/java/OMVFragment/CustomReposFragment.java
++++ /dev/null
+@@ -1,269 +0,0 @@
+-package OMVFragment;
+-
+-import android.content.Context;
+-import android.os.Bundle;
+-import android.os.Handler;
+-import android.support.annotation.CallSuper;
+-import android.support.design.widget.Snackbar;
+-import android.support.v4.app.DialogFragment;
+-import android.support.v4.app.Fragment;
+-import android.support.v7.app.AppCompatActivity;
+-import android.support.v7.view.ActionMode;
+-import android.view.LayoutInflater;
+-import android.view.Menu;
+-import android.view.MenuItem;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.AdapterView;
+-import android.widget.ArrayAdapter;
+-import android.widget.ListView;
+-
+-import com.owncloud.android.R;
+-import com.google.gson.reflect.TypeToken;
+-
+-import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import Client.Call;
+-import Client.Callback;
+-import Client.Response;
+-import Controllers.omvExtrasController;
+-import Interfaces.NoticeDialogListener;
+-import Interfaces.OnFragmentInteractionListener;
+-import Models.CustomRepo;
+-import Models.Errors;
+-import Models.Result;
+-import OMV.Base.FragmentInteractionBase;
+-import OMVFragment.Dialogs.AddEditeCustomRepoDialogFragment;
+-
+-/**
+- * A simple {@link Fragment} subclass.
+- * Activities that contain this fragment must implement the
+- * {@link OnFragmentInteractionListener} interface
+- * to handle interaction events.
+- */
+-public class CustomReposFragment extends FragmentInteractionBase implements NoticeDialogListener {
+-
+-
+-    private List<CustomRepo> mLst = new ArrayList<CustomRepo>();
+-    private ArrayAdapter<CustomRepo> mAdapter;
+-    private CustomRepo mRepo;
+-    private ListView mCustomRepo;
+-    private Handler handler = new Handler();
+-
+-    private omvExtrasController mController ;
+-    public CustomReposFragment() {
+-        // Required empty public constructor
+-        HaveUpdateMethode = true;
+-    }
+-
+-    @Override
+-    public void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        if (getArguments() != null) {
+-
+-        }
+-    }
+-
+-    @Override
+-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+-                             Bundle savedInstanceState) {
+-        // Inflate the layout for this fragment
+-        View rootView = inflater.inflate(R.layout.fragment_custom_repos, container, false);
+-
+-        mCustomRepo = (ListView) rootView.findViewById(R.id.Listview_custom_repo);
+-
+-
+-        mAdapter = new ArrayAdapter<CustomRepo>(getActivity(),
+-                android.R.layout.simple_list_item_1, mLst);
+-        mCustomRepo.setAdapter(mAdapter);
+-
+-
+-        mCustomRepo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+-            @Override
+-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+-
+-                mRepo = mLst.get(i);
+-                //Bundle bundle = new Bundle();
+-                //bundle.putSerializable("host", mHost);
+-                //Intent intent = new Intent(HostManagerActivity.this, LoginActivity.class);
+-                //intent.putExtras(bundle);
+-                //startActivity(intent);
+-                view.setSelected(true);
+-
+-                ( (AppCompatActivity) getActivity()).startSupportActionMode(modeCallBack);
+-
+-                //startActionMode(modeCallBack);
+-
+-            }
+-        });
+-
+-
+-        return rootView;
+-    }
+-
+-
+-    @Override
+-    public int GetIconActionId()
+-    {
+-        return R.drawable.ic_add_box_black_24dp;
+-    }
+-
+-
+-
+-    @CallSuper
+-    public void onResume() {
+-        super.onResume();
+-
+-        getCustomlist();
+-    }
+-
+-
+-    private  void getCustomlist()
+-    {
+-        mController.getCustomList(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-
+-                final Result<CustomRepo> res = response.GetResultObject(new TypeToken<Result<CustomRepo>>(){});
+-                handler.post(new Runnable(){
+-                    public void run() {
+-                        populateLstView(res.getData());
+-                    }
+-                });
+-
+-            }
+-        });
+-    }
+-
+-
+-    private void populateLstView(List<CustomRepo> lst)
+-    {
+-        mLst.clear();
+-        mLst.addAll(lst);
+-        mAdapter.notifyDataSetChanged();
+-
+-    }
+-
+-    @Override
+-    public void onAttach(Context context) {
+-        super.onAttach(context);
+-        mController = new omvExtrasController(getActivity());
+-    }
+-
+-    @Override
+-    public void Update()
+-    {
+-        mDialog = new AddEditeCustomRepoDialogFragment();
+-        mDialog.setListener(this);
+-        mDialog.show(getActivity().getSupportFragmentManager(), "AddEditeCustomRepoDialogFragment");
+-
+-    }
+-
+-
+-    private AddEditeCustomRepoDialogFragment mDialog;
+-    public void ShowCustomRepoDialog()
+-    {
+-        Bundle bundle = new Bundle();
+-
+-
+-
+-        bundle.putSerializable("CustomRepo", mRepo);
+-        // Create an instance of the dialog fragment and show it
+-        mDialog = new AddEditeCustomRepoDialogFragment();
+-        mDialog.setArguments(bundle);
+-        mDialog.setListener(this);
+-        mDialog.show(getActivity().getSupportFragmentManager(), "AddEditeCustomRepoDialogFragment");
+-
+-    }
+-
+-    private void SelectCutomRepo()
+-    {
+-        Snackbar.make(mCustomRepo, "not implemented", Snackbar.LENGTH_LONG)
+-                .setAction("Action", null).show();
+-
+-    }
+-
+-    private void EditeCustomRepo()
+-    {
+-        ShowCustomRepoDialog();
+-    }
+-    private void DeleteCustomRepo()
+-    {
+-
+-
+-
+-
+-        mController.deleteCustom(mRepo.getUuid(),null);
+-
+-        mLst.remove(mRepo);
+-        mAdapter.notifyDataSetChanged();
+-
+-    }
+-    private ActionMode.Callback modeCallBack = new ActionMode.Callback() {
+-
+-        public boolean onPrepareActionMode(ActionMode mode, Menu menu){
+-            return false;
+-        }
+-
+-        public void onDestroyActionMode(ActionMode mode) {
+-            mode = null;
+-        }
+-
+-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+-            mode.setTitle(mRepo.getName());
+-            mode.getMenuInflater().inflate(R.menu.row_host_menu, menu);
+-            return true;
+-        }
+-
+-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+-            int id = item.getItemId();
+-
+-            if(item.getItemId() ==R.id.action_delete)
+-            {
+-                DeleteCustomRepo();
+-                mode.finish();
+-                return true;
+-            }
+-            else if(item.getItemId() ==R.id.action_select)
+-            {
+-                SelectCutomRepo();
+-                mode.finish();
+-                return true;
+-            }
+-            else if(item.getItemId() ==R.id.action_edite)
+-            {
+-
+-                EditeCustomRepo();
+-                mode.finish();
+-                return true;
+-            }
+-            else
+-            {
+-                return false;
+-            }
+-
+-        }
+-    };
+-
+-    @Override
+-    public void onDialogPositiveClick(DialogFragment dialog) {
+-        getCustomlist();
+-    }
+-
+-    @Override
+-    public void onDialogNegativeClick(DialogFragment dialog) {
+-
+-    }
+-}
+diff --git a/android-master/src/main/java/OMVFragment/Dialogs/AddEditeCustomRepoDialogFragment.java b/android-master/src/main/java/OMVFragment/Dialogs/AddEditeCustomRepoDialogFragment.java
+deleted file mode 100644
+index 341782b..0000000
+--- a/android-master/src/main/java/OMVFragment/Dialogs/AddEditeCustomRepoDialogFragment.java
++++ /dev/null
+@@ -1,203 +0,0 @@
+-package OMVFragment.Dialogs;
+-
+-import android.app.Dialog;
+-import android.content.DialogInterface;
+-import android.os.Bundle;
+-import android.support.design.widget.Snackbar;
+-import android.support.v4.app.DialogFragment;
+-import android.support.v7.app.AlertDialog;
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.widget.Button;
+-import android.widget.EditText;
+-
+-import com.owncloud.android.R;
+-
+-import org.apache.commons.lang3.StringUtils;
+-
+-import java.io.IOException;
+-
+-import Client.Call;
+-import Client.Callback;
+-import Client.Response;
+-import Controllers.omvExtrasController;
+-
+-import Interfaces.NoticeDialogListener;
+-import Models.CustomRepo;
+-import Models.Errors;
+-
+-/**
+- * Created by thiba on 13/11/2016.
+- */
+-
+-public class AddEditeCustomRepoDialogFragment extends DialogFragment {
+-
+-    private NoticeDialogListener mListener;
+-    private omvExtrasController mController = new omvExtrasController(getActivity());
+-    EditText mCustomRepoName;
+-    EditText mCustomRepoRepo;
+-    EditText mCustomRepoKey;
+-    EditText mCustomRepoComment;
+-
+-    private CustomRepo mCustomrepo;
+-
+-
+-    public void setListener(NoticeDialogListener listener)
+-    {
+-        try {
+-            // Instantiate the NoticeDialogListener so we can send events to the host
+-            mListener = (NoticeDialogListener) listener;
+-        } catch (ClassCastException e) {
+-            // The activity doesn't implement the interface, throw exception
+-            throw new ClassCastException(listener.toString()
+-                    + " must implement NoticeDialogListener");
+-        }
+-    }
+-
+-    @Override
+-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+-        // Get the layout inflater
+-        LayoutInflater inflater = getActivity().getLayoutInflater();
+-
+-        Bundle bundle = getArguments();
+-
+-        if(bundle != null && bundle.containsKey("CustomRepo"))
+-            mCustomrepo = (CustomRepo) bundle.getSerializable("CustomRepo");
+-        else
+-            mCustomrepo = new CustomRepo();
+-        final View mView = inflater.inflate(R.layout.dialog_add_edite_custom_repo, null);
+-
+-        // Inflate and set the layout for the dialog
+-        // Pass null as the parent view because its going in the dialog layout
+-        builder.setView(mView)
+-                // Add action buttons
+-                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+-                    @Override
+-                    public void onClick(DialogInterface dialog, int id) {
+-                        //EditText et = (EditText)mView.findViewById(R.id.filterOnName);
+-
+-                        // Send the positive button event back to the host activity
+-                        mListener.onDialogPositiveClick(AddEditeCustomRepoDialogFragment.this);
+-                    }
+-                })
+-                .setNegativeButton("Cansel", new DialogInterface.OnClickListener() {
+-                    public void onClick(DialogInterface dialog, int id) {
+-                        // Send the negative button event back to the host activity
+-                        mListener.onDialogNegativeClick(AddEditeCustomRepoDialogFragment.this);
+-                    }
+-                });
+-
+-
+-        mCustomRepoName = (EditText) mView.findViewById(R.id.customRepoName);
+-        mCustomRepoRepo = (EditText) mView.findViewById(R.id.customRepoRepo);
+-        mCustomRepoKey = (EditText) mView.findViewById(R.id.customRepoKey);
+-        mCustomRepoComment = (EditText) mView.findViewById(R.id.customRepoComment);
+-        PopulateViews();
+-        return builder.create();
+-    }
+-
+-
+-    private void PopulateViews()
+-    {
+-
+-        mCustomRepoName.setText(mCustomrepo.getName());
+-        mCustomRepoRepo.setText(mCustomrepo.getRepo());
+-        mCustomRepoKey.setText(mCustomrepo.getKey());
+-        mCustomRepoComment.setText(mCustomrepo.getComment());
+-    }
+-
+-    private void PopulateCustomRepo()
+-    {
+-
+-        mCustomrepo.setName(mCustomRepoName.getText().toString());
+-        mCustomrepo.setRepo(mCustomRepoRepo.getText().toString());
+-        mCustomrepo.setKey(mCustomRepoKey.getText().toString());
+-        mCustomrepo.setComment(mCustomRepoComment.getText().toString());
+-
+-    }
+-
+-
+-    private boolean Validate()
+-    {
+-        boolean mReturn = true;
+-        String str = mCustomRepoName.getText().toString();
+-        if(StringUtils.isEmpty(str))
+-        {
+-            mCustomRepoName.setError(getString(R.string.error_field_required));
+-            mReturn = false;
+-        }
+-        else
+-            mCustomRepoName.setError(null);
+-
+-        str = mCustomRepoRepo.getText().toString();
+-        if(StringUtils.isEmpty(str))
+-        {
+-            mCustomRepoRepo.setError(getString(R.string.error_field_required));
+-            mReturn = false;
+-        }
+-        else
+-            mCustomRepoRepo.setError(null);
+-
+-        str = mCustomRepoComment.getText().toString();
+-        if(StringUtils.isEmpty(str))
+-        {
+-            mCustomRepoComment.setError(getString(R.string.error_field_required));
+-            mReturn = false;
+-        }
+-        else
+-            mCustomRepoComment.setError(null);
+-        return mReturn;
+-    }
+-
+-    @Override
+-    public void onStart()
+-    {
+-        super.onStart();    //super.onStart() is where dialog.show() is actually called on the underlying dialog, so we have to do it after this point
+-        AlertDialog d = (AlertDialog)getDialog();
+-        if(d != null)
+-        {
+-            Button positiveButton = (Button) d.getButton(Dialog.BUTTON_POSITIVE);
+-            positiveButton.setOnClickListener(new View.OnClickListener()
+-            {
+-                @Override
+-                public void onClick(View v)
+-                {
+-
+-
+-
+-                    if(!Validate()) return;
+-                    PopulateCustomRepo();
+-
+-                    mController.setCustom(mCustomrepo, new Callback() {
+-                        @Override
+-                        public void onFailure(Call call, Exception e) {
+-
+-                        }
+-
+-                        @Override
+-                        public void OnOMVServeurError(Call call, Errors error) {
+-                            Snackbar.make(mCustomRepoName, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                    .setAction("Action", null).show();
+-                        }
+-
+-                        @Override
+-                        public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-
+-                            // Send the positive button event back to the host activity
+-                            mListener.onDialogPositiveClick(AddEditeCustomRepoDialogFragment.this);
+-
+-                            //Do stuff, possibly set wantToCloseDialog to true then...
+-
+-                            dismiss();
+-                            //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
+-                        }
+-                    });
+-
+-
+-
+-                }
+-            });
+-        }
+-    }
+-}
+diff --git a/android-master/src/main/java/OMVFragment/OMVExtraKernelFragment.java b/android-master/src/main/java/OMVFragment/OMVExtraKernelFragment.java
+deleted file mode 100644
+index d8afeff..0000000
+--- a/android-master/src/main/java/OMVFragment/OMVExtraKernelFragment.java
++++ /dev/null
+@@ -1,301 +0,0 @@
+-package OMVFragment;
+-
+-import android.content.Context;
+-import android.os.Bundle;
+-import android.os.Handler;
+-import android.support.annotation.CallSuper;
+-import android.support.design.widget.Snackbar;
+-import android.support.v4.app.Fragment;
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.ArrayAdapter;
+-import android.widget.Button;
+-import android.widget.Spinner;
+-import android.widget.TextView;
+-
+-import com.owncloud.android.R;
+-import com.github.clans.fab.FloatingActionButton;
+-import com.github.clans.fab.FloatingActionMenu;
+-import com.google.gson.reflect.TypeToken;
+-import com.innahema.collections.query.functions.Predicate;
+-import com.innahema.collections.query.queriables.Queryable;
+-
+-import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import Client.Call;
+-import Client.Callback;
+-import Client.Response;
+-import Controllers.omvExtrasController;
+-import Interfaces.OnFragmentInteractionListener;
+-import Models.CurentKernel;
+-import Models.Errors;
+-import Models.KernelItem;
+-import Models.Result;
+-import OMV.Base.FragmentInteractionBase;
+-import OMVFragment.Dialogs.OutputDialogFragment;
+-
+-/**
+- * A simple {@link Fragment} subclass.
+- * Activities that contain this fragment must implement the
+- * {@link OnFragmentInteractionListener} interface
+- * to handle interaction events.
+- */
+-public class OMVExtraKernelFragment extends FragmentInteractionBase {
+-
+-
+-    private TextView mKernelVersionView ;
+-    private TextView mKernelArchitectureView ;
+-    private TextView mKernelDeveloperView ;
+-    private TextView mKernelDistributionView ;
+-    private TextView mKernelNameView ;
+-    private Spinner mSpinnerKernelsView ;
+-    private Button mSaveDefautKernel;
+-
+-    FloatingActionMenu mFloatingActionMenu;
+-    FloatingActionButton fab_Backports_kernel;
+-    FloatingActionButton fab_Headers_kernel;
+-
+-    //private OutputController mOutputController = new OutputController(getActivity());
+-    private CurentKernel mCurentKernel;
+-    private List<KernelItem> mLstKernel;
+-    private Handler mHandler;
+-    private ArrayAdapter<KernelItem> mAdapterKernel;
+-
+-    private Handler handler;
+-
+-    private omvExtrasController mController ;
+-
+-    public OMVExtraKernelFragment() {
+-        // Required empty public constructor
+-        // HaveUpdateMethode = true;
+-    }
+-
+-
+-    @Override
+-    public void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        if (getArguments() != null) {
+-
+-        }
+-    }
+-
+-    @Override
+-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+-                             Bundle savedInstanceState) {
+-        // Inflate the layout for this fragment
+-        View rootView = inflater.inflate(R.layout.fragment_omvextra_kernel, container, false);
+-
+-        mController = new omvExtrasController(getActivity());
+-        mHandler= new Handler();
+-        mLstKernel = new ArrayList<KernelItem>();
+-
+-
+-        mKernelVersionView = (TextView)rootView.findViewById(R.id.KernelVersion);
+-        mKernelArchitectureView = (TextView)rootView.findViewById(R.id.KernelArchitecture);
+-        mKernelDeveloperView = (TextView)rootView.findViewById(R.id.KernelDeveloper);
+-        mKernelDistributionView = (TextView)rootView.findViewById(R.id.KernelDistribution);
+-        mKernelNameView = (TextView)rootView.findViewById(R.id.KernelName);
+-        mSpinnerKernelsView = (Spinner) rootView.findViewById(R.id.spinnerKernels);
+-
+-
+-        mAdapterKernel = new ArrayAdapter<KernelItem>(getActivity(),
+-                android.R.layout.simple_spinner_item, mLstKernel);
+-
+-
+-        mSpinnerKernelsView.setAdapter(mAdapterKernel);
+-
+-        fab_Backports_kernel = (FloatingActionButton)rootView.findViewById(R.id.fab_Backports_kernel);
+-
+-        fab_Backports_kernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-
+-                mFloatingActionMenu.close(true);
+-                //mFloatingActionMenu.hideMenu(true);
+-
+-                mController.installbackports(new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                        final String filename =  response.GetResultObject(new TypeToken<String>(){});
+-                        mHandler.post(new Runnable(){
+-                            public void run() {
+-                                //mOutputController.getOutput(filename);
+-                                CreateDialog(false,"Install backports",filename);
+-                            }
+-                        });
+-                    }
+-                });
+-
+-            }
+-        });
+-
+-
+-        mFloatingActionMenu =(FloatingActionMenu) rootView.findViewById(R.id.menu);
+-        fab_Headers_kernel = (FloatingActionButton)rootView.findViewById(R.id.fab_Headers_kernel);;
+-        fab_Headers_kernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                mFloatingActionMenu.close(true);
+-                mController.installheaders(new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                        final String filename =  response.GetResultObject(new TypeToken<String>(){});
+-                        mHandler.post(new Runnable(){
+-                            public void run() {
+-                                //mOutputController.getOutput(filename);
+-                                CreateDialog(false,"Install headers",filename);
+-                            }
+-                        });
+-                    }
+-                });
+-            }
+-        });
+-        return rootView;
+-    }
+-
+-    private OutputDialogFragment mOutputDialogFragment;
+-    private void CreateDialog(Boolean justWaitCursor,String title,String fimeName)
+-    {
+-
+-        Bundle bundle = new Bundle();
+-        bundle.putBoolean("justWaitCursor", justWaitCursor);
+-        bundle.putString("title", title);
+-        bundle.putString("fileName", fimeName);
+-
+-
+-        // Create an instance of the dialog fragment and show it
+-        mOutputDialogFragment = new OutputDialogFragment();
+-        //mOutputDialogFragment.AddListener(this);
+-        //mOutputDialogFragment.setListener(this);
+-        mOutputDialogFragment.setArguments(bundle);
+-        android.app.FragmentManager fm = getActivity().getFragmentManager();
+-        mOutputDialogFragment.show(fm, "OutputDialogFragment");
+-    }
+-
+-    @CallSuper
+-    public void onResume() {
+-        super.onResume();
+-
+-        getCurrentkernel();
+-        mController.getKernelList(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                final Result<KernelItem> res = response.GetResultObject(new TypeToken<Result<KernelItem>>(){});
+-                mHandler.post(new Runnable(){
+-                    public void run() {
+-                        populateSpinerKernel(res.getData());
+-                        showSelectedKernel();
+-                    }
+-                });
+-
+-            }
+-        });
+-
+-    }
+-
+-
+-    private void getCurrentkernel()
+-    {
+-        mController.getKernel(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-
+-                mCurentKernel  = response.GetResultObject(new TypeToken<CurentKernel>(){});
+-                mHandler.post(new Runnable(){
+-                    public void run() {
+-                        PopulateTexteViews();
+-                        showSelectedKernel();
+-                    }
+-                });
+-            }
+-        });
+-    }
+-
+-    private void PopulateTexteViews()
+-    {
+-        mKernelVersionView.setText(mCurentKernel.getVersion());
+-        mKernelArchitectureView.setText(mCurentKernel.getArch());
+-        mKernelDeveloperView.setText(mCurentKernel.getDeveloper());
+-        mKernelDistributionView.setText(mCurentKernel.getVersionname());
+-        mKernelNameView.setText(mCurentKernel.getKernel());
+-
+-    }
+-
+-    private void populateSpinerKernel( List<KernelItem> lst)
+-    {
+-        mLstKernel.clear();
+-        mLstKernel.addAll(lst);
+-        mAdapterKernel.notifyDataSetChanged();
+-
+-    }
+-
+-
+-    private void showSelectedKernel()
+-    {
+-
+-        if(mCurentKernel != null ) {
+-            KernelItem res = Queryable.from(mLstKernel).firstOrDefault(new Predicate<KernelItem>() {
+-                @Override
+-                public boolean apply(KernelItem element) {
+-                    return element.getKey() == mCurentKernel.getKernels();
+-                }
+-            });
+-            mSpinnerKernelsView.setSelection(mLstKernel.indexOf(res));
+-        }
+-    }
+-
+-    @Override
+-    public void onAttach(Context context) {
+-        super.onAttach(context);
+-        mController = new omvExtrasController(getActivity());
+-    }
+-
+-    @Override
+-    public void Update()
+-    {}
+-}
+diff --git a/android-master/src/main/java/OMVFragment/OMVExtraKernelV3Fragment.java b/android-master/src/main/java/OMVFragment/OMVExtraKernelV3Fragment.java
+deleted file mode 100644
+index c0bb03c..0000000
+--- a/android-master/src/main/java/OMVFragment/OMVExtraKernelV3Fragment.java
++++ /dev/null
+@@ -1,297 +0,0 @@
+-package OMVFragment;
+-
+-import android.content.Context;
+-import android.os.Bundle;
+-import android.os.Handler;
+-import android.support.annotation.CallSuper;
+-import android.support.design.widget.Snackbar;
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.ArrayAdapter;
+-import android.widget.Button;
+-import android.widget.Spinner;
+-import android.widget.TextView;
+-
+-import com.owncloud.android.R;
+-import com.github.clans.fab.FloatingActionButton;
+-import com.github.clans.fab.FloatingActionMenu;
+-import com.google.gson.reflect.TypeToken;
+-import com.innahema.collections.query.functions.Predicate;
+-import com.innahema.collections.query.queriables.Queryable;
+-
+-import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import Client.Call;
+-import Client.Callback;
+-import Client.Response;
+-import Controllers.omvExtrasController;
+-import Models.CurentKernel;
+-import Models.Errors;
+-import Models.KernelItem;
+-import Models.Result;
+-import OMV.Base.FragmentInteractionBase;
+-import OMVFragment.Dialogs.OutputDialogFragment;
+-
+-/**
+- * Created by thiba on 16/12/2016.
+- */
+-
+-public class OMVExtraKernelV3Fragment extends FragmentInteractionBase {
+-
+-
+-    private TextView mKernelVersionView ;
+-    private TextView mKernelArchitectureView ;
+-    private TextView mKernelDeveloperView ;
+-    private TextView mKernelDistributionView ;
+-    private TextView mKernelNameView ;
+-    private Spinner mSpinnerKernelsView ;
+-    private Button mSaveDefautKernel;
+-
+-    FloatingActionMenu mFloatingActionMenu;
+-    FloatingActionButton fab_Backports_kernel;
+-    FloatingActionButton fab_Headers_kernel;
+-
+-    //private OutputController mOutputController = new OutputController(getActivity());
+-    private CurentKernel mCurentKernel;
+-    private List<KernelItem> mLstKernel;
+-    private Handler mHandler;
+-    private ArrayAdapter<KernelItem> mAdapterKernel;
+-
+-    private Handler handler;
+-
+-    private omvExtrasController mController ;
+-
+-    public OMVExtraKernelV3Fragment() {
+-        // Required empty public constructor
+-        // HaveUpdateMethode = true;
+-    }
+-
+-
+-    @Override
+-    public void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        if (getArguments() != null) {
+-
+-        }
+-    }
+-
+-    @Override
+-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+-                             Bundle savedInstanceState) {
+-        // Inflate the layout for this fragment
+-        View rootView = inflater.inflate(R.layout.fragment_omvextra_kernel_v3, container, false);
+-
+-        mController = new omvExtrasController(getActivity());
+-        mHandler= new Handler();
+-        mLstKernel = new ArrayList<KernelItem>();
+-
+-
+-        mKernelVersionView = (TextView)rootView.findViewById(R.id.KernelVersion);
+-        mKernelArchitectureView = (TextView)rootView.findViewById(R.id.KernelArchitecture);
+-        mKernelDeveloperView = (TextView)rootView.findViewById(R.id.KernelDeveloper);
+-        mKernelDistributionView = (TextView)rootView.findViewById(R.id.KernelDistribution);
+-        mKernelNameView = (TextView)rootView.findViewById(R.id.KernelName);
+-        mSpinnerKernelsView = (Spinner) rootView.findViewById(R.id.spinnerKernels);
+-
+-
+-        mAdapterKernel = new ArrayAdapter<KernelItem>(getActivity(),
+-                android.R.layout.simple_spinner_item, mLstKernel);
+-
+-
+-        mSpinnerKernelsView.setAdapter(mAdapterKernel);
+-
+-        fab_Backports_kernel = (FloatingActionButton)rootView.findViewById(R.id.fab_Backports_kernel);
+-
+-        fab_Backports_kernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-
+-                mFloatingActionMenu.close(true);
+-                //mFloatingActionMenu.hideMenu(true);
+-
+-                mController.installbackports(new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                        final String filename =  response.GetResultObject(new TypeToken<String>(){});
+-                        mHandler.post(new Runnable(){
+-                            public void run() {
+-                                //mOutputController.getOutput(filename);
+-                                CreateDialog(false,"Install backports",filename);
+-                            }
+-                        });
+-                    }
+-                });
+-
+-            }
+-        });
+-
+-
+-        mFloatingActionMenu =(FloatingActionMenu) rootView.findViewById(R.id.menu);
+-        fab_Headers_kernel = (FloatingActionButton)rootView.findViewById(R.id.fab_Headers_kernel);;
+-        fab_Headers_kernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                mFloatingActionMenu.close(true);
+-                mController.installheaders(new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                        final String filename =  response.GetResultObject(new TypeToken<String>(){});
+-                        mHandler.post(new Runnable(){
+-                            public void run() {
+-                                //mOutputController.getOutput(filename);
+-                                CreateDialog(false,"Install headers",filename);
+-                            }
+-                        });
+-                    }
+-                });
+-            }
+-        });
+-        return rootView;
+-    }
+-
+-    private OutputDialogFragment mOutputDialogFragment;
+-    private void CreateDialog(Boolean justWaitCursor,String title,String fimeName)
+-    {
+-
+-        Bundle bundle = new Bundle();
+-        bundle.putBoolean("justWaitCursor", justWaitCursor);
+-        bundle.putString("title", title);
+-        bundle.putString("fileName", fimeName);
+-
+-
+-        // Create an instance of the dialog fragment and show it
+-        mOutputDialogFragment = new OutputDialogFragment();
+-        //mOutputDialogFragment.AddListener(this);
+-        //mOutputDialogFragment.setListener(this);
+-        mOutputDialogFragment.setArguments(bundle);
+-        android.app.FragmentManager fm = getActivity().getFragmentManager();
+-        mOutputDialogFragment.show(fm, "OutputDialogFragment");
+-    }
+-
+-    @CallSuper
+-    public void onResume() {
+-        super.onResume();
+-
+-        getCurrentkernel();
+-        mController.getKernelList(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                final Result<KernelItem> res = response.GetResultObject(new TypeToken<Result<KernelItem>>(){});
+-                mHandler.post(new Runnable(){
+-                    public void run() {
+-                        populateSpinerKernel(res.getData());
+-                        showSelectedKernel();
+-                    }
+-                });
+-
+-            }
+-        });
+-
+-    }
+-
+-
+-    private void getCurrentkernel()
+-    {
+-        mController.getKernel(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-
+-                mCurentKernel  = response.GetResultObject(new TypeToken<CurentKernel>(){});
+-                mHandler.post(new Runnable(){
+-                    public void run() {
+-                        PopulateTexteViews();
+-                        showSelectedKernel();
+-                    }
+-                });
+-            }
+-        });
+-    }
+-
+-    private void PopulateTexteViews()
+-    {
+-        mKernelVersionView.setText(mCurentKernel.getVersion());
+-        mKernelArchitectureView.setText(mCurentKernel.getArch());
+-        mKernelDeveloperView.setText(mCurentKernel.getDeveloper());
+-        mKernelDistributionView.setText(mCurentKernel.getVersionname());
+-        mKernelNameView.setText(mCurentKernel.getKernel());
+-
+-    }
+-
+-    private void populateSpinerKernel( List<KernelItem> lst)
+-    {
+-        mLstKernel.clear();
+-        mLstKernel.addAll(lst);
+-        mAdapterKernel.notifyDataSetChanged();
+-
+-    }
+-
+-
+-    private void showSelectedKernel()
+-    {
+-
+-        if(mCurentKernel != null ) {
+-            KernelItem res = Queryable.from(mLstKernel).firstOrDefault(new Predicate<KernelItem>() {
+-                @Override
+-                public boolean apply(KernelItem element) {
+-                    return element.getKey() == mCurentKernel.getKernels();
+-                }
+-            });
+-            mSpinnerKernelsView.setSelection(mLstKernel.indexOf(res));
+-        }
+-    }
+-
+-    @Override
+-    public void onAttach(Context context) {
+-        super.onAttach(context);
+-        mController = new omvExtrasController(getActivity());
+-    }
+-
+-    @Override
+-    public void Update()
+-    {}
+-}
+diff --git a/android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsActivity.java b/android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsActivity.java
+deleted file mode 100644
+index cc724ce..0000000
+--- a/android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsActivity.java
++++ /dev/null
+@@ -1,287 +0,0 @@
+-package com.dev.doods.omvremote2;
+-
+-import android.os.Handler;
+-import android.support.design.widget.Snackbar;
+-import android.support.v7.app.AppCompatActivity;
+-import android.os.Bundle;
+-import android.view.View;
+-import android.widget.ArrayAdapter;
+-import android.widget.Button;
+-import android.widget.Spinner;
+-import android.widget.TextView;
+-
+-import com.github.clans.fab.FloatingActionButton;
+-import com.github.clans.fab.FloatingActionMenu;
+-import com.google.gson.reflect.TypeToken;
+-import com.innahema.collections.query.functions.Predicate;
+-import com.innahema.collections.query.queriables.Queryable;
+-
+-import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import Client.Call;
+-import Client.Callback;
+-import Client.Response;
+-import Controllers.omvExtrasController;
+-import Models.CurentKernel;
+-import Models.Errors;
+-import Models.KernelItem;
+-import Models.Result;
+-import OMVFragment.Dialogs.OutputDialogFragment;
+-import com.owncloud.android.R;
+-
+-public class OMV_ExtraSettingsActivity extends AppCompatActivity {
+-
+-
+-    private TextView mKernelVersionView ;
+-    private TextView mKernelArchitectureView ;
+-    private TextView mKernelDeveloperView ;
+-    private TextView mKernelDistributionView ;
+-    private TextView mKernelNameView ;
+-    private Spinner mSpinnerKernelsView ;
+-    private Button mSaveDefautKernel;
+-
+-    FloatingActionMenu mFloatingActionMenu;
+-    FloatingActionButton fab_Backports_kernel;
+-    FloatingActionButton fab_Headers_kernel;
+-
+-    private omvExtrasController mController;
+-    //private OutputController mOutputController = new OutputController(OMV_ExtraSettingsActivity.this);
+-    private CurentKernel mCurentKernel;
+-    private List<KernelItem> mLstKernel;
+-    private Handler mHandler;
+-    private ArrayAdapter<KernelItem> mAdapterKernel;
+-
+-
+-    @Override
+-    protected void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        setContentView(R.layout.app_bar_omv_extra_settings);
+-
+-
+-        mController = new omvExtrasController(this);
+-        mHandler= new Handler();
+-        mLstKernel = new ArrayList<KernelItem>();
+-
+-
+-        mKernelVersionView = (TextView)findViewById(R.id.KernelVersion);
+-        mKernelArchitectureView = (TextView)findViewById(R.id.KernelArchitecture);
+-        mKernelDeveloperView = (TextView)findViewById(R.id.KernelDeveloper);
+-        mKernelDistributionView = (TextView)findViewById(R.id.KernelDistribution);
+-        mKernelNameView = (TextView)findViewById(R.id.KernelName);
+-        mSpinnerKernelsView = (Spinner) findViewById(R.id.spinnerKernels);
+-
+-
+-        mAdapterKernel = new ArrayAdapter<KernelItem>(OMV_ExtraSettingsActivity.this,
+-                android.R.layout.simple_spinner_item, mLstKernel);
+-
+-
+-        mSpinnerKernelsView.setAdapter(mAdapterKernel);
+-        getCurrentkernel();
+-        mController.getKernelList(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                final Result<KernelItem> res = response.GetResultObject(new TypeToken<Result<KernelItem>>(){});
+-                mHandler.post(new Runnable(){
+-                    public void run() {
+-                        populateSpinerKernel(res.getData());
+-                        showSelectedKernel();
+-                    }
+-                });
+-
+-            }
+-        });
+-
+-        fab_Backports_kernel = (FloatingActionButton)findViewById(R.id.fab_Backports_kernel);
+-
+-        fab_Backports_kernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-
+-                mFloatingActionMenu.close(true);
+-                //mFloatingActionMenu.hideMenu(true);
+-
+-                mController.installbackports(new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                        final String filename =  response.GetResultObject(new TypeToken<String>(){});
+-                        mHandler.post(new Runnable(){
+-                            public void run() {
+-                                //mOutputController.getOutput(filename);
+-                                CreateDialog(false,"Install backports",filename);
+-                            }
+-                        });
+-                    }
+-                });
+-
+-            }
+-        });
+-
+-        fab_Headers_kernel = (FloatingActionButton)findViewById(R.id.fab_Headers_kernel);;
+-        fab_Headers_kernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                mFloatingActionMenu.close(true);
+-                mController.installheaders(new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-                        final String filename =  response.GetResultObject(new TypeToken<String>(){});
+-                        mHandler.post(new Runnable(){
+-                            public void run() {
+-                                CreateDialog(false,"Install Headers",filename);
+-                                //mOutputController.getOutput(filename);
+-                            }
+-                        });
+-                    }
+-                });
+-            }
+-        });
+-
+-        mSaveDefautKernel = (Button) findViewById(R.id.BtnSaveDefautKernel);
+-
+-        mSaveDefautKernel.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                final KernelItem mkernel= (KernelItem)mSpinnerKernelsView.getSelectedItem();
+-                mController.setBootKernel(mkernel.getKey(), new Callback() {
+-                    @Override
+-                    public void onFailure(Call call, Exception e) {
+-
+-                    }
+-
+-                    @Override
+-                    public void OnOMVServeurError(Call call, Errors error) {
+-                        Snackbar.make(mSaveDefautKernel, error.getMessage(), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-                    }
+-
+-                    @Override
+-                    public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-
+-
+-                        Snackbar.make(mSaveDefautKernel, String.format("%s As default kernel ",mkernel.getName() ), Snackbar.LENGTH_LONG)
+-                                .setAction("Action", null).show();
+-
+-
+-                        getCurrentkernel();
+-
+-                    }
+-                });
+-            }
+-        });
+-        mFloatingActionMenu =(FloatingActionMenu) findViewById(R.id.menu);
+-    }
+-
+-
+-    private OutputDialogFragment mOutputDialogFragment;
+-    private void CreateDialog(Boolean justWaitCursor,String title,String fimeName)
+-    {
+-
+-        Bundle bundle = new Bundle();
+-        bundle.putBoolean("justWaitCursor", justWaitCursor);
+-        bundle.putString("title", title);
+-        bundle.putString("fileName", fimeName);
+-
+-
+-        // Create an instance of the dialog fragment and show it
+-        mOutputDialogFragment = new OutputDialogFragment();
+-        //mOutputDialogFragment.AddListener(this);
+-        //mOutputDialogFragment.setListener(this);
+-        mOutputDialogFragment.setArguments(bundle);
+-        android.app.FragmentManager fm = getFragmentManager();
+-        mOutputDialogFragment.show(fm, "OutputDialogFragment");
+-    }
+-
+-    private void getCurrentkernel()
+-    {
+-        mController.getKernel(new Callback() {
+-            @Override
+-            public void onFailure(Call call, Exception e) {
+-
+-            }
+-
+-            @Override
+-            public void OnOMVServeurError(Call call, Errors error) {
+-
+-            }
+-
+-            @Override
+-            public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+-
+-                mCurentKernel  = response.GetResultObject(new TypeToken<CurentKernel>(){});
+-                mHandler.post(new Runnable(){
+-                    public void run() {
+-                        PopulateTexteViews();
+-                        showSelectedKernel();
+-                    }
+-                });
+-            }
+-        });
+-    }
+-
+-    private void PopulateTexteViews()
+-    {
+-        mKernelVersionView.setText(mCurentKernel.getVersion());
+-        mKernelArchitectureView.setText(mCurentKernel.getArch());
+-        mKernelDeveloperView.setText(mCurentKernel.getDeveloper());
+-        mKernelDistributionView.setText(mCurentKernel.getVersionname());
+-        mKernelNameView.setText(mCurentKernel.getKernel());
+-
+-    }
+-
+-    private void populateSpinerKernel( List<KernelItem> lst)
+-    {
+-        mLstKernel.clear();
+-        mLstKernel.addAll(lst);
+-        mAdapterKernel.notifyDataSetChanged();
+-
+-    }
+-
+-
+-    private void showSelectedKernel()
+-    {
+-
+-        if(mCurentKernel != null ) {
+-            KernelItem res = Queryable.from(mLstKernel).firstOrDefault(new Predicate<KernelItem>() {
+-                @Override
+-                public boolean apply(KernelItem element) {
+-                    return element.getKey() == mCurentKernel.getKernels();
+-                }
+-            });
+-            mSpinnerKernelsView.setSelection(mLstKernel.indexOf(res));
+-        }
+-    }
+-}
+diff --git a/android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsTabbedActivity.java b/android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsTabbedActivity.java
+deleted file mode 100644
+index ab9b4a9..0000000
+--- a/android-master/src/main/java/com/dev/doods/omvremote2/OMV_ExtraSettingsTabbedActivity.java
++++ /dev/null
+@@ -1,115 +0,0 @@
+-package com.dev.doods.omvremote2;
+-
+-import android.graphics.Color;
+-import android.net.Uri;
+-import android.support.design.widget.Snackbar;
+-import android.support.v7.widget.Toolbar;
+-
+-import android.support.v4.app.Fragment;
+-import android.os.Bundle;
+-import android.view.Menu;
+-import android.view.MenuItem;
+-import android.view.View;
+-
+-import android.widget.TextView;
+-import org.acra.ACRA;
+-
+-import java.util.ArrayList;
+-import java.util.Arrays;
+-
+-import Adapters.SectionsPagerAdapter;
+-import Interfaces.OnFragmentInteractionListener;
+-import OMV.Base.SwipeViewBaseActivity;
+-import com.owncloud.android.R;
+-
+-public class OMV_ExtraSettingsTabbedActivity extends SwipeViewBaseActivity implements OnFragmentInteractionListener {
+-
+-
+-    @Override
+-    protected void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-
+-
+-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+-        setSupportActionBar(toolbar);
+-
+-        fabSave.setVisibility(View.GONE);
+-    }
+-
+-
+-    @Override
+-    public  void initPagetAdapter()
+-    {
+-        setContentView(R.layout.activity_omv__extra_settings_tabbed);
+-        java.util.ArrayList<Fragment> items =  new ArrayList<Fragment>(
+-                Arrays.asList(new OMVFragment.OMVExtraKernelFragment(),
+-                        new OMVFragment.CustomReposFragment()));
+-        ArrayList<String> titles =  new ArrayList<String>(
+-                Arrays.asList("Kernel", "Custom Repos"));
+-        // Create the adapter that will return a fragment for each of the three
+-        // primary sections of the activity.
+-        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),titles,items);
+-        setSectionsPagerAdapter(mSectionsPagerAdapter);
+-    }
+-
+-    @Override
+-    public boolean onCreateOptionsMenu(Menu menu) {
+-        // Inflate the menu; this adds items to the action bar if it is present.
+-        getMenuInflater().inflate(R.menu.menu_omv__extra_settings_tabbed, menu);
+-        return true;
+-    }
+-
+-    @Override
+-    public boolean onOptionsItemSelected(MenuItem item) {
+-        // Handle action bar item clicks here. The action bar will
+-        // automatically handle clicks on the Home/Up button, so long
+-        // as you specify a parent activity in AndroidManifest.xml.
+-        int id = item.getItemId();
+-
+-        //noinspection SimplifiableIfStatement
+-        if (id == R.id.action_settings) {
+-            return true;
+-        }
+-
+-        return super.onOptionsItemSelected(item);
+-    }
+-
+-
+-    @Override
+-    public void onFragmentInteraction(Uri uri) {
+-
+-    }
+-
+-    @Override
+-    public void onFragmentMessage(String msg)
+-    {
+-
+-        Snackbar.make(fabSave, msg, Snackbar.LENGTH_LONG)
+-                .setAction("Action", null).show();
+-
+-    }
+-
+-    @Override
+-    public void onFragmentMessageError(String error)
+-    {
+-
+-        Snackbar snackbar = Snackbar
+-                .make(fabSave, getString(R.string.snackbar_error_occurred), Snackbar.LENGTH_LONG)
+-                .setAction("Send Logs", new View.OnClickListener() {
+-                    @Override
+-                    public void onClick(View view) {
+-                        ACRA.getErrorReporter().handleException(null);
+-                    }
+-                });
+-
+-        // Changing message text color
+-        snackbar.setActionTextColor(Color.RED);
+-
+-        // Changing action button text color
+-        View sbView = snackbar.getView();
+-        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+-        textView.setTextColor(Color.YELLOW);
+-        snackbar.show();
+-
+-    }
+-}
+diff --git a/android-master/src/main/res/layout/activity_omv__extra_settings.xml b/android-master/src/main/res/layout/activity_omv__extra_settings.xml
+deleted file mode 100644
+index ed32914..0000000
+--- a/android-master/src/main/res/layout/activity_omv__extra_settings.xml
++++ /dev/null
+@@ -1,130 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:paddingBottom="@dimen/activity_vertical_margin"
+-    android:paddingLeft="@dimen/activity_horizontal_margin"
+-    android:paddingRight="@dimen/activity_horizontal_margin"
+-    android:paddingTop="@dimen/activity_vertical_margin"
+-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+-    tools:context=".OMV_ExtraSettingsActivity"
+-    tools:showIn="@layout/app_bar_omv_extra_settings"
+-    >
+-
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:orientation="vertical">
+-
+-    <TextView
+-        android:text="@string/InstalledKernels"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
+-    <Spinner
+-        android:layout_alignParentRight="true"
+-        android:layout_toRightOf="@+id/tvCertificate"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-
+-        android:id="@+id/spinnerKernels" />
+-    <Button
+-        android:id="@+id/BtnSaveDefautKernel"
+-        android:text="@string/Set_as_default_boot_kernel"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        />
+-
+-    <TextView
+-        android:text="@string/NotesKernel"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
+-
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-        <TextView
+-            android:layout_weight="0.5"
+-            android:layout_marginTop="20dp"
+-            android:text="Version :"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"/>
+-        <TextView
+-            android:gravity="left"
+-            android:layout_weight="0.5"
+-            android:layout_marginTop="20dp"
+-            android:text="Version"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:id="@+id/KernelVersion"/>
+-    </LinearLayout>
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-        <TextView
+-            android:layout_weight="0.5"
+-            android:text="Distribution :"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"/>
+-        <TextView
+-            android:gravity="left"
+-            android:layout_weight="0.5"
+-
+-            android:text="Distribution"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:id="@+id/KernelDistribution"/>
+-    </LinearLayout>
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-        <TextView
+-            android:layout_weight="0.5"
+-            android:text="Kernel :"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"/>
+-        <TextView
+-            android:gravity="left"
+-            android:layout_weight="0.5"
+-
+-            android:text="Kernel"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:id="@+id/KernelName"/>
+-    </LinearLayout>
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-        <TextView
+-            android:layout_weight="0.5"
+-            android:text="Architecture :"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"/>
+-        <TextView
+-            android:gravity="left"
+-            android:layout_weight="0.5"
+-
+-            android:text="Architecture"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:id="@+id/KernelArchitecture"/>
+-    </LinearLayout>
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-        <TextView
+-            android:layout_weight="0.5"
+-            android:text="Developer :"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"/>
+-        <TextView
+-            android:gravity="left"
+-            android:layout_weight="0.5"
+-            android:text="Developer"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:id="@+id/KernelDeveloper"/>
+-    </LinearLayout>
+-    </LinearLayout>
+-</RelativeLayout>
+diff --git a/android-master/src/main/res/layout/activity_omv__extra_settings_tabbed.xml b/android-master/src/main/res/layout/activity_omv__extra_settings_tabbed.xml
+deleted file mode 100644
+index 93b4d7f..0000000
+--- a/android-master/src/main/res/layout/activity_omv__extra_settings_tabbed.xml
++++ /dev/null
+@@ -1,49 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:id="@+id/main_content"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:fitsSystemWindows="true"
+-    tools:context=".OMV_ExtraSettingsTabbedActivity">
+-
+-    <android.support.design.widget.AppBarLayout
+-        android:id="@+id/appbar"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:paddingTop="@dimen/appbar_padding_top"
+-        android:theme="@style/AppTheme.AppBarOverlay">
+-
+-        <android.support.v7.widget.Toolbar
+-            android:id="@+id/toolbar"
+-            android:layout_width="match_parent"
+-            android:layout_height="?attr/actionBarSize"
+-            android:background="?attr/colorPrimary"
+-            app:layout_scrollFlags="scroll|enterAlways"
+-            app:popupTheme="@style/AppTheme.PopupOverlay">
+-
+-        </android.support.v7.widget.Toolbar>
+-
+-        <android.support.design.widget.TabLayout
+-            android:id="@+id/tabs"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content" />
+-
+-    </android.support.design.widget.AppBarLayout>
+-
+-    <android.support.v4.view.ViewPager
+-        android:id="@+id/container"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+-
+-    <android.support.design.widget.FloatingActionButton
+-        android:id="@+id/fab"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="end|bottom"
+-        android:layout_margin="@dimen/fab_margin"
+-        app:srcCompat="@android:drawable/ic_dialog_email" />
+-
+-</android.support.design.widget.CoordinatorLayout>
+diff --git a/android-master/src/main/res/layout/app_bar_omv_extra_settings.xml b/android-master/src/main/res/layout/app_bar_omv_extra_settings.xml
+deleted file mode 100644
+index 53c4dec..0000000
+--- a/android-master/src/main/res/layout/app_bar_omv_extra_settings.xml
++++ /dev/null
+@@ -1,83 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:fitsSystemWindows="true"
+-    tools:context=".System.PackagesInfomationActivity"
+-    xmlns:fab="http://schemas.android.com/apk/res-auto">
+-
+-    <android.support.design.widget.AppBarLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:theme="@style/AppTheme.AppBarOverlay">
+-
+-        <android.support.v7.widget.Toolbar
+-            android:id="@+id/toolbar"
+-            android:layout_width="match_parent"
+-            android:layout_height="?attr/actionBarSize"
+-            android:background="?attr/colorPrimary"
+-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+-
+-    </android.support.design.widget.AppBarLayout>
+-
+-    <include layout="@layout/activity_omv__extra_settings" />
+-
+-    <com.github.clans.fab.FloatingActionMenu
+-        android:id="@+id/menu"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="bottom|end"
+-        fab:menu_fab_size="normal"
+-        fab:menu_showShadow="true"
+-        fab:menu_shadowColor="#66000000"
+-        fab:menu_shadowRadius="4dp"
+-        fab:menu_shadowXOffset="1dp"
+-        fab:menu_shadowYOffset="3dp"
+-        fab:menu_animationDelayPerItem="50"
+-        fab:menu_icon="@drawable/fab_add"
+-        fab:menu_buttonSpacing="0dp"
+-        fab:menu_labels_margin="0dp"
+-        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+-        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+-        fab:menu_labels_paddingTop="4dp"
+-        fab:menu_labels_paddingRight="8dp"
+-        fab:menu_labels_paddingBottom="4dp"
+-        fab:menu_labels_paddingLeft="8dp"
+-        fab:menu_labels_padding="8dp"
+-        fab:menu_labels_textColor="#FFFFFF"
+-        fab:menu_labels_textSize="14sp"
+-        fab:menu_labels_cornerRadius="3dp"
+-        fab:menu_labels_showShadow="true"
+-        fab:menu_labels_singleLine="false"
+-        fab:menu_labels_ellipsize="none"
+-        fab:menu_labels_maxLines="-1"
+-        fab:menu_labels_position="left"
+-        fab:menu_openDirection="up"
+-        fab:menu_backgroundColor="@android:color/transparent"
+-        fab:menu_fab_label=""
+-        fab:menu_colorNormal="@color/colorOMV"
+-
+-        >
+-
+-        <com.github.clans.fab.FloatingActionButton
+-            android:id="@+id/fab_Backports_kernel"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:src="@drawable/ic_add_box_black_24dp"
+-            fab:fab_size="mini"
+-            fab:fab_label="@string/install_Backports_kernel" />
+-        <com.github.clans.fab.FloatingActionButton
+-            android:id="@+id/fab_Headers_kernel"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:src="@drawable/ic_add_box_black_24dp"
+-            fab:fab_size="mini"
+-            fab:fab_label="@string/install_Headers_kernel" />
+-
+-    </com.github.clans.fab.FloatingActionMenu>
+-
+-
+-
+-</android.support.design.widget.CoordinatorLayout>
+diff --git a/android-master/src/main/res/layout/dialog_add_edite_custom_repo.xml b/android-master/src/main/res/layout/dialog_add_edite_custom_repo.xml
+deleted file mode 100644
+index 93175c7..0000000
+--- a/android-master/src/main/res/layout/dialog_add_edite_custom_repo.xml
++++ /dev/null
+@@ -1,76 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:orientation="vertical" android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <android.support.design.widget.TextInputLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-
+-        <EditText
+-            android:id="@+id/customRepoName"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="@string/action_name"
+-            android:imeActionId="@+id/customRepoName"
+-            android:imeActionLabel="@string/action_name"
+-            android:imeOptions="actionUnspecified"
+-            android:inputType="textUri"
+-            android:maxLines="1"
+-            android:singleLine="true" />
+-
+-    </android.support.design.widget.TextInputLayout>
+-
+-    <android.support.design.widget.TextInputLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-
+-        <EditText
+-            android:id="@+id/customRepoRepo"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="@string/action_repo"
+-            android:imeActionId="@+id/customRepoRepo"
+-            android:imeActionLabel="@string/action_repo"
+-            android:imeOptions="actionUnspecified"
+-            android:inputType="textUri"
+-            android:maxLines="1"
+-            android:singleLine="true" />
+-
+-    </android.support.design.widget.TextInputLayout>
+-    <android.support.design.widget.TextInputLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-
+-        <EditText
+-            android:id="@+id/customRepoKey"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="@string/action_key"
+-            android:imeActionId="@+id/customRepokey"
+-            android:imeActionLabel="@string/action_key"
+-            android:imeOptions="actionUnspecified"
+-            android:inputType="textUri"
+-            android:maxLines="1"
+-            android:singleLine="true" />
+-
+-    </android.support.design.widget.TextInputLayout>
+-    <android.support.design.widget.TextInputLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content">
+-
+-        <EditText
+-            android:id="@+id/customRepoComment"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="@string/action_comment"
+-            android:imeActionId="@+id/customRepoComment"
+-            android:imeActionLabel="@string/action_comment"
+-            android:imeOptions="actionUnspecified"
+-            android:inputType="textUri"
+-            android:maxLines="1"
+-            android:singleLine="true" />
+-
+-    </android.support.design.widget.TextInputLayout>
+-
+-</LinearLayout>
+\ No newline at end of file
+diff --git a/android-master/src/main/res/layout/fragment_custom_repos.xml b/android-master/src/main/res/layout/fragment_custom_repos.xml
+deleted file mode 100644
+index ebf90d5..0000000
+--- a/android-master/src/main/res/layout/fragment_custom_repos.xml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    tools:context="OMVFragment.CustomReposFragment"
+-    xmlns:fab="http://schemas.android.com/apk/res-auto">
+-
+-
+-    <ListView
+-        android:id="@+id/Listview_custom_repo"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"/>
+-
+-
+-
+-</FrameLayout>
+diff --git a/android-master/src/main/res/layout/fragment_omv__extra_settings_tabbed.xml b/android-master/src/main/res/layout/fragment_omv__extra_settings_tabbed.xml
+deleted file mode 100644
+index 6fb3ab8..0000000
+--- a/android-master/src/main/res/layout/fragment_omv__extra_settings_tabbed.xml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:paddingBottom="@dimen/activity_vertical_margin"
+-    android:paddingLeft="@dimen/activity_horizontal_margin"
+-    android:paddingRight="@dimen/activity_horizontal_margin"
+-    android:paddingTop="@dimen/activity_vertical_margin"
+-    tools:context=".OMV_ExtraSettingsTabbedActivity$PlaceholderFragment">
+-
+-    <TextView
+-        android:id="@+id/section_label"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content" />
+-
+-</RelativeLayout>
+diff --git a/android-master/src/main/res/layout/fragment_omvextra_kernel.xml b/android-master/src/main/res/layout/fragment_omvextra_kernel.xml
+deleted file mode 100644
+index 273e74d..0000000
+--- a/android-master/src/main/res/layout/fragment_omvextra_kernel.xml
++++ /dev/null
+@@ -1,181 +0,0 @@
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    tools:context="OMVFragment.OMVExtraKernelFragment"
+-    xmlns:fab="http://schemas.android.com/apk/res-auto">
+-
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:orientation="vertical">
+-
+-        <TextView
+-            android:text="@string/InstalledKernels"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"/>
+-        <Spinner
+-            android:layout_alignParentRight="true"
+-            android:layout_toRightOf="@+id/tvCertificate"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-
+-            android:id="@+id/spinnerKernels" />
+-        <Button
+-            android:id="@+id/BtnSaveDefautKernel"
+-            android:text="@string/Set_as_default_boot_kernel"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            />
+-
+-        <TextView
+-            android:text="@string/NotesKernel"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"/>
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content">
+-            <TextView
+-                android:layout_weight="0.5"
+-                android:layout_marginTop="20dp"
+-                android:text="Version :"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"/>
+-            <TextView
+-                android:gravity="left"
+-                android:layout_weight="0.5"
+-                android:layout_marginTop="20dp"
+-                android:text="Version"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/KernelVersion"/>
+-        </LinearLayout>
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content">
+-            <TextView
+-                android:layout_weight="0.5"
+-                android:text="Distribution :"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"/>
+-            <TextView
+-                android:gravity="left"
+-                android:layout_weight="0.5"
+-
+-                android:text="Distribution"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/KernelDistribution"/>
+-        </LinearLayout>
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content">
+-            <TextView
+-                android:layout_weight="0.5"
+-                android:text="Kernel :"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"/>
+-            <TextView
+-                android:gravity="left"
+-                android:layout_weight="0.5"
+-
+-                android:text="Kernel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/KernelName"/>
+-        </LinearLayout>
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content">
+-            <TextView
+-                android:layout_weight="0.5"
+-                android:text="Architecture :"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"/>
+-            <TextView
+-                android:gravity="left"
+-                android:layout_weight="0.5"
+-
+-                android:text="Architecture"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/KernelArchitecture"/>
+-        </LinearLayout>
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content">
+-            <TextView
+-                android:layout_weight="0.5"
+-                android:text="Developer :"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"/>
+-            <TextView
+-                android:gravity="left"
+-                android:layout_weight="0.5"
+-                android:text="Developer"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:id="@+id/KernelDeveloper"/>
+-        </LinearLayout>
+-    </LinearLayout>
+-
+-    <com.github.clans.fab.FloatingActionMenu
+-        android:id="@+id/menu"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="end|bottom"
+-        android:layout_marginBottom="53dp"
+-        android:layout_marginRight="11dp"
+-
+-
+-        fab:menu_fab_size="normal"
+-        fab:menu_showShadow="true"
+-        fab:menu_shadowColor="#66000000"
+-        fab:menu_shadowRadius="4dp"
+-        fab:menu_shadowXOffset="1dp"
+-        fab:menu_shadowYOffset="3dp"
+-        fab:menu_animationDelayPerItem="50"
+-        fab:menu_icon="@drawable/fab_add"
+-        fab:menu_buttonSpacing="0dp"
+-        fab:menu_labels_margin="0dp"
+-        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+-        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+-        fab:menu_labels_paddingTop="4dp"
+-        fab:menu_labels_paddingRight="8dp"
+-        fab:menu_labels_paddingBottom="4dp"
+-        fab:menu_labels_paddingLeft="8dp"
+-        fab:menu_labels_padding="8dp"
+-        fab:menu_labels_textColor="#FFFFFF"
+-        fab:menu_labels_textSize="14sp"
+-        fab:menu_labels_cornerRadius="3dp"
+-        fab:menu_labels_showShadow="true"
+-        fab:menu_labels_singleLine="false"
+-        fab:menu_labels_ellipsize="none"
+-        fab:menu_labels_maxLines="-1"
+-        fab:menu_labels_position="left"
+-        fab:menu_openDirection="up"
+-        fab:menu_backgroundColor="@android:color/transparent"
+-        fab:menu_fab_label=""
+-        fab:menu_colorNormal="@color/colorOMV"
+-
+-        >
+-
+-        <com.github.clans.fab.FloatingActionButton
+-            android:id="@+id/fab_Backports_kernel"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:src="@drawable/ic_add_box_black_24dp"
+-            fab:fab_size="mini"
+-            fab:fab_label="@string/install_Backports_kernel" />
+-        <com.github.clans.fab.FloatingActionButton
+-            android:id="@+id/fab_Headers_kernel"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:src="@drawable/ic_add_box_black_24dp"
+-            fab:fab_size="mini"
+-            fab:fab_label="@string/install_Headers_kernel" />
+-
+-    </com.github.clans.fab.FloatingActionMenu>
+-
+-</FrameLayout>
+diff --git a/android-master/src/main/res/layout/fragment_omvextra_kernel_v3.xml b/android-master/src/main/res/layout/fragment_omvextra_kernel_v3.xml
+deleted file mode 100644
+index 08c74ec..0000000
+--- a/android-master/src/main/res/layout/fragment_omvextra_kernel_v3.xml
++++ /dev/null
+@@ -1,114 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:orientation="vertical" android:layout_width="match_parent"
+-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+-    android:layout_height="match_parent">
+-
+-<ScrollView
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:orientation="vertical">
+-
+-    <android.support.v7.widget.CardView
+-        android:id="@+id/card_view"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="center"
+-        android:layout_margin="@dimen/card_margin"
+-        android:elevation="5dp"
+-        card_view:cardCornerRadius="@dimen/card_album_radius">
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical">
+-            <TextView
+-            android:text="@string/Installed_Kernels"
+-            android:layout_width="wrap_content"
+-            android:layout_height="match_parent" />
+-
+-            <TextView
+-                android:text="@string/Installed_Kernels_info"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-
+-        </LinearLayout>
+-    </android.support.v7.widget.CardView>
+-    <android.support.v7.widget.CardView
+-        android:id="@+id/card_view_Clonezilla"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="center"
+-        android:layout_margin="@dimen/card_margin"
+-        android:elevation="5dp"
+-        card_view:cardCornerRadius="@dimen/card_album_radius">
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical">
+-            <TextView
+-                android:text="@string/Clonezilla"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-
+-            <TextView
+-                android:text="@string/Clonezilla_info"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-        </LinearLayout>
+-    </android.support.v7.widget.CardView>
+-
+-    <android.support.v7.widget.CardView
+-        android:id="@+id/card_view_GParted"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="center"
+-        android:layout_margin="@dimen/card_margin"
+-        android:elevation="5dp"
+-        card_view:cardCornerRadius="@dimen/card_album_radius">
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical">
+-            <TextView
+-                android:text="@string/GParted_live"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-            <TextView
+-                android:text="@string/GParted_info"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-        </LinearLayout>
+-    </android.support.v7.widget.CardView>
+-    <android.support.v7.widget.CardView
+-        android:id="@+id/card_view_SystemRescueCD"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="center"
+-        android:layout_margin="@dimen/card_margin"
+-        android:elevation="5dp"
+-        card_view:cardCornerRadius="@dimen/card_album_radius">
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical">
+-            <TextView
+-                android:text="@string/SystemRescueCD"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-            <TextView
+-                android:text="@string/SystemRescueCD_info"
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent" />
+-        </LinearLayout>
+-    </android.support.v7.widget.CardView>
+-    </LinearLayout>
+-</ScrollView>
+-</LinearLayout>
+\ No newline at end of file
+diff --git a/android-master/src/main/res/menu/menu_omv__extra_settings_tabbed.xml b/android-master/src/main/res/menu/menu_omv__extra_settings_tabbed.xml
+deleted file mode 100644
+index ea86b58..0000000
+--- a/android-master/src/main/res/menu/menu_omv__extra_settings_tabbed.xml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    tools:context=".OMV_ExtraSettingsTabbedActivity">
+-    <item
+-        android:id="@+id/action_settings"
+-        android:orderInCategory="100"
+-        android:title="@string/action_settings"
+-        app:showAsAction="never" />
+-</menu>
+-- 
+1.9.1
+

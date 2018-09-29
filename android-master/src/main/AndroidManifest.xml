@@ -366,14 +366,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.dev.doods.omvremote2.OMV_ExtraSettingsActivity"
-            android:label="@string/title_activity_OMV_ExtraSettingsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.OMV_ExtraSettingsTabbedActivity"
-            android:label="@string/title_activity_omv__extra_settings_tabbed"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.dev.doods.omvremote2.StatisticsScrollingActivity"
             android:label="@string/title_activity_statistics_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
