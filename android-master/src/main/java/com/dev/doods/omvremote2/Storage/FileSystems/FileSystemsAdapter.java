@@ -216,7 +216,7 @@ public class FileSystemsAdapter  extends RecyclerView.Adapter<FileSystemsAdapter
 
             if(menuItem.getItemId() ==R.id.action_show_shared_folders)
             {
-                mContext.startActivity(new Intent(mContext, SharedFoldersActivity.class));
+                //mContext.startActivity(new Intent(mContext, SharedFoldersActivity.class));
                 return true;
             }
             else if(menuItem.getItemId() ==R.id.action_show_statistics)

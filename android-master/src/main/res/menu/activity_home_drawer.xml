@@ -31,31 +31,15 @@
             android:id="@+id/nav_extra"
             android:icon="@drawable/ic_power_black_24dp"
             android:title="@string/nav_extra" />
-        <item
-            android:id="@+id/nav_certificate"
-            android:icon="@drawable/ic_https_black_24dp"
-            android:title="@string/nav_certificate" />
-        <item
-            android:id="@+id/nav_cron"
-            android:icon="@drawable/ic_schedule_black_24dp"
-            android:title="@string/nav_cron" />
-        <item
-            android:id="@+id/nav_logs"
-            android:icon="@drawable/ic_folder_black_24dp"
-            android:title="@string/nav_logs" />
     </group>
 
-  <item android:title="Administration">
+<!--  <item android:title="Administration">
         <menu>
             <item
                 android:id="@+id/nav_host"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/nav_host" />
-            <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/nav_about" />
         </menu>
-    </item>
+    </item>-->
 
 </menu>

@@ -15,15 +15,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.dev.doods.omvremote2.System.CronController;
 import com.google.gson.reflect.TypeToken;
 import com.owncloud.android.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import Adapters.CronAdapter;
 import Client.Call;
 import Client.CallbackImpl;
 import Client.Host;
@@ -42,10 +39,7 @@ import utils.Util;
 
 public class ShutDownDeviceActivity extends NavigationBaseActivity implements OutputListener, IYesNoListenerDialog {
     private SystemController controller;
-    private CronController mController = new CronController(this);
     private SystemController mSystemController = new SystemController(this);
-    private List<Cron> mCronList = new ArrayList<Cron>();
-    private CronAdapter mCronAdapter;
     private CheckDirty mCheckDirty;
     private Spinner _mrebootdeviceView;
     private Switch _mMonitoringView;

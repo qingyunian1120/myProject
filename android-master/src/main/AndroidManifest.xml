@@ -376,7 +376,6 @@
             android:name="com.dev.doods.omvremote2.OMVSystemActivity"
             android:label="@string/title_activity_omvsystem"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.dev.doods.omvremote2.AboutActivity" />
         <activity
             android:name="com.dev.doods.omvremote2.Storage.SharedFoldersActivity"
             android:label="@string/title_activity_shared_folders"
@@ -397,30 +396,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.StatisticsScrollingActivity"
             android:label="@string/title_activity_statistics_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.CertificateActivity"
-            android:label="@string/title_activity_certificate"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.EditeCertificateSshActivity"
-            android:label="@string/title_activity_edite_certificate_ssh"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.EditeCertificateActivity"
-            android:label="@string/title_activity_edite_certificate"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.LogsActivity"
-            android:label="@string/title_activity_logs"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.System.CronActivity"
-            android:label="@string/title_activity_cron"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.System.AddEditeCronActivity"
-            android:label="@string/title_activity_add_edite_cron"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.LoginByStepActivity"
@@ -496,10 +471,6 @@
             android:name="com.dev.doods.omvremote2.Storage.Smart.SwipeViewSmartActivity"
             android:label="@string/title_activity_smart"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Storage.Smart.AddEditeScheduledTestActivity"
-            android:label="@string/title_activity_add_edite_scheduled_test"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 

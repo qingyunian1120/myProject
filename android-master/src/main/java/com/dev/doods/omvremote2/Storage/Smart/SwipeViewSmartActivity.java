@@ -34,9 +34,9 @@ public class SwipeViewSmartActivity extends SwipeViewBaseActivity  implements Ou
     {
         setContentView(R.layout.activity_swipe_view_base);
         java.util.ArrayList<Fragment> items =  new ArrayList<Fragment>(
-                Arrays.asList(new SmartSettingsFragment(),new SmartDevicesFragment(),new SmartScheduledTestsFragment()));
+                Arrays.asList(new SmartSettingsFragment(),new SmartDevicesFragment()));
         ArrayList<String> titles =  new ArrayList<String>(
-                Arrays.asList("Settings", "Devices","Scheduled test"));
+                Arrays.asList("Settings", "Devices"));
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),titles,items);

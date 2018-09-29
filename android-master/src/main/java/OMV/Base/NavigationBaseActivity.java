@@ -11,14 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.dev.doods.omvremote2.AboutActivity;
-import com.dev.doods.omvremote2.CertificateActivity;
 import com.dev.doods.omvremote2.ShutDownDeviceActivity;
-import com.dev.doods.omvremote2.System.CronActivity;
 import com.dev.doods.omvremote2.Storage.FileSystems.FileSystemsActivity;
 import com.dev.doods.omvremote2.HomeActivity;
 import com.dev.doods.omvremote2.HostManagerActivity;
-import com.dev.doods.omvremote2.LogsActivity;
 import com.dev.doods.omvremote2.System.PackagesInfomationActivity;
 import com.dev.doods.omvremote2.Plugins.PluginsActivity;
 import com.dev.doods.omvremote2.HostNameActivity;
@@ -50,7 +46,7 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
         super.setContentView(layoutResID);
         _NavigationView = (NavigationView) findViewById(R.id.nav_view);
         _NavigationView.setNavigationItemSelectedListener(this);
-        _NavigationView.setCheckedItem(R.id.nav_cron);
+        //_NavigationView.setCheckedItem(R.id.nav_cron);
 
         _Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(_Toolbar);
@@ -125,26 +121,10 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
         {
             startActivity(new Intent(this, omv_extrasActivity.class));
         }
-        else if(id == R.id.nav_host)
+/*        else if(id == R.id.nav_host)
         {
             startActivity(new Intent(this, HostManagerActivity.class));
-        }
-        else if(id == R.id.nav_about)
-        {
-            startActivity(new Intent(this, AboutActivity.class));
-        }
-        else if (id == R.id.nav_certificate)
-        {
-            startActivity(new Intent(this, CertificateActivity.class));
-        }
-        else if (id == R.id.nav_logs)
-        {
-            startActivity(new Intent(this, LogsActivity.class));
-        }
-        else if (id == R.id.nav_cron)
-        {
-            startActivity(new Intent(this, CronActivity.class));
-        }
+        }*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
