@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import Client.Call;
@@ -72,10 +74,39 @@ public class FileSystemsActivity extends NavigationBaseActivity implements IUpda
         });
     }
 
+    public List<FileSystem> GetNeedData(List<FileSystem> list, String target) {
+        List<FileSystem> tep_lst = new ArrayList<FileSystem>();
+        tep_lst.clear();
+        tep_lst.addAll(list);
+        for (FileSystem item : tep_lst) {
+            if( ! item.getType().equals(target)){
+                tep_lst.remove(item);
+            }
+        }
+        Log.d("stvelzhang","tep_lst_size" + tep_lst.size());
+       return tep_lst;
+    }
+
+    public List<FileSystem>  remove32(List<FileSystem> list, String target){
+        Iterator<FileSystem> iter = list.iterator();
+        while (iter.hasNext()) {
+            FileSystem item = iter.next();
+            if (! item.getType().equals(target)) {
+                iter.remove();
+            }
+        }
+        return list;
+    }
+
+
+
+
     private void ShowFileSystem(List<FileSystem> lst)
     {
         _lst.clear();
-        _lst.addAll(lst);
+        Log.d("stvelzhang","lst_size" + lst.size());
+       // _lst.addAll(lst);
+        _lst.addAll(remove32(lst,"ext4"));
         _adapter.notifyDataSetChanged();
        // recyclerView.setAdapter(adapter);
 
@@ -89,7 +120,7 @@ public class FileSystemsActivity extends NavigationBaseActivity implements IUpda
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.file_systems, menu);
+       // getMenuInflater().inflate(R.menu.file_systems, menu);
         return true;
     }
 

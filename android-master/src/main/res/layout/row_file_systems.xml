@@ -28,15 +28,16 @@
             android:layout_gravity="center"
             />
         <LinearLayout
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="100dp">
             <TextView
-                android:textSize="40dp"
+                android:textSize="25dp"
                 android:id="@+id/devicefile"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="75dp"
+                android:gravity="center_vertical"
                 android:text="Volume Name"/>
             <TextView
                 android:textColor="@android:color/holo_green_dark"
@@ -44,13 +45,15 @@
                 android:id="@+id/type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="Type"/>
             <TextView
                 android:textSize="20dp"
                 android:textColor="@android:color/darker_gray"
                 android:id="@+id/size"
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:text="Size"/>
 
         </LinearLayout>
@@ -68,26 +71,28 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/LayoutSizeUsed"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:layout_weight="0.5"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="43dp"
             android:id="@+id/ColorUsed"
-            android:background="@color/data_set_use"
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorset_use"
             />
 
         <TextView
-            android:layout_marginLeft="10dp"
-            android:textSize="20dp"
+            android:layout_marginLeft="43dp"
+            android:textSize="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Used :"/>
+            android:text="Used:"/>
         <TextView
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:id="@+id/Used_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,26 +105,28 @@
             android:orientation="horizontal">
             <LinearLayout
 
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="0dp"
                 android:layout_weight="0.5"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/ColorAvailable"
-                    android:background="@color/colorOMV"/>
+                    android:layout_marginLeft="43dp"
+                    android:background="@color/colorset_free"/>
                 <TextView
                     android:id="@+id/textAvailable"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="20dp"
+                    android:layout_marginLeft="43dp"
+                    android:textSize="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Available :"/>
+                    android:text="Available:"/>
                 <TextView
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:id="@+id/Available_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -137,7 +144,8 @@
                     android:layout_below="@id/thumbnail"
                     android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_more_vert_black_24dp" />
+                    android:src="@drawable/ic_more_vert_black_24dp"
+                    android:visibility="gone"/>
         </LinearLayout>
 
         </LinearLayout>

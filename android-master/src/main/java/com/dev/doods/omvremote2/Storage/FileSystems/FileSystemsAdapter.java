@@ -110,7 +110,7 @@ public class FileSystemsAdapter  extends RecyclerView.Adapter<FileSystemsAdapter
 
         Double sizeLong = Double.parseDouble(data.getSize());
         String sizeStr = Util.humanReadableByteCount(sizeLong,false);
-        holder.size.setText(sizeStr);
+        holder.size.setText("Total:" + sizeStr);
 
         float usaed =  (float)data.getPercentage();
         float free = 100.0f -usaed;
@@ -128,8 +128,8 @@ public class FileSystemsAdapter  extends RecyclerView.Adapter<FileSystemsAdapter
         // adding colors
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
-        colors.add(mContext.getResources().getColor(R.color.data_set_use));
-        colors.add(mContext.getResources().getColor(R.color.colorOMV));
+        colors.add(mContext.getResources().getColor(R.color.colorset_use));
+        colors.add(mContext.getResources().getColor(R.color.colorset_free));
 
         dataset.setColors(colors);
 
@@ -145,15 +145,17 @@ public class FileSystemsAdapter  extends RecyclerView.Adapter<FileSystemsAdapter
 
         Double availableLong = Double.parseDouble(data.getAvailable());
         Double usedLong = sizeLong - availableLong;
-        String availableSize = free+" % / "+Util.humanReadableByteCount(availableLong,false);
-        String usedSize = usaed+" % / "+Util.humanReadableByteCount(usedLong,false);
+    //    String availableSize = free+" % / "+Util.humanReadableByteCount(availableLong,false);
+    //    String usedSize = usaed+" % / "+Util.humanReadableByteCount(usedLong,false);
+        String availableSize = Util.humanReadableByteCount(availableLong,false);
+        String usedSize = Util.humanReadableByteCount(usedLong,false);
         holder.used_size.setText(usedSize);
         holder.available_size.setText(availableSize);
 
 
 
-        holder.colorUsed.setBackgroundResource(R.color.data_set_use);
-        holder.colorAvailable.setBackgroundResource( R.color.colorOMV);
+        holder.colorUsed.setBackgroundResource(R.color.colorset_use);
+        holder.colorAvailable.setBackgroundResource( R.color.colorset_free);
 
         holder.overflow.setOnClickListener(new View.OnClickListener() {
             @Override

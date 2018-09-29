@@ -66,4 +66,8 @@
         <item>1440</item>
         <item>-1</item>
     </integer-array>
+    <string-array name="reboot_device" translatable="false">
+        <item>@string/action_reboot</item>
+        <item>@string/action_shutdown</item>
+    </string-array>
 </resources>

@@ -20,6 +20,10 @@
             android:icon="@drawable/ic_folder_black_24dp"
             android:title="@string/nav_disk" />
         <item
+            android:id="@+id/nav_shutdowndevice"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="@string/nav_shutdowndevice" />
+        <item
         android:id="@+id/nav_plugin"
         android:icon="@drawable/ic_add_box_black_24dp"
         android:title="@string/nav_plugin" />

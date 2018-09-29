@@ -181,6 +181,10 @@ public class CertificateActivity extends NavigationBaseActivity implements Notic
         {
             startActivity(new Intent(CertificateActivity.this, FileSystemsActivity.class));
         }
+        else if(id == R.id.nav_shutdowndevice)
+        {
+            startActivity(new Intent(CertificateActivity.this, com.dev.doods.omvremote2.ShutDownDeviceActivity.class));
+        }
         else if(id == R.id.nav_plugin)
         {
             startActivity(new Intent(CertificateActivity.this, PluginsActivity.class));

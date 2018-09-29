@@ -45,7 +45,7 @@
      <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorOMV">#98b7cf</color>
+    <color name="colorOMV">#3CA8FF</color>
     <color name="light_grey">#cccccc</color>
 
 
@@ -66,4 +66,6 @@
 
     <color name="album_title">#4c4c4c</color>
 
+    <color name="colorset_use">#3CA8FF</color>
+    <color name="colorset_free">#FFD100</color>
 </resources>

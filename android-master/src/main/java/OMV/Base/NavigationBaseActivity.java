@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.dev.doods.omvremote2.AboutActivity;
 import com.dev.doods.omvremote2.CertificateActivity;
+import com.dev.doods.omvremote2.ShutDownDeviceActivity;
 import com.dev.doods.omvremote2.System.CronActivity;
 import com.dev.doods.omvremote2.Storage.FileSystems.FileSystemsActivity;
 import com.dev.doods.omvremote2.HomeActivity;
@@ -111,6 +112,10 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
         else if(id == R.id.nav_disk)
         {
             startActivity(new Intent(this, FileSystemsActivity.class));
+        }
+		else if(id == R.id.nav_shutdowndevice)
+        {
+            startActivity(new Intent(this, ShutDownDeviceActivity.class));
         }
         else if(id == R.id.nav_plugin)
         {

@@ -1075,6 +1075,7 @@
     <string name="action_reboot">reboot</string>
     <string name="action_standby">standby</string>
     <string name="action_shutdown">shutdown</string>
+    <string name="action_nothing">nothing</string>
     <string name="title_activity_cpu_usage_scrolling">CpuUsageScrollingActivity</string>
     <string name="action_show_shared_folders">Manage Shared folders</string>
     <string name="action_show_statistics">Show statistics</string>
@@ -1096,6 +1097,8 @@
     <string name="nav_disk">File Systems</string>
     <string name="nav_plugin">Plugin</string>
     <string name="nav_extra">OMV-Extra</string>
+    <string name="nav_powermanagement">Power Management</string>
+    <string name="nav_shutdowndevice">ShutDown Device</string>
     <string name="nav_certificate">Certificates</string>
     <string name="nav_host">Manage hosts</string>
     <string name="nav_about">About</string>
@@ -1397,6 +1400,10 @@
         •\tIdle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.
     </string>
     <string name="Temp_monitoring">Temperature monitoring</string>
+    <string name="Monitoring">Monitoring</string>
+    <string name="Monitoring_info">Specifies whether to monitor the system status and select the most appropriate CPU level.</string>
+    <string name="Power_button">Power button</string>
+    <string name="Power_button_info">The action to be done when pressing the power button.</string>
     <string name="Difference">Difference</string>
     <string name="info_Smart_Difference">Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report.</string>
     <string name="Informal">Informal</string>
@@ -1415,4 +1422,5 @@
     <string name="device_no_mounted">Your device is not mounted</string>
     <string name="send_failed">Send failed</string>
     <string name="action_settings_nut">Network UPS tools</string>
+    <string name="shutdowndevice_info">Please pull down to select the device operation, click ok button to execute.you can reboot shutdown</string>
 </resources>
