@@ -2,21 +2,15 @@ package Controllers;
 
 import android.app.Activity;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.List;
 
-import Client.AsyncCall;
 import Client.Callback;
-import Client.JSONRPCClient;
 import Client.JSONRPCParamsBuilder;
 import Models.CustomRepo;
-import Models.Plugins;
 import Models.Repo;
 import Models.RepoV3;
 

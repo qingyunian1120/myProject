@@ -14,9 +14,6 @@ import android.widget.LinearLayout;
 import com.dev.doods.omvremote2.ShutDownDeviceActivity;
 import com.dev.doods.omvremote2.Storage.FileSystems.FileSystemsActivity;
 import com.dev.doods.omvremote2.HomeActivity;
-import com.dev.doods.omvremote2.HostManagerActivity;
-import com.dev.doods.omvremote2.System.PackagesInfomationActivity;
-import com.dev.doods.omvremote2.Plugins.PluginsActivity;
 import com.dev.doods.omvremote2.HostNameActivity;
 import com.owncloud.android.R;
 import com.dev.doods.omvremote2.omv_extrasActivity;
@@ -96,10 +93,6 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
         {
             startActivity(new Intent(this, HomeActivity.class));
         }
-        else if(id == R.id.nav_update)
-        {
-            startActivity(new Intent(this, PackagesInfomationActivity.class));
-        }
         //xuzhenyue
         else if(id == R.id.nav_name)
         {
@@ -112,10 +105,6 @@ public class NavigationBaseActivity extends AppCompatBaseActivity
 		else if(id == R.id.nav_shutdowndevice)
         {
             startActivity(new Intent(this, ShutDownDeviceActivity.class));
-        }
-        else if(id == R.id.nav_plugin)
-        {
-            startActivity(new Intent(this, PluginsActivity.class));
         }
         else if(id == R.id.nav_extra)
         {

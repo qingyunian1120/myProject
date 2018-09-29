@@ -320,9 +320,6 @@
         <activity android:name="com.dev.doods.omvremote2.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.dev.doods.omvremote2.UpdateActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.dev.doods.omvremote2.HomeActivity"
             android:label="@string/title_activity_home"
@@ -339,21 +336,12 @@
         </activity>
 
         <activity
-        android:name="com.dev.doods.omvremote2.System.PackagesInfomationActivity"
-        android:label="@string/title_activity_packages_infomation"
-        android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.dev.doods.omvremote2.HostNameActivity"
             android:label="@string/title_activity_packages_infomation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.dev.doods.omvremote2.UpdateSetingsActivity" />
         <activity
             android:name="com.dev.doods.omvremote2.Storage.FileSystems.FileSystemsActivity"
             android:label="@string/title_activity_file_systems"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Plugins.PluginsActivity"
-            android:label="@string/title_activity_plugins"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.omv_extrasActivity"
@@ -404,10 +392,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.AddRepoV3Activity"
             android:label="@string/title_activity_add_repo_v3"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Plugins.Virtualbox.VirtualboxActivity"
-            android:label="@string/title_activity_virtualbox"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity"

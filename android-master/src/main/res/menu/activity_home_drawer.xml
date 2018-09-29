@@ -8,10 +8,6 @@
             android:title="@string/nav_home"
             android:checked="true"/>
         <item
-            android:id="@+id/nav_update"
-            android:icon="@android:drawable/stat_sys_upload_done"
-            android:title="@string/nav_update" />
-        <item
             android:id="@+id/nav_name"
             android:icon="@android:drawable/stat_sys_upload_done"
             android:title="设备名称" />
@@ -23,10 +19,6 @@
             android:id="@+id/nav_shutdowndevice"
             android:icon="@drawable/ic_power_settings_new_black_24dp"
             android:title="@string/nav_shutdowndevice" />
-        <item
-        android:id="@+id/nav_plugin"
-        android:icon="@drawable/ic_add_box_black_24dp"
-        android:title="@string/nav_plugin" />
         <item
             android:id="@+id/nav_extra"
             android:icon="@drawable/ic_power_black_24dp"

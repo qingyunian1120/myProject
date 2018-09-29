@@ -1094,11 +1094,11 @@
     <string name="Used">used</string>
     <string name="nav_home">设备信息</string>
     <string name="nav_update">Update</string>
-    <string name="nav_disk">File Systems</string>
+    <string name="nav_disk">磁盘信息</string>
     <string name="nav_plugin">Plugin</string>
     <string name="nav_extra">OMV-Extra</string>
     <string name="nav_powermanagement">Power Management</string>
-    <string name="nav_shutdowndevice">ShutDown Device</string>
+    <string name="nav_shutdowndevice">重启设备</string>
     <string name="nav_certificate">Certificates</string>
     <string name="nav_host">Manage hosts</string>
     <string name="nav_about">About</string>

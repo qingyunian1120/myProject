@@ -21,7 +21,6 @@ import android.widget.TextView;
 
 import com.dev.doods.omvremote2.Plugins.Autoshutdown.AutoshutdownActivity;
 import com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity;
-import com.dev.doods.omvremote2.Plugins.Virtualbox.VirtualboxActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -338,43 +337,6 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
     private final List<Datum> LstServices = new ArrayList<Datum>();
 
-/*    private void showStatusServices(List<Datum> res)
-    {
-        LstServices.clear();
-        LstServices.addAll(res);
-        ListView listView = (ListView) findViewById(R.id.StatusServices);
-        listView.setAdapter(new ServicesAdapter(HomeActivity.this,LstServices));
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Datum item = LstServices.get(position);
-
-                Intent intent = new Intent(HomeActivity.this, com.dev.doods.omvremote2.ServicesActivity.class);
-                intent.putExtra("ItemPosition",position);
-                intent.putExtra("ItemName",item.getName());
-                intent.putExtra("ItemTitle",item.getTitle());
-
-                if(item.getName().equalsIgnoreCase("virtualbox"))
-                {
-                    intent = new Intent(HomeActivity.this, VirtualboxActivity.class);
-                }
-
-                if(item.getName().equalsIgnoreCase("fail2Ban"))
-                {
-                    intent = new Intent(HomeActivity.this, SwipeViewFail2banActivity.class);
-                }
-                if(item.getName().equalsIgnoreCase("Autoshutdown"))
-                {
-                    intent = new Intent(HomeActivity.this, AutoshutdownActivity.class);
-                }
-
-                startActivity(intent);
-            }
-        });
-
-    }*/
 
     private void showSystemInformation(List<SystemInformation> res)
     {
