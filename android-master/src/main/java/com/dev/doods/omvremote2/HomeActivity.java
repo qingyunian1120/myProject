@@ -61,6 +61,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
     private HomeController controller;
     private SystemController mSystemController = new SystemController(this);
     private boolean isConnect = false;
+    private Host mHost;
 
 
     FloatingActionButton fab;
@@ -107,12 +108,21 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         List<Host> lst = datasource.getAllHosts();
         if(lst.isEmpty() || lst.size() <= 0)
         {
-            if(MainApp.light)
+            /*if(MainApp.light)
                 startActivity(new Intent(HomeActivity.this, com.dev.doods.omvremote2.AdMobActivity.class));
             else
-                startActivity(new Intent(HomeActivity.this, LoginByStepActivity.class));
+                startActivity(new Intent(HomeActivity.this, LoginByStepActivity.class));*/
                 //startActivity(new Intent(HomeActivity.this, com.dev.doods.omvremote2.SearchHostActivity.class));
             //xuzhenyue
+            Bundle bundle = getIntent().getExtras();
+            if(bundle != null && bundle.containsKey("host"))
+            {
+                mHost = (Host) bundle.getSerializable("host");
+            }
+            else{
+                mHost = new Host();
+                Save();
+            }
         }
 
         SharedPreferences sharedPref = getSharedPreferences("electedHost", Context.MODE_PRIVATE);
@@ -239,21 +249,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
             getInfo();
         }
-        /*else if(v.getId() == R.id.RelativeLayout_Info_Server)
-        {
-
-            if(i == 5) {
-                ShowDebug();
-                i=0;
-            }
-            i++;
-        }*/
     }
-    int i = 0;
-    /*private void ShowDebug()
-    {
-
-    }*/
 
     private void getInfo()
     {
@@ -397,13 +393,47 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         tv = findViewById(R.id.System_status);
         tv.setText("在线");
     }
+    private void Save()
+    {
+        String hostname = "192.168.88.94";//mHostNameView.getText().toString();
+        String addr = "192.168.88.94";//mUrlView.getText().toString();
+        Integer port =Integer.parseInt("8081"/*mPortView.getText().toString()*/);
+        boolean ssl = false;//mSSLView.isChecked();
+        String login = "admin";//mLoginView.getText().toString();
+        String password = "openmediavault";//mPasswordView.getText().toString();
+        Integer wolport = Integer.parseInt("9");
+        String macaddr =  "";
+        String addrBroadcastView =  "";
+
+
+        HostsDAO datasource = new HostsDAO(getApplicationContext());
+        datasource.open();
+
+        mHost.setName(hostname);
+        mHost.setAddr(addr);
+        mHost.setUser(login);
+        mHost.setPass(password);
+        mHost.setPort(port);
+        mHost.setSll(ssl);
+        mHost.setWolport(wolport);
+        mHost.setMacAddr(macaddr);
+        mHost.setAddrBroadcast(addrBroadcastView);
+        JSONRPCClient jsonRpc = JSONRPCClient.getInstance();
+        jsonRpc.SetHost(mHost);
+
+        if(mHost.getId() == 0)
+            datasource.createHost(mHost);
+        else
+            datasource.UpdateHost(mHost);
+        datasource.close();
+        //startActivity(new Intent(LoginByStepActivity.this, HomeActivity.class));
+    }
 
 
     @Override
     public void onResume()
     {
         super.onResume();
-        this.i = 0;
     }
 
     @Override
