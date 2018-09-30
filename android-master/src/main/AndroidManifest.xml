@@ -347,7 +347,6 @@
             android:name="com.dev.doods.omvremote2.ShutDownDeviceActivity"
             android:label="@string/nav_shutdowndevice"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.dev.doods.omvremote2.HomeSettingsActivity" />
         <activity
             android:name="com.dev.doods.omvremote2.System.WebAdministrationActivity"
             android:label="@string/title_activity_web_administration" />
@@ -422,10 +421,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.AddEditeJailActivity"
             android:label="@string/title_activity_add_edite_jail"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Plugins.Autoshutdown.AutoshutdownActivity"
-            android:label="@string/title_activity_autoshutdown"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.Storage.Smart.SwipeViewSmartActivity"

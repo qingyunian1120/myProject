@@ -19,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.dev.doods.omvremote2.Plugins.Autoshutdown.AutoshutdownActivity;
 import com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -229,7 +228,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
             if(IsFinalized(true))
             startActivity(new Intent(HomeActivity.this, OMVSystemActivity.class));
-            //startActivity(new Intent(HomeActivity.this, HomeSettingsActivity.class));
+
             return true;
         }
         else if(id == R.id.action_power){
