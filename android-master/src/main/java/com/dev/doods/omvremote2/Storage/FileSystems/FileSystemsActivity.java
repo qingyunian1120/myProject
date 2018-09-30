@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.owncloud.android.R;
-import com.dev.doods.omvremote2.Storage.Smart.SwipeViewSmartActivity;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -22,7 +21,6 @@ import Client.Call;
 import Client.CallbackImpl;
 import Client.Response;
 import Interfaces.IUpdateActivity;
-import Models.Device;
 import Models.Result;
 import OMV.Base.NavigationBaseActivity;
 
@@ -131,11 +129,6 @@ public class FileSystemsActivity extends NavigationBaseActivity implements IUpda
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_smart) {
-            startActivity(new Intent(FileSystemsActivity.this, SwipeViewSmartActivity.class));
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

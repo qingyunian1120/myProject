@@ -422,10 +422,6 @@
             android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.AddEditeJailActivity"
             android:label="@string/title_activity_add_edite_jail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Storage.Smart.SwipeViewSmartActivity"
-            android:label="@string/title_activity_smart"
-            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

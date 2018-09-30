@@ -4,22 +4,29 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity;
+import com.dev.doods.omvremote2.Storage.Smart.SmartController;
+import com.dev.doods.omvremote2.Storage.Smart.SmartDevices;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -45,6 +52,7 @@ import Interfaces.IYesNoListenerDialog;
 import Models.Datum;
 import Models.Errors;
 import Models.Result;
+import Models.SettingsNetwork;
 import Models.SystemInformation;
 import Models.Value;
 import Deserializers.ValueDeserializer;
@@ -65,6 +73,10 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
     FloatingActionButton fab;
     FloatingActionButton fabInfo;
+    TextView mDevice_name,mDevice_totalsize,mDevice_freesize;
+    private SettingsNetwork _mSettingsNetwork;
+    private SmartController mSmartController = new SmartController(this);
+    private List<SmartDevices> mSmartDevices= new ArrayList<SmartDevices>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         NavigationId = R.id.nav_home;
@@ -97,6 +109,9 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         });*/
         getInfo();
         new CheckDirty(HomeActivity.this).Check();
+
+        final ViewGroup navigationHeader = (ViewGroup) findNavigationViewChildById(R.id.nav_header_home_view);
+        setNavigationHeaderView(navigationHeader);
     }
 
     private void checkHost()
@@ -449,4 +464,86 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         }
 
     }
+
+
+    /**
+     * Finds a view that was identified by the id attribute from the drawer header.
+     *
+     * @param id the view's id
+     * @return The view if found or <code>null</code> otherwise.
+     */
+    private View findNavigationViewChildById(int id) {
+        NavigationView view = findViewById(R.id.nav_view);
+
+        if (view != null) {
+            return view.getHeaderView(0).findViewById(id);
+        } else {
+            return null;
+        }
+    }
+    private void setNavigationHeaderView(ViewGroup navigationHeader) {
+        if (navigationHeader != null) {
+            mDevice_name = navigationHeader.findViewById(R.id.device_name);
+            mDevice_totalsize = navigationHeader.findViewById(R.id.device_totalsize);
+            mDevice_freesize = navigationHeader.findViewById(R.id.device_freesize);
+           // mDevice_name.setText("revoNAa");
+            mDevice_totalsize.setText("250GIB");
+           // mDevice_freesize.setText("");
+
+
+            mSystemController.getGeneralSettingsNetwork(new CallbackImpl(this) {
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+                    super.onResponse(call,response);
+                    _mSettingsNetwork =response.GetResultObject( new TypeToken<SettingsNetwork>(){});
+
+                    Log.d("stvelzhang","getPowermngSettings---ishere---_mPowermngSettings:"+ _mSettingsNetwork);
+                    mHandler.post(new Runnable(){
+                        public void run() {
+
+                            Log.d("stvelzhang","getPowermngSettings---ishere---getHostname:"+ _mSettingsNetwork.getHostname());
+                            mDevice_name.setText(_mSettingsNetwork.getHostname());
+                        }
+                    });
+                }
+            });
+
+            mSmartController.getListDevices(new CallbackImpl(this){
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+                    super.onResponse(call,response);
+
+                    final Result<SmartDevices> res = response.GetResultObject(new TypeToken<Result<SmartDevices>>(){});
+
+                    mHandler.post(new Runnable(){
+                        public void run() {
+                            populateViews(res.getData());
+                        }
+                    });
+
+                }
+            });
+
+
+        }
+    }
+
+
+    private void populateViews(List<SmartDevices> smartDevices)
+    {
+        mSmartDevices.clear();
+        mSmartDevices.addAll(smartDevices);
+        mSmartDevices.size();
+        Log.d("stvelzhang","HomeActivity---populateViews--smartDevices_size::" + mSmartDevices.size());
+        for(int i =0; i<mSmartDevices.size(); i++){
+            SmartDevices data = mSmartDevices.get(i);
+            mDevice_totalsize.setText("Total: " + Util.humanReadableByteCount(Double.parseDouble(data.getSize()),false) +
+                    "   Temperature: "  + data.getTemperature());
+
+        }
+
+    }
+
 }

@@ -1184,7 +1184,8 @@ public abstract class DrawerActivity extends ToolbarActivity implements DisplayU
         updateAccountList();
         updateExternalLinksInDrawer();
         updateQuotaLink();
-        updateHeaderBackground();
+        //stvelzhang20180930
+      //  updateHeaderBackground();
     }
 
     @Override
