@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.owncloud.android.R;
 import com.dev.doods.omvremote2.Storage.SharedFoldersActivity;
-import com.dev.doods.omvremote2.StatisticsScrollingActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieEntry;
@@ -219,7 +218,7 @@ public class FileSystemsAdapter  extends RecyclerView.Adapter<FileSystemsAdapter
                 //mContext.startActivity(new Intent(mContext, SharedFoldersActivity.class));
                 return true;
             }
-            else if(menuItem.getItemId() ==R.id.action_show_statistics)
+            /*else if(menuItem.getItemId() ==R.id.action_show_statistics)
             {
                 Intent intent = new Intent(mContext, StatisticsScrollingActivity.class);
 
@@ -240,7 +239,7 @@ public class FileSystemsAdapter  extends RecyclerView.Adapter<FileSystemsAdapter
 
                 mContext.startActivity(intent);
                 return true;
-            }
+            }*/
             else if(menuItem.getItemId() ==R.id.action_device_mount)
             {
                 FileSystem data = mFileSystemList.get(mPosition);

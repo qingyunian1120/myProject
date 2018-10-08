@@ -202,7 +202,7 @@ public class OMVSystemActivity extends AppCompatActivity implements OnFragmentIn
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return new OMVFragment.WebAdministrationFragment();
+                    //return new OMVFragment.WebAdministrationFragment();
                 case 1:
                     return new OMVFragment.DateAndTimeFragment();
                 case 2:

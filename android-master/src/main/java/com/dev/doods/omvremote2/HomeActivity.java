@@ -409,8 +409,8 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
     }
     private void Save()
     {
-        String hostname = "192.168.88.94";//mHostNameView.getText().toString();
-        String addr = "192.168.88.94";//mUrlView.getText().toString();
+        String hostname = "192.168.88.235";//mHostNameView.getText().toString();
+        String addr = "192.168.88.235";//mUrlView.getText().toString();
         Integer port =Integer.parseInt("8081"/*mPortView.getText().toString()*/);
         boolean ssl = false;//mSSLView.isChecked();
         String login = "admin";//mLoginView.getText().toString();

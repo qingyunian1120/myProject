@@ -350,7 +350,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.System.WebAdministrationActivity"
             android:label="@string/title_activity_web_administration" />
-        <activity android:name="com.dev.doods.omvremote2.SearchHostActivity" />
         <activity
             android:name="com.dev.doods.omvremote2.OMVSystemActivity"
             android:label="@string/title_activity_omvsystem"
@@ -362,15 +361,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.AddEditeSharedFolderActivity"
             android:label="@string/title_activity_add_edite_shared_folder"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name="com.dev.doods.omvremote2.StatisticsScrollingActivity"
-            android:label="@string/title_activity_statistics_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.LoginByStepActivity"
-            android:label="@string/title_activity_login_by_step"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity"
@@ -407,9 +397,6 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="com.dev.doods.omvremote2.AdMobActivity"
-            android:label="@string/title_activity_ad_mob" />
         <activity
             android:name="com.dev.doods.omvremote2.BindableActivity"
             android:label="@string/title_activity_bindable"

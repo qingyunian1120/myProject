@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.owncloud.android.R;
-import com.dev.doods.omvremote2.StatisticsScrollingActivity;
 import com.dev.doods.omvremote2.Storage.FileSystems.FileSystem;
 import com.dev.doods.omvremote2.Storage.FileSystems.FileSystemsAdapter;
 import com.dev.doods.omvremote2.Storage.SharedFoldersActivity;
