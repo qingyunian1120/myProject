@@ -254,7 +254,7 @@ public class ShutDownDeviceActivity extends NavigationBaseActivity implements Ou
             mSystemController.Shutdown(null);
             this.showInfo(getString(R.string.Shutdown_send));
         }
-        else if(id == R.id.action_wakeup)
+        /*else if(id == R.id.action_wakeup)
         {
             JSONRPCClient jsonRpc = JSONRPCClient.getInstance();
             Host h = jsonRpc.GetHost();
@@ -286,7 +286,7 @@ public class ShutDownDeviceActivity extends NavigationBaseActivity implements Ou
             Log.d("stvelzhang","wakeup---getMacAddr!=null ---- " + h.getMacAddr() );
             mSystemController.Wakeup();
             this.showInfo(getString(R.string.Wakeup_send));
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
