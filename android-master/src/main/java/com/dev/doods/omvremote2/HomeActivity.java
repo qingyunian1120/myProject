@@ -172,6 +172,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
                 if(mCurrentHost.equals(lst_fist)) {
                     jsonRpc.SetHost(lst.get(0));
                 } else {
+                    mHost = new Host();
                     Save();
                 }
 //Revo:stvelzhang end  
