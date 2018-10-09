@@ -39,7 +39,7 @@ private View mView;
 
     public SnackBarError(View v, String message,boolean CanSendLog)
     {
-        //InputMethodManager imm = (InputMethodManager)MyApplicationBase.getAppContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        //InputMethodManager imm = (InputMethodManager)MainApp.getAppContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         //imm.toggleSoftInput (InputMethodManager.HIDE_IMPLICIT_ONLY, InputMethodManager.RESULT_HIDDEN);
         mView = v;
         if(CanSendLog)

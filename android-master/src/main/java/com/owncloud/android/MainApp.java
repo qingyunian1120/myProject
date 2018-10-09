@@ -47,11 +47,6 @@ import android.view.WindowManager;
 
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.NativeExpressAdView;
 import com.owncloud.android.authentication.AccountUtils;
 import com.owncloud.android.authentication.PassCodeManager;
 import com.owncloud.android.datamodel.ArbitraryDataProvider;
@@ -127,14 +122,6 @@ public class MainApp extends MultiDexApplication {
     private SharedPreferences appPrefs;
     @SuppressWarnings("unused")
     private boolean mBound;
-
-    private static Context context;
-    public static AdRequest mAdRequest;
-    public static AdView mAdViewSmall;
-    public static AdView mAdViewSmallHaeder;
-    public static boolean light;
-    public boolean mIsPremium;
-    public static NativeExpressAdView mNativeExpressAdView;
     //xuzhenyue
 
     @SuppressFBWarnings("ST")
@@ -253,31 +240,8 @@ public class MainApp extends MultiDexApplication {
         //MobileCenter.setLogLevel(Log.VERBOSE);
         checkForCrashes();
         HockeyLog.setLogLevel(Log.DEBUG);
-        //MobileCenter.start(this, "e7034db4-8db6-474a-a022-66771fb1e3f6",
-        //        Analytics.class, Crashes.class);
         MetricsManager.register(this);
         MetricsManager.trackEvent("GET_LOGS_FILE");
-
-        // if(light) {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-4922361220283829/4711179794");
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-4922361220283829/7664646197");
-        mAdRequest = new AdRequest.Builder().build();
-
-        mAdViewSmall = new AdView(this);
-        mAdViewSmall.setAdSize(AdSize.BANNER);
-        mAdViewSmall.setAdUnitId("ca-app-pub-4922361220283829/4711179794");
-        mAdViewSmall.loadAd(new AdRequest.Builder().build());
-
-        mAdViewSmallHaeder = new AdView(this);
-        mAdViewSmallHaeder.setAdSize(AdSize.BANNER);
-        mAdViewSmallHaeder.setAdUnitId("ca-app-pub-4922361220283829/3076009396");
-        mAdViewSmallHaeder.loadAd(new AdRequest.Builder().build());
-
-        mNativeExpressAdView = new NativeExpressAdView(this);
-        mNativeExpressAdView.setAdSize(new AdSize(360, 132));
-        mNativeExpressAdView.setAdUnitId("ca-app-pub-4922361220283829/7664646197");
-        mNativeExpressAdView.loadAd(new AdRequest.Builder().build());
-        // }
     }
 
     public static void initContactsBackup() {

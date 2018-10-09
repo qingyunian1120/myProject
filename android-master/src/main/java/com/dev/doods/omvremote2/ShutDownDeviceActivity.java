@@ -177,7 +177,7 @@ public class ShutDownDeviceActivity extends NavigationBaseActivity implements Ou
         {
             mSystemController.Standby(null);
             this.showInfo(getString(R.string.Standby_send));
-        }else if(selected_action.equals(getString(R.string.action_wakeup)))
+        }/*else if(selected_action.equals(getString(R.string.action_wakeup)))
         {
             JSONRPCClient jsonRpc = JSONRPCClient.getInstance();
             Host h = jsonRpc.GetHost();
@@ -207,7 +207,7 @@ public class ShutDownDeviceActivity extends NavigationBaseActivity implements Ou
 
             mSystemController.Wakeup();
             this.showInfo(getString(R.string.Wakeup_send));
-        }
+        }*/
 
 
 

@@ -149,7 +149,7 @@ public class SmartController extends Abstractcontroller {
     }
 
 
-    public void setScheduledTest(SmartScheduledTest cheduledTest,Callback callBack)
+    /*public void setScheduledTest(SmartScheduledTest cheduledTest,Callback callBack)
     {
         try {
             JSONRPCParamsBuilder params = new JSONRPCParamsBuilder();
@@ -173,7 +173,7 @@ public class SmartController extends Abstractcontroller {
         {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void getDeviceSettings(String devicefile,Callback callBack)
     {

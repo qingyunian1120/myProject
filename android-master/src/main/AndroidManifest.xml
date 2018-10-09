@@ -317,9 +317,6 @@
             android:icon="@drawable/logo3"
             android:process=":process.sub"
             android:launchMode="singleInstance"/>
-        <activity android:name="com.dev.doods.omvremote2.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.dev.doods.omvremote2.HomeActivity"
             android:label="@string/title_activity_home"
@@ -350,10 +347,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.System.WebAdministrationActivity"
             android:label="@string/title_activity_web_administration" />
-        <activity
-            android:name="com.dev.doods.omvremote2.OMVSystemActivity"
-            android:label="@string/title_activity_omvsystem"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.dev.doods.omvremote2.Storage.SharedFoldersActivity"
             android:label="@string/title_activity_shared_folders"
@@ -388,19 +381,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/disk_usage_widget_info" />
         </receiver>
-
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="com.dev.doods.omvremote2.BindableActivity"
-            android:label="@string/title_activity_bindable"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Plugins.LetsEncrypt.LetsEncryptActivity"
-            android:label="@string/title_activity_lets_encrypt"
-            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

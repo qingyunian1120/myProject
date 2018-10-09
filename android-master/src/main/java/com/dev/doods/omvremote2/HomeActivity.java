@@ -38,7 +38,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapters.ServicesAdapter;
 import Client.Call;
 import Client.CallbackImpl;
 import Client.Host;
@@ -230,7 +229,6 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
                     args.putString("title",getString(R.string.no_mac));
                     args.putString("message",getString(R.string.set_mac));
                     dialog.setArguments(args);
-                    //dialog.setTargetFragment(OMVSystemActivity.this, YesNoDialog.YES_NO_CALL);
                     dialog.show(getSupportFragmentManager(), "tag");
                      return true;
                 }
@@ -395,7 +393,7 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
                 tv.setText(val);
                 break;
             case "Processor":
-                tv = (TextView)findViewById(R.id.Processor);
+                //tv = (TextView)findViewById(R.id.Processor);
                 //tv.setText(val);
                 break;
             case "Kernel":

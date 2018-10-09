@@ -6,10 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.dev.doods.omvremote2.MyApplicationBase;
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
-import com.strangeberry.jmdns.tools.Main;
 
 //import org.acra.ACRA;
 
