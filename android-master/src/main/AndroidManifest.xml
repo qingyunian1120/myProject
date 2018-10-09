@@ -362,10 +362,6 @@
             android:name="com.dev.doods.omvremote2.AddEditeSharedFolderActivity"
             android:label="@string/title_activity_add_edite_shared_folder"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity"
-            android:label="@string/title_activity_fail2ban"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="widget.SystemInformationWidgetConfigureActivity">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
@@ -404,10 +400,6 @@
         <activity
             android:name="com.dev.doods.omvremote2.Plugins.LetsEncrypt.LetsEncryptActivity"
             android:label="@string/title_activity_lets_encrypt"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.dev.doods.omvremote2.Plugins.Fail2ban.AddEditeJailActivity"
-            android:label="@string/title_activity_add_edite_jail"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>

@@ -24,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.dev.doods.omvremote2.Plugins.Fail2ban.SwipeViewFail2banActivity;
 import com.dev.doods.omvremote2.Storage.Smart.SmartController;
 import com.dev.doods.omvremote2.Storage.Smart.SmartDevices;
 import com.google.gson.Gson;
