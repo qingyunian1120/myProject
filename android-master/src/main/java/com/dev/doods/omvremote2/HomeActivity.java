@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dev.doods.omvremote2.Storage.FileSystems.DisckController;
+import com.dev.doods.omvremote2.Storage.FileSystems.FileSystem;
 import com.dev.doods.omvremote2.Storage.Smart.SmartController;
 import com.dev.doods.omvremote2.Storage.Smart.SmartDevices;
 import com.google.gson.Gson;
@@ -36,6 +38,7 @@ import com.innahema.collections.query.queriables.Queryable;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import Client.Call;
@@ -64,6 +67,7 @@ import com.owncloud.android.R;
 //Revo:stvelzhang start 
 import com.owncloud.android.authentication.AccountUtils;
 import android.accounts.Account;
+import com.dev.doods.omvremote2.NavHeaderViewUtil;
 //Revo:stvelzhang end
 public class HomeActivity extends NavigationBaseActivity implements View.OnClickListener, IYesNoListenerDialog {
     private HomeController controller;
@@ -77,7 +81,9 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
     TextView mDevice_name,mDevice_totalsize,mDevice_freesize;
     private SettingsNetwork _mSettingsNetwork;
     private SmartController mSmartController = new SmartController(this);
+    private DisckController mDisckController = new DisckController(this);
     private List<SmartDevices> mSmartDevices= new ArrayList<SmartDevices>();
+    private List<FileSystem> _lst = new ArrayList<FileSystem>();
 //Revo:stvelzhang start     
     private Account currentAccount;
     private String accountName = "";
@@ -550,10 +556,53 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
             });
 
 
+
+            mDisckController.getListFilesSystems(new CallbackImpl(this) {
+                @Override
+                public void onResponse(Call call, Response response) throws IOException,InterruptedException {
+                    super.onResponse(call,response);
+                    final Result<FileSystem> res = response.GetResultObject(new TypeToken<Result<FileSystem>>(){});
+                    mHandler.post(new Runnable(){
+                        public void run() {
+
+                            ShowFileSystem(res.getData());
+                        }
+                    });
+                }
+            });
+
         }
     }
+//Revo:stvelzhang start
+    public List<FileSystem>  remove_mmcblk(List<FileSystem> list, String target){
+        Iterator<FileSystem> iter = list.iterator();
+        while (iter.hasNext()) {
+            FileSystem item = iter.next();
+            if (item.getDevicefile().contains(target)) {
+                iter.remove();
+            }
+        }
+        return list;
+    }
 
+    private void ShowFileSystem(List<FileSystem> lst)
+    {
+        _lst.clear();
 
+        _lst.addAll(remove_mmcblk(lst,"mmcblk"));
+
+        Iterator<FileSystem> iter = _lst.iterator();
+        while (iter.hasNext()) {
+            FileSystem item = iter.next();
+            Double availableLong = Double.parseDouble(item.getAvailable());
+            String availableSize = Util.humanReadableByteCount(availableLong,false);
+
+            mDevice_freesize.setText("Available: " + availableSize);
+
+        }
+
+    }
+//Revo:stvelzhang end
     private void populateViews(List<SmartDevices> smartDevices)
     {
         mSmartDevices.clear();
