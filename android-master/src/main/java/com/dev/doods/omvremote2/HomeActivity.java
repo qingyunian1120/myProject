@@ -62,7 +62,10 @@ import utils.Util;
 
 import com.owncloud.android.MainApp;
 import com.owncloud.android.R;
-
+//Revo:stvelzhang start 
+import com.owncloud.android.authentication.AccountUtils;
+import android.accounts.Account;
+//Revo:stvelzhang end
 public class HomeActivity extends NavigationBaseActivity implements View.OnClickListener, IYesNoListenerDialog {
     private HomeController controller;
     private SystemController mSystemController = new SystemController(this);
@@ -76,6 +79,13 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
     private SettingsNetwork _mSettingsNetwork;
     private SmartController mSmartController = new SmartController(this);
     private List<SmartDevices> mSmartDevices= new ArrayList<SmartDevices>();
+//Revo:stvelzhang start     
+    private Account currentAccount;
+    private String accountName = "";
+    private String mCurrentHost="192.168.88.94";
+    private String mCurrentAddr="192.168.88.94";
+    private String mLoginName="admin";
+//Revo:stvelzhang end
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         NavigationId = R.id.nav_home;
@@ -83,7 +93,9 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         setContentView(R.layout.activity_homet);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-
+//Revo:stvelzhang start
+        getCurretntAccountInfo();
+//Revo:stvelzhang end
         checkHost();
 
         /*
@@ -153,8 +165,17 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
 
             if(h != null)
                 jsonRpc.SetHost(h);
-            else
-                jsonRpc.SetHost(lst.get(0));
+            else{
+//Revo:stvelzhang start       
+                String lst_fist=lst.get(0).getAddr();
+
+                if(mCurrentHost.equals(lst_fist)) {
+                    jsonRpc.SetHost(lst.get(0));
+                } else {
+                    Save();
+                }
+//Revo:stvelzhang end  
+            }
         }
 
     }
@@ -408,11 +429,15 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
     }
     private void Save()
     {
-        String hostname = "192.168.88.235";//mHostNameView.getText().toString();
-        String addr = "192.168.88.235";//mUrlView.getText().toString();
+
+//Revo:stvelzhang start  
+        String hostname = mCurrentHost;//mHostNameView.getText().toString();
+        String addr = mCurrentAddr;//mUrlView.getText().toString();
+        String login = mLoginName;//mLoginView.getText().toString();
+//Revo:stvelzhang end  
         Integer port =Integer.parseInt("8081"/*mPortView.getText().toString()*/);
         boolean ssl = false;//mSSLView.isChecked();
-        String login = "admin";//mLoginView.getText().toString();
+
         String password = "openmediavault";//mPasswordView.getText().toString();
         Integer wolport = Integer.parseInt("9");
         String macaddr =  "";
@@ -544,5 +569,20 @@ public class HomeActivity extends NavigationBaseActivity implements View.OnClick
         }
 
     }
+//Revo:stvelzhang start
+    private void getCurretntAccountInfo()
+    {
+        currentAccount = AccountUtils.getCurrentOwnCloudAccount(this);
+        if (currentAccount != null ) {
+            accountName = currentAccount.name;
+            Log.d("stvelzhang", "HomeActivity----hostname---"+ currentAccount.name);
+            mCurrentHost = accountName.substring(accountName.lastIndexOf('@') + 1, accountName.length());
+            mCurrentAddr = accountName.substring(accountName.lastIndexOf('@') + 1, accountName.length());
+            mLoginName =  accountName.substring(0, accountName.lastIndexOf('@'));
+            Log.d("stvelzhang", "HomeActivity----getCurretntAccountInfo---hostname2222---"+ currentAccount.name + "----accountName--" + accountName
+                    + "---mCurrentHost--" + mCurrentHost + "---mCurrentAddr---" +mCurrentAddr + "---mLoginName---" + mLoginName);
+        }
 
+    }
+//Revo:stvelzhang end  
 }
