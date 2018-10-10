@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dev.doods.omvremote2.NavHeaderViewUtil;
 import com.dev.doods.omvremote2.Storage.Smart.SmartController;
 import com.dev.doods.omvremote2.Storage.Smart.SmartDevices;
 import com.owncloud.android.R;
@@ -74,7 +75,9 @@ public class FileSystemsActivity extends NavigationBaseActivity implements IUpda
         update();
         //Revo:stvelzhang start
         final ViewGroup navigationHeader = (ViewGroup) findNavigationViewChildById(R.id.nav_header_home_view);
-        setNavigationHeaderView(navigationHeader);
+        // setNavigationHeaderView(navigationHeader);
+        NavHeaderViewUtil mNavHeaderViewUtil = new NavHeaderViewUtil(navigationHeader,this);
+        mNavHeaderViewUtil.setNavigationHeaderView(navigationHeader,this);
         //Revo:stvelzhang end
     }
 
@@ -168,115 +171,6 @@ public class FileSystemsActivity extends NavigationBaseActivity implements IUpda
         } else {
             return null;
         }
-    }
-    private void setNavigationHeaderView(ViewGroup navigationHeader) {
-        if (navigationHeader != null) {
-            mDevice_name = navigationHeader.findViewById(R.id.device_name);
-            mDevice_totalsize = navigationHeader.findViewById(R.id.device_totalsize);
-            mDevice_freesize = navigationHeader.findViewById(R.id.device_freesize);
-            // mDevice_name.setText("revoNAa");
-            mDevice_totalsize.setText("250GIB");
-            // mDevice_freesize.setText("");
-
-
-            mSystemController.getGeneralSettingsNetwork(new CallbackImpl(this) {
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException, InterruptedException {
-                    super.onResponse(call,response);
-                    _mSettingsNetwork =response.GetResultObject( new TypeToken<SettingsNetwork>(){});
-
-                    Log.d("stvelzhang","getPowermngSettings---ishere---_mPowermngSettings:"+ _mSettingsNetwork);
-                    mHandler.post(new Runnable(){
-                        public void run() {
-
-                            Log.d("stvelzhang","getPowermngSettings---ishere---getHostname:"+ _mSettingsNetwork.getHostname());
-                            mDevice_name.setText(_mSettingsNetwork.getHostname());
-                        }
-                    });
-                }
-            });
-
-            mSmartController.getListDevices(new CallbackImpl(this){
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException, InterruptedException {
-                    super.onResponse(call,response);
-
-                    final Result<SmartDevices> res = response.GetResultObject(new TypeToken<Result<SmartDevices>>(){});
-
-                    mHandler.post(new Runnable(){
-                        public void run() {
-                            populateViews(res.getData());
-                        }
-                    });
-
-                }
-            });
-
-
-
-            mDisckController.getListFilesSystems(new CallbackImpl(this) {
-                @Override
-                public void onResponse(Call call, Response response) throws IOException,InterruptedException {
-                    super.onResponse(call,response);
-                    final Result<FileSystem> res = response.GetResultObject(new TypeToken<Result<FileSystem>>(){});
-                    mHandler.post(new Runnable(){
-                        public void run() {
-
-                            Showfreesize(res.getData());
-                        }
-                    });
-                }
-            });
-
-
-
-        }
-    }
-
-    public List<FileSystem>  remove_mmcblk(List<FileSystem> list, String target){
-        Iterator<FileSystem> iter = list.iterator();
-        while (iter.hasNext()) {
-            FileSystem item = iter.next();
-            if (item.getDevicefile().contains(target)) {
-                iter.remove();
-            }
-        }
-        return list;
-    }
-
-    private void Showfreesize(List<FileSystem> lst)
-    {
-        _lst.clear();
-
-        _lst.addAll(remove_mmcblk(lst,"mmcblk"));
-
-        Iterator<FileSystem> iter = _lst.iterator();
-        while (iter.hasNext()) {
-            FileSystem item = iter.next();
-            Double availableLong = Double.parseDouble(item.getAvailable());
-            String availableSize = Util.humanReadableByteCount(availableLong,false);
-
-            mDevice_freesize.setText("Available: " + availableSize);
-
-        }
-
-    }
-
-    private void populateViews(List<SmartDevices> smartDevices)
-    {
-        mSmartDevices.clear();
-        mSmartDevices.addAll(smartDevices);
-        mSmartDevices.size();
-        Log.d("stvelzhang","HomeActivity---populateViews--smartDevices_size::" + mSmartDevices.size());
-        for(int i =0; i<mSmartDevices.size(); i++){
-            SmartDevices data = mSmartDevices.get(i);
-            mDevice_totalsize.setText("Total: " + Util.humanReadableByteCount(Double.parseDouble(data.getSize()),false) +
-                    "   Temperature: "  + data.getTemperature());
-
-        }
-
     }
 //Revo:stvelzhang end
 }

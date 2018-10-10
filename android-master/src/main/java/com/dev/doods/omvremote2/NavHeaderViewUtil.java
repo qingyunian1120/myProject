@@ -29,19 +29,22 @@ import Models.Result;
 import Models.SettingsNetwork;
 import utils.Util;
 
-public class NavHeaderViewUtil {
+public class NavHeaderViewUtil implements IHandlerCallback{
     private SystemController mSystemController;
     private SmartController mSmartController;
     private DisckController mDisckController;
     private TextView mDevice_name,mDevice_totalsize,mDevice_freesize;
     private List<SmartDevices> mSmartDevices= new ArrayList<SmartDevices>();
     private List<FileSystem> _lst = new ArrayList<FileSystem>();
+    public boolean IsFinalized;
+    public boolean IsOnError;
+    public String LastError = "";
 
     public NavHeaderViewUtil(ViewGroup navigationHeader,Activity activity){
 
-        SystemController mSystemController = new SystemController(activity);
-        SmartController mSmartController = new SmartController(activity);
-        DisckController mDisckController = new DisckController(activity);
+         mSystemController = new SystemController(activity);
+         mSmartController = new SmartController(activity);
+         mDisckController = new DisckController(activity);
         if (navigationHeader != null) {
             mDevice_name = navigationHeader.findViewById(R.id.device_name);
             mDevice_totalsize = navigationHeader.findViewById(R.id.device_totalsize);
@@ -61,48 +64,30 @@ public class NavHeaderViewUtil {
             mDevice_totalsize.setText("250GIB");
 
 
-
-
-            mSystemController.getGeneralSettingsNetwork(new Callback() {
-                @Override
-                public void onFailure(Call call, Exception e) {
-
-                }
-
-                @Override
-                public void OnOMVServeurError(Call call, Errors error) {
-
-                }
+            mSystemController.getGeneralSettingsNetwork(new CallbackImpl(this) {
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException, InterruptedException {
-                    SettingsNetwork _mSettingsNetwork =response.GetResultObject( new TypeToken<SettingsNetwork>(){});
+                    super.onResponse(call,response);
+                    SettingsNetwork  _mSettingsNetwork =response.GetResultObject( new TypeToken<SettingsNetwork>(){});
 
-                    Log.d("stvelzhang","getPowermngSettings---ishere---_mPowermngSettings:"+ _mSettingsNetwork);
+                    Log.d("stvelzhang","NavHeaderViewUtil----getGeneralSettingsNetwork---ishere---_mPowermngSettings:"+ _mSettingsNetwork);
                     mHandler.post(new Runnable(){
                         public void run() {
 
-                            Log.d("stvelzhang","getPowermngSettings---ishere---getHostname:"+ _mSettingsNetwork.getHostname());
+                            Log.d("stvelzhang","NavHeaderViewUtil----getGeneralSettingsNetwork---ishere---getHostname:"+ _mSettingsNetwork.getHostname());
                             mDevice_name.setText(_mSettingsNetwork.getHostname());
                         }
                     });
                 }
             });
 
-
-            mSmartController.getListDevices(new Callback() {
-                @Override
-                public void onFailure(Call call, Exception e) {
-
-                }
-
-                @Override
-                public void OnOMVServeurError(Call call, Errors error) {
-
-                }
+            mSmartController.getListDevices(new CallbackImpl(this){
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+                    super.onResponse(call,response);
+
                     final Result<SmartDevices> res = response.GetResultObject(new TypeToken<Result<SmartDevices>>(){});
 
                     mHandler.post(new Runnable(){
@@ -110,22 +95,14 @@ public class NavHeaderViewUtil {
                             populateViews(res.getData());
                         }
                     });
+
                 }
             });
 
-            mDisckController.getListFilesSystems(new Callback() {
+            mDisckController.getListFilesSystems(new CallbackImpl(this) {
                 @Override
-                public void onFailure(Call call, Exception e) {
-
-                }
-
-                @Override
-                public void OnOMVServeurError(Call call, Errors error) {
-
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException, InterruptedException {
+                public void onResponse(Call call, Response response) throws IOException,InterruptedException {
+                    super.onResponse(call,response);
                     final Result<FileSystem> res = response.GetResultObject(new TypeToken<Result<FileSystem>>(){});
                     mHandler.post(new Runnable(){
                         public void run() {
@@ -184,6 +161,24 @@ public class NavHeaderViewUtil {
 
         }
 
+    }
+    public void SetFinalized(boolean finalized)
+    {
+        IsFinalized = finalized;
+
+
+    }
+
+    public void SetOnError(boolean onError)
+    {
+        IsOnError = onError;
+
+    }
+
+    public void ShowSnackError(String msg,boolean cansendLogs)
+    {
+        LastError = msg;
+        IsOnError = true;
     }
 
 
